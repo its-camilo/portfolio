@@ -1,9 +1,8 @@
 /**
- * Core TypeScript interfaces for Frame Portfolio
- * Based on SPECIFICATION.md data model requirements
+ * Core TypeScript interfaces for Developer Portfolio
  */
 
-export type ProjectCategory = 'portraits' | 'landscapes' | 'editorial' | 'architecture' | 'documentary';
+export type ProjectCategory = 'videogames' | 'web' | 'wellness' | 'iot';
 
 export type AspectRatio = 'portrait' | 'landscape' | 'square';
 
@@ -19,41 +18,53 @@ export interface Project {
   id: string;
   title: string;
   category: ProjectCategory;
-  year: string;
-  coverImage: string;
-  images: ProjectImage[];
   description: string;
+  technologies: string[];
+  repoUrl?: string;
+  liveUrl?: string;
+  playStoreUrl?: string;
+  itchUrl?: string;
+  coverImage: string;
+  slug: string;
+  // Optional fields for compatibility
+  year?: string;
+  location?: string;
   client?: string;
   camera?: string;
-  location?: string;
-  slug: string;
+  images?: ProjectImage[];
 }
 
-export interface PhotographerInfo {
+export interface DeveloperInfo {
   name: string;
-  tagline: string;
-  heroIntroduction: string;
+  title: string;
+  tagline?: string;
+  heroIntroduction?: string;
+  education: {
+    university: string;
+    degree: string;
+  };
   biography: string;
-  approach: string;
-  awards: string[];
-  clients: string[];
-  education: string;
+  skills: string[];
+  technologies: string[];
   location: string;
   email: string;
-  phone: string;
-  availability: string;
   socialLinks: {
-    instagram?: string;
+    github?: string;
     linkedin?: string;
-    behance?: string;
+    googlePlay?: string;
+    linktree?: string;
+    itchio?: string;
   };
+  cvUrl?: string;
   portraitImage: string;
 }
 
 export interface ContactSubmission {
   name: string;
   email: string;
-  projectType: 'editorial' | 'commercial' | 'personal';
   message: string;
   timestamp: Date;
 }
+
+// Legacy type for backward compatibility
+export type PhotographerInfo = DeveloperInfo;

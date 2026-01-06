@@ -1,12 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageDropdown } from './LanguageDropdown';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { photographerInfo } from '@/data/photographer';
+import { developerInfo } from '@/data/developer';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -47,7 +48,7 @@ export function Header() {
           <Link
             to="/"
             className={cn(
-              'text-lg font-light tracking-widest transition-all duration-300',
+              'text-base font-light tracking-wide transition-all duration-300',
               isTransparent
                 ? 'text-white hover:text-white/80'
                 : 'text-foreground hover:text-foreground/80'
@@ -57,47 +58,62 @@ export function Header() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="hidden md:inline"
             >
-              {photographerInfo.name.toUpperCase()}
+              {developerInfo.name}
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="md:hidden"
+            >
+              Camilo Lagos
             </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
+              <motion.div
+                key={link.path}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 * index }}
+              >
+                <Link
+                  to={link.path}
+                  className={cn(
+                    'relative text-sm font-light tracking-wide transition-colors duration-300',
+                    isTransparent
+                      ? 'text-white hover:text-white/80'
+                      : 'text-foreground hover:text-muted-foreground'
+                  )}
                 >
-                  <Link
-                    to={link.path}
-                    className="relative text-lg leading-7 font-light tracking-wide text-white transition-colors duration-300 hover:text-white/80"
-                  >
-                    {link.name}
-                    {/* Active underline */}
-                    {location.pathname === link.path && (
-                      <motion.div
-                        layoutId="activeNav"
-                        className="absolute -bottom-1 left-0 right-0 h-px bg-white"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                </motion.div>
-              ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-            >
+                  {link.name}
+                  {location.pathname === link.path && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className={cn(
+                        'absolute -bottom-1 left-0 right-0 h-px',
+                        isTransparent ? 'bg-white' : 'bg-foreground'
+                      )}
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              </motion.div>
+            ))}
+            
+            <div className="flex items-center gap-2 ml-2">
+              <LanguageDropdown isTransparent={isTransparent} />
               <ThemeToggle />
-            </motion.div>
+            </div>
           </nav>
 
           {/* Mobile Menu */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-1">
+            <LanguageDropdown isTransparent={isTransparent} />
             <ThemeToggle />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -120,7 +136,12 @@ export function Header() {
                       key={link.path}
                       to={link.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="text-lg leading-7 font-light tracking-wide text-foreground hover:text-foreground/80"
+                      className={cn(
+                        'text-lg font-light tracking-wide transition-colors',
+                        location.pathname === link.path
+                          ? 'text-foreground'
+                          : 'text-muted-foreground hover:text-foreground'
+                      )}
                     >
                       {link.name}
                     </Link>
