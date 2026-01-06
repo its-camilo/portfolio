@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import type { ProjectCategory } from '@/types';
-import { categoryLabels } from '@/data/projects';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CategoryFilterProps {
   categories: ProjectCategory[];
@@ -10,20 +10,22 @@ interface CategoryFilterProps {
 }
 
 /**
- * Category filter component with smooth transitions
+ * Category filter component with improved design and translations
  */
 export function CategoryFilter({ 
   categories, 
   activeCategory, 
   onCategoryChange 
 }: CategoryFilterProps) {
+  const { t } = useLanguage();
+  
   const allCategories = [
-    { id: 'all', label: 'All' },
-    ...categories.map(cat => ({ id: cat, label: categoryLabels[cat] }))
+    { id: 'all', label: t('category.all') },
+    ...categories.map(cat => ({ id: cat, label: t(`category.${cat}`) }))
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+    <div className="flex flex-wrap justify-center gap-2 md:gap-3">
       {allCategories.map((category, index) => {
         const isActive = activeCategory === category.id;
         
@@ -32,23 +34,23 @@ export function CategoryFilter({
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
             className={cn(
-              'relative px-6 py-2.5 text-sm font-light tracking-wide rounded-sm transition-all duration-300',
+              'relative px-5 py-2 text-sm font-medium tracking-wide rounded-full transition-all duration-300',
               isActive
-                ? 'text-primary-foreground'
-                : 'text-muted-foreground hover:text-foreground border border-border hover:border-foreground/20'
+                ? 'text-primary-foreground shadow-lg'
+                : 'text-muted-foreground hover:text-foreground bg-secondary/50 hover:bg-secondary border border-border/50 hover:border-border'
             )}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
           >
-            {/* Active background */}
+            {/* Active background pill */}
             {isActive && (
               <motion.div
                 layoutId="activeCategory"
-                className="absolute inset-0 bg-primary rounded-sm"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                className="absolute inset-0 bg-primary rounded-full"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
             

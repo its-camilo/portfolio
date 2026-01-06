@@ -39,8 +39,8 @@ I am passionate about creating interactive experiences that engage users, whethe
     itchio: 'https://camilolagos.itch.io'
   },
   cvUrl: '#',
-  // Placeholder image - will be replaced
-  portraitImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'
+  // Sample portrait image
+  portraitImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop'
 };
 
 // Alias for backward compatibility

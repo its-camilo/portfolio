@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
@@ -9,10 +10,12 @@ import { SEOHead } from '@/components/seo/SEOHead';
  * Contact page with form and social links
  */
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <>
       <SEOHead
-        title="Contact"
+        title={t('contact.title')}
         description={`Get in touch with ${developerInfo.name} for collaboration opportunities and project inquiries.`}
       />
       
@@ -26,10 +29,10 @@ export default function Contact() {
               transition={{ duration: 0.4 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">
-                Get in Touch
+                {t('contact.subtitle')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
-                Let's work together on your next project
+                {t('contact.description')}
               </p>
             </motion.div>
           </div>
@@ -48,10 +51,10 @@ export default function Contact() {
               >
                 <div className="space-y-3">
                   <h2 className="text-3xl md:text-4xl font-light tracking-wide">
-                    Send a Message
+                    {t('contact.send')}
                   </h2>
                   <p className="text-muted-foreground font-light">
-                    Fill out the form below and I'll get back to you as soon as possible.
+                    {t('contact.description')}
                   </p>
                 </div>
 
@@ -67,7 +70,7 @@ export default function Contact() {
               >
                 <div className="space-y-3">
                   <h2 className="text-3xl md:text-4xl font-light tracking-wide">
-                    Connect With Me
+                    {t('contact.socialLinks')}
                   </h2>
                   <p className="text-muted-foreground font-light">
                     Find me on these platforms or reach out directly.
@@ -85,7 +88,7 @@ export default function Contact() {
                     </div>
                     <div className="space-y-1">
                       <p className="text-sm font-light tracking-wide text-muted-foreground">
-                        Email
+                        {t('contact.email')}
                       </p>
                       <a
                         href={`mailto:${developerInfo.email}`}
@@ -103,7 +106,7 @@ export default function Contact() {
                     </div>
                     <div className="space-y-1">
                       <p className="text-sm font-light tracking-wide text-muted-foreground">
-                        Location
+                        {t('about.location')}
                       </p>
                       <p className="text-base md:text-lg font-light">
                         {developerInfo.location}
@@ -116,7 +119,7 @@ export default function Contact() {
 
                 {/* Social Links */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-light tracking-wide">Social Links</h3>
+                  <h3 className="text-lg font-light tracking-wide">{t('contact.socialLinks')}</h3>
                   <div className="flex flex-wrap gap-3">
                     {developerInfo.socialLinks.github && (
                       <a

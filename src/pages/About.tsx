@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, ExternalLink } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { TechBadge } from '@/components/ui/TechBadge';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
@@ -9,10 +10,12 @@ import { SEOHead } from '@/components/seo/SEOHead';
  * About page with developer biography and skills
  */
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <>
       <SEOHead
-        title="About"
+        title={t('about.title')}
         description={`Learn about ${developerInfo.name}, ${developerInfo.title}. ${developerInfo.biography.split('\n\n')[0]}`}
         image={developerInfo.portraitImage}
       />
@@ -27,7 +30,7 @@ export default function About() {
               transition={{ duration: 0.4 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">
-                About
+                {t('about.title')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
                 {developerInfo.title}
@@ -130,7 +133,7 @@ export default function About() {
 
                 {/* Skills */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-light tracking-wide">Skills</h3>
+                  <h3 className="text-lg font-light tracking-wide">{t('about.skills')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {developerInfo.skills.map((skill) => (
                       <TechBadge key={skill} name={skill} variant="outline" size="sm" />
@@ -140,7 +143,7 @@ export default function About() {
 
                 {/* Technologies */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-light tracking-wide">Technologies</h3>
+                  <h3 className="text-lg font-light tracking-wide">{t('about.technologies')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {developerInfo.technologies.map((tech) => (
                       <TechBadge key={tech} name={tech} size="sm" />
@@ -151,19 +154,19 @@ export default function About() {
                 {/* Education */}
                 <div className="pt-4 space-y-2">
                   <div className="text-sm font-light tracking-wide">
-                    <span className="text-muted-foreground">Education: </span>
+                    <span className="text-muted-foreground">{t('about.education')}: </span>
                     <span className="text-foreground">
                       {developerInfo.education.degree}
                     </span>
                   </div>
                   <div className="text-sm font-light tracking-wide">
-                    <span className="text-muted-foreground">University: </span>
+                    <span className="text-muted-foreground">{t('about.university')}: </span>
                     <span className="text-foreground">
                       {developerInfo.education.university}
                     </span>
                   </div>
                   <div className="text-sm font-light tracking-wide">
-                    <span className="text-muted-foreground">Location: </span>
+                    <span className="text-muted-foreground">{t('about.location')}: </span>
                     <span className="text-foreground">{developerInfo.location}</span>
                   </div>
                 </div>
