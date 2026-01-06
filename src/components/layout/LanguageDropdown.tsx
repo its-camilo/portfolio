@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ChevronDown, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -8,20 +7,19 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { useLanguage, type Language } from '@/contexts/LanguageContext';
 
 interface LanguageDropdownProps {
   isTransparent?: boolean;
 }
 
-const languages = [
+const languages: { code: Language; name: string; flag: string }[] = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
 ];
 
 export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProps) {
-  const [currentLang, setCurrentLang] = useState('en');
-
-  const currentLanguage = languages.find(l => l.code === currentLang);
+  const { language, setLanguage } = useLanguage();
 
   return (
     <DropdownMenu>
@@ -30,28 +28,28 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
           variant="ghost"
           size="sm"
           className={cn(
-            'gap-1 px-2 h-9',
+            'gap-1.5 px-2.5 h-9 rounded-full border',
             isTransparent
-              ? 'text-white hover:bg-white/10 hover:text-white'
-              : 'text-foreground hover:bg-accent'
+              ? 'text-white hover:bg-white/10 hover:text-white border-white/20'
+              : 'text-foreground hover:bg-accent border-border'
           )}
         >
           <Globe className="size-4" />
-          <span className="text-sm font-light uppercase">{currentLang}</span>
-          <ChevronDown className="size-3" />
+          <span className="text-sm font-medium uppercase">{language}</span>
+          <ChevronDown className="size-3 opacity-60" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[140px]">
+      <DropdownMenuContent align="end" className="min-w-[150px]">
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setCurrentLang(lang.code)}
+            onClick={() => setLanguage(lang.code)}
             className={cn(
-              'cursor-pointer',
-              currentLang === lang.code && 'bg-accent'
+              'cursor-pointer gap-2',
+              language === lang.code && 'bg-accent font-medium'
             )}
           >
-            <span className="mr-2">{lang.flag}</span>
+            <span>{lang.flag}</span>
             <span>{lang.name}</span>
           </DropdownMenuItem>
         ))}

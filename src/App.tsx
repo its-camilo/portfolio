@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Layout } from "@/components/layout/Layout";
 import { SkipToContent } from "@/components/ui/SkipToContent";
 import { LoadingFallback } from "@/components/ui/LoadingFallback";
@@ -85,18 +86,20 @@ const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <SkipToContent />
-            <Layout>
-              <Suspense fallback={<LoadingFallback />}>
-                <AnimatedRoutes />
-              </Suspense>
-            </Layout>
-          </BrowserRouter>
-        </TooltipProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <SkipToContent />
+              <Layout>
+                <Suspense fallback={<LoadingFallback />}>
+                  <AnimatedRoutes />
+                </Suspense>
+              </Layout>
+            </BrowserRouter>
+          </TooltipProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </ErrorBoundary>

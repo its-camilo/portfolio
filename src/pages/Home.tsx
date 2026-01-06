@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { developerInfo } from '@/data/developer';
 import { getFeaturedProjects } from '@/data/projects';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -13,12 +14,13 @@ import { Link } from 'react-router-dom';
  * Homepage with hero section, technologies, and featured projects
  */
 export default function Home() {
+  const { t } = useLanguage();
   const featuredProjects = getFeaturedProjects();
 
   return (
     <>
       <SEOHead 
-        title="Home"
+        title={t('nav.home')}
         description={`${developerInfo.name} - ${developerInfo.title}. ${developerInfo.biography.split('\n\n')[0]}`}
       />
       
@@ -147,7 +149,7 @@ export default function Home() {
             <ScrollReveal>
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-light tracking-wide">
-                  About Me
+                  {t('home.aboutMe')}
                 </h2>
                 <p className="text-lg font-light leading-relaxed text-muted-foreground">
                   {developerInfo.biography.split('\n\n')[0]}
@@ -156,7 +158,7 @@ export default function Home() {
                   to="/about"
                   className="inline-flex items-center gap-2 text-base font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors group"
                 >
-                  <span>Learn More</span>
+                  <span>{t('home.learnMore')}</span>
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -169,7 +171,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <ScrollReveal>
               <h2 className="text-2xl md:text-3xl font-light tracking-wide mb-8">
-                Technologies
+                {t('home.technologies')}
               </h2>
               <div className="flex flex-wrap justify-center gap-3">
                 {developerInfo.technologies.map((tech) => (
@@ -185,10 +187,10 @@ export default function Home() {
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4 px-6">
               <h2 className="text-3xl md:text-4xl font-light tracking-wide">
-                Featured Projects
+                {t('home.featuredProjects')}
               </h2>
               <p className="text-lg text-muted-foreground font-light tracking-wide">
-                A selection of recent work
+                {t('home.selectionOfWork')}
               </p>
             </div>
           </ScrollReveal>
@@ -211,7 +213,7 @@ export default function Home() {
                 to="/portfolio"
                 className="group inline-flex items-center gap-2 text-lg font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors"
               >
-                <span>View All Projects</span>
+                <span>{t('home.viewAllProjects')}</span>
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

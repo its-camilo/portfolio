@@ -3,19 +3,13 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageDropdown } from './LanguageDropdown';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { developerInfo } from '@/data/developer';
 import { cn } from '@/lib/utils';
-
-const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Portfolio', path: '/portfolio' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
-];
 
 /**
  * Main header component with scroll-aware styling
@@ -25,10 +19,18 @@ const navLinks = [
 export function Header() {
   const location = useLocation();
   const { isScrolled } = useScrollPosition();
+  const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Header is transparent only on homepage hero when not scrolled
   const isTransparent = location.pathname === '/' && !isScrolled;
+
+  const navLinks = [
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.portfolio'), path: '/portfolio' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.contact'), path: '/contact' },
+  ];
 
   return (
     <motion.header
@@ -73,7 +75,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -105,7 +107,8 @@ export function Header() {
               </motion.div>
             ))}
             
-            <div className="flex items-center gap-2 ml-2">
+            {/* Language + Theme aligned */}
+            <div className="flex items-center gap-1 ml-4 pl-4 border-l border-border/50">
               <LanguageDropdown isTransparent={isTransparent} />
               <ThemeToggle />
             </div>

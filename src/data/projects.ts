@@ -9,7 +9,7 @@ export const projects: Project[] = [
     technologies: ['JavaScript', 'HTML', 'CSS'],
     repoUrl: 'https://github.com/its-camilo/ecommerce',
     playStoreUrl: 'https://play.google.com/store',
-    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
     slug: 'ecommerce'
   },
   {
@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description: 'The red planet is unforgiving, and the alien threat never stops. How long can you survive? Made with Unreal Engine.',
     technologies: ['Unreal Engine', 'C++'],
     repoUrl: 'https://github.com/its-camilo/mars-marine',
-    coverImage: 'https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&h=600&fit=crop',
     slug: 'mars-marine'
   },
   {
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     description: 'A wellness application for daily mood tracking that identifies patterns and provides personalized mental health tips. Made as a team project with C#.',
     technologies: ['C#', '.NET'],
     repoUrl: 'https://github.com/its-camilo/moodpress',
-    coverImage: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
     slug: 'moodpress'
   },
   {
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     description: 'A single-page web application designed to help university students generate personalized schedules based on their courses, groups, and priorities. Everything runs in the browser, no installation or accounts required.',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     repoUrl: 'https://github.com/its-camilo/schedule-generator',
-    coverImage: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
     slug: 'schedule-generator'
   },
   {
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     description: 'Can you defeat the monsters, collect the diamonds, and escape before it\'s too late? The dungeon awaits! Made with Unity and C#.',
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/dungeon-escape',
-    coverImage: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop',
     slug: 'dungeon-escape'
   },
   {
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     description: 'In this exciting game, eliminate your alien rivals while moving through space and avoiding dangers. Made with Unity and C#.',
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/space-shooter-pro',
-    coverImage: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=600&fit=crop',
     slug: 'space-shooter-pro'
   },
   {
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     description: 'A website designed to help students calculate their grades, built with only JavaScript, CSS, and HTML.',
     technologies: ['JavaScript', 'CSS', 'HTML'],
     repoUrl: 'https://github.com/its-camilo/promedios-unal',
-    coverImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=600&fit=crop',
     slug: 'promedios-unal'
   },
   {
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     description: 'A clock and temperature and humidity sensor that sends the data to ThingSpeak and can be controlled through buttons or a web terminal. Made with C++.',
     technologies: ['C++', 'Arduino', 'ThingSpeak'],
     repoUrl: 'https://github.com/its-camilo/clock',
-    coverImage: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
     slug: 'clock'
   },
   {
@@ -89,16 +89,16 @@ export const projects: Project[] = [
     description: 'Darren, can you go unnoticed and reach the vault? A stealth game where you must avoid security cameras and guards. Made with Unity and C#.',
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/the-great-fleece',
-    coverImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1493711662062-fa541f7f3d24?w=800&h=600&fit=crop',
     slug: 'the-great-fleece'
   }
 ];
 
-// Category labels for UI
+// Category labels for UI (used as fallback, prefer translations)
 export const categoryLabels: Record<ProjectCategory, string> = {
   videogames: 'Video Games',
-  web: 'Web Applications',
-  wellness: 'Wellness Apps',
+  web: 'Web Apps',
+  wellness: 'Apps',
   iot: 'IoT / Hardware'
 };
 
