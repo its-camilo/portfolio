@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { Project } from '@/types';
 import { cn } from '@/lib/utils';
+import { categoryLabels } from '@/data/projects';
 
 interface ProjectNavigationProps {
   prev: Project | null;
@@ -11,7 +12,6 @@ interface ProjectNavigationProps {
 
 /**
  * Previous/Next project navigation component
- * Shows project title and thumbnail on hover
  */
 export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
   return (
@@ -36,8 +36,8 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
                 <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground">
                   {prev.title}
                 </h3>
-                <p className="text-sm text-muted-foreground font-light mt-2 capitalize">
-                  {prev.category} • {prev.year}
+                <p className="text-sm text-muted-foreground font-light mt-2">
+                  {categoryLabels[prev.category]}
                 </p>
               </div>
             </motion.div>
@@ -72,8 +72,8 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
                 <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground">
                   {next.title}
                 </h3>
-                <p className="text-sm text-muted-foreground font-light mt-2 capitalize">
-                  {next.category} • {next.year}
+                <p className="text-sm text-muted-foreground font-light mt-2">
+                  {categoryLabels[next.category]}
                 </p>
               </div>
             </motion.div>

@@ -1,24 +1,30 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import type { ProjectCategory } from '@/types';
+import { categoryLabels } from '@/data/projects';
 
 interface CategoryFilterProps {
-  categories: { id: string; label: string }[];
+  categories: ProjectCategory[];
   activeCategory: string;
   onCategoryChange: (category: string) => void;
 }
 
 /**
  * Category filter component with smooth transitions
- * Shows active state and animates category changes
  */
 export function CategoryFilter({ 
   categories, 
   activeCategory, 
   onCategoryChange 
 }: CategoryFilterProps) {
+  const allCategories = [
+    { id: 'all', label: 'All' },
+    ...categories.map(cat => ({ id: cat, label: categoryLabels[cat] }))
+  ];
+
   return (
     <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-      {categories.map((category, index) => {
+      {allCategories.map((category, index) => {
         const isActive = activeCategory === category.id;
         
         return (
@@ -34,8 +40,8 @@ export function CategoryFilter({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {/* Active background */}
             {isActive && (
