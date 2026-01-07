@@ -5,6 +5,11 @@ import promediosUnalImg from '@/assets/promedios-unal.jpg';
 import scheduleGenerator0 from '@/assets/schedule-generator-0.png';
 import scheduleGenerator1 from '@/assets/schedule-generator-1.png';
 import scheduleGenerator2 from '@/assets/schedule-generator-2.png';
+import clock0 from '@/assets/clock-0.jpg';
+import clock1 from '@/assets/clock-1.png';
+import clock2 from '@/assets/clock-2.png';
+import clock3 from '@/assets/clock-3.png';
+import clock4 from '@/assets/clock-4.png';
 
 export const projects: Project[] = [
   {
@@ -97,14 +102,8 @@ export const projects: Project[] = [
     descriptionEs: 'Un reloj y sensor de temperatura y humedad que envía los datos a ThingSpeak y puede ser controlado mediante botones o una terminal web. Hecho con C++.',
     technologies: ['C++', 'Arduino', 'ThingSpeak'],
     repoUrl: 'https://github.com/its-camilo/clock',
-    coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
-    hoverImages: [
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1524567248408-cbfd37e65e2d?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800&h=600&fit=crop'
-    ],
+    coverImage: clock0,
+    hoverImages: [clock0, clock1, clock2, clock3, clock4],
     slug: 'clock'
   },
   {
