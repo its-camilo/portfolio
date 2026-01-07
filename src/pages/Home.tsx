@@ -106,7 +106,7 @@ export default function Home() {
               duration: 0.8,
               delay: 0.4
             }}>
-                {t('developer.education.university')} • {t('developer.education.degree')}
+                {t('developer.education.university')}<br />{t('developer.education.degree')}
               </motion.p>
 
               {/* CTA Buttons - Apple Style */}
