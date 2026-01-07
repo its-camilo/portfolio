@@ -28,9 +28,9 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
           variant="ghost"
           size="sm"
           className={cn(
-            'gap-1.5 px-2.5 h-9 rounded-full border',
+            'gap-1.5 px-2.5 h-9 rounded-full border bg-background/80 backdrop-blur-sm',
             isTransparent
-              ? 'text-white hover:bg-white/10 hover:text-white border-white/20'
+              ? 'text-foreground hover:bg-accent border-border/50'
               : 'text-foreground hover:bg-accent border-border'
           )}
         >
