@@ -10,6 +10,7 @@ import clock1 from '@/assets/clock-1.png';
 import clock2 from '@/assets/clock-2.png';
 import clock3 from '@/assets/clock-3.png';
 import clock4 from '@/assets/clock-4.png';
+import marsMarineImg from '@/assets/mars-marine.png';
 
 export const projects: Project[] = [
   {
@@ -32,7 +33,7 @@ export const projects: Project[] = [
     descriptionEs: 'El planeta rojo es implacable, y la amenaza alienígena nunca se detiene. ¿Cuánto tiempo puedes sobrevivir? Hecho con Unreal Engine.',
     technologies: ['Unreal Engine', 'C++'],
     repoUrl: 'https://github.com/its-camilo/mars-marine',
-    coverImage: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&h=600&fit=crop',
+    coverImage: marsMarineImg,
     slug: 'mars-marine'
   },
   {
