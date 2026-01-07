@@ -12,9 +12,7 @@ import { developerInfo } from '@/data/developer';
 import { cn } from '@/lib/utils';
 
 /**
- * Main header component with scroll-aware styling
- * Transparent on hero section, solid when scrolled
- * Mobile responsive with hamburger menu
+ * Apple-inspired header with glass effect and smooth transitions
  */
 export function Header() {
   const location = useLocation();
@@ -22,7 +20,6 @@ export function Header() {
   const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  // Header is transparent only on homepage hero when not scrolled
   const isTransparent = location.pathname === '/' && !isScrolled;
 
   const navLinks = [
@@ -34,48 +31,35 @@ export function Header() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-card/95 backdrop-blur-xl border-b border-border shadow-lg'
+          ? 'glass border-b border-border/50 shadow-sm'
           : 'bg-transparent'
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
-            className={cn(
-              'text-base font-semibold tracking-wide transition-all duration-300',
-              isTransparent
-                ? 'text-foreground hover:text-primary'
-                : 'text-foreground hover:text-primary'
-            )}
+            className="text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors duration-300"
           >
             <motion.span
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="hidden md:inline"
             >
-              {developerInfo.name}
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="md:hidden"
-            >
-              Camilo Lagos
+              {developerInfo.name.split(' ')[0]}
+              <span className="text-primary">.</span>
             </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.path}
@@ -86,9 +70,9 @@ export function Header() {
                 <Link
                   to={link.path}
                   className={cn(
-                    'relative text-sm font-medium tracking-wide transition-all duration-300 px-3 py-1.5 rounded-lg',
+                    'relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full',
                     location.pathname === link.path
-                      ? 'text-primary bg-primary/10'
+                      ? 'text-primary bg-accent'
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                   )}
                 >
@@ -97,7 +81,7 @@ export function Header() {
               </motion.div>
             ))}
             
-            {/* Language + Theme aligned */}
+            {/* Divider + Controls */}
             <div className="flex items-center gap-1 ml-4 pl-4 border-l border-border/50">
               <LanguageDropdown isTransparent={isTransparent} />
               <ThemeToggle />
@@ -113,24 +97,24 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="size-9 text-foreground hover:bg-muted"
+                  className="size-9 rounded-full text-foreground hover:bg-muted"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-80">
-                <nav className="flex flex-col gap-6 mt-8">
+              <SheetContent side="right" className="w-full sm:w-80 bg-background/95 backdrop-blur-xl">
+                <nav className="flex flex-col gap-2 mt-8">
                   {navLinks.map((link) => (
                     <Link
                       key={link.path}
                       to={link.path}
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
-                        'text-lg font-light tracking-wide transition-colors',
+                        'px-4 py-3 rounded-xl text-lg font-medium transition-all duration-300',
                         location.pathname === link.path
-                          ? 'text-foreground'
-                          : 'text-muted-foreground hover:text-foreground'
+                          ? 'text-primary bg-accent'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                       )}
                     >
                       {link.name}
