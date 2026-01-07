@@ -68,7 +68,7 @@ export default function Home() {
 
               {/* Social Links */}
               <motion.div
-                className="flex items-center justify-center gap-4 pt-4"
+                className="flex flex-wrap items-center justify-center gap-3 pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -78,10 +78,10 @@ export default function Home() {
                     href={developerInfo.socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 border border-border rounded-full hover:bg-accent transition-colors"
-                    aria-label="GitHub"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
                   >
-                    <Github className="size-5" />
+                    <Github className="size-4" />
+                    GitHub
                   </a>
                 )}
                 {developerInfo.cvUrl && (
@@ -92,7 +92,18 @@ export default function Home() {
                     className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
                   >
                     <FileText className="size-4" />
-                    {t('about.viewCV')}
+                    {t('common.viewCV')}
+                  </a>
+                )}
+                {developerInfo.socialLinks.linkedin && (
+                  <a
+                    href={developerInfo.socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                  >
+                    <Linkedin className="size-4" />
+                    LinkedIn
                   </a>
                 )}
                 {developerInfo.socialLinks.googlePlay && (
@@ -100,10 +111,10 @@ export default function Home() {
                     href={developerInfo.socialLinks.googlePlay}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 border border-border rounded-full hover:bg-accent transition-colors"
-                    aria-label="Google Play"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
                   >
-                    <ExternalLink className="size-5" />
+                    <ExternalLink className="size-4" />
+                    Google Play
                   </a>
                 )}
                 {developerInfo.socialLinks.linktree && (
@@ -111,10 +122,10 @@ export default function Home() {
                     href={developerInfo.socialLinks.linktree}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 border border-border rounded-full hover:bg-accent transition-colors"
-                    aria-label="Linktree"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
                   >
-                    <ExternalLink className="size-5" />
+                    <ExternalLink className="size-4" />
+                    Linktree
                   </a>
                 )}
                 {developerInfo.socialLinks.itchio && (
@@ -122,10 +133,10 @@ export default function Home() {
                     href={developerInfo.socialLinks.itchio}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 border border-border rounded-full hover:bg-accent transition-colors"
-                    aria-label="Itch.io"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
                   >
-                    <ExternalLink className="size-5" />
+                    <ExternalLink className="size-4" />
+                    Itch.io
                   </a>
                 )}
               </motion.div>
