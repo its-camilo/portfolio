@@ -72,7 +72,7 @@ export default function ProjectDetail() {
         type="article"
       />
       
-      <div className="min-h-screen pt-12">
+      <div className="min-h-screen pt-10">
         {/* Project Info Section */}
         <section className="max-w-4xl mx-auto px-6 lg:px-8 py-6 md:py-8">
           <motion.div
