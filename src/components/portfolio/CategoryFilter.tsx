@@ -29,7 +29,7 @@ export function CategoryFilter({
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const [buttonRects, setButtonRects] = useState<ButtonRect[]>([]);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   
   const indicatorX = useMotionValue(0);
@@ -37,7 +37,7 @@ export function CategoryFilter({
   
   // Stretch effect based on velocity during drag/animation
   const stretchX = useMotionValue(1);
-  const stretchY = useTransform(stretchX, [0.85, 1, 1.25], [1.1, 1, 0.88]);
+  const stretchY = useTransform(stretchX, [0.85, 1, 1.25], [1.08, 1, 0.9]);
   
   const allCategories = [
     { id: 'all', label: t('category.all') },
@@ -64,24 +64,33 @@ export function CategoryFilter({
     // Sort by position
     rects.sort((a, b) => a.left - b.left);
     setButtonRects(rects);
-  }, []);
+    
+    // Set initial position
+    const activeRect = rects.find(r => r.id === activeCategory);
+    if (activeRect && !isReady) {
+      indicatorX.set(activeRect.left);
+      indicatorWidth.set(activeRect.width);
+      setIsReady(true);
+    }
+  }, [activeCategory, isReady, indicatorX, indicatorWidth]);
 
   // Measure on mount and resize
   useEffect(() => {
-    measureButtons();
+    // Small delay to ensure buttons are rendered
+    const timer = setTimeout(measureButtons, 50);
     window.addEventListener('resize', measureButtons);
-    return () => window.removeEventListener('resize', measureButtons);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', measureButtons);
+    };
   }, [measureButtons, allCategories.length]);
 
   // Update indicator position when active category changes
   useEffect(() => {
     const activeRect = buttonRects.find(r => r.id === activeCategory);
-    if (activeRect && !isDragging) {
-      // Trigger stretch animation
-      setIsAnimating(true);
-      
+    if (activeRect && !isDragging && isReady) {
       // Animate stretch effect
-      animate(stretchX, 1.2, { 
+      animate(stretchX, 1.18, { 
         type: "spring", 
         stiffness: 800, 
         damping: 35,
@@ -94,7 +103,7 @@ export function CategoryFilter({
         }
       });
       
-      // Animate position
+      // Animate position and width
       animate(indicatorX, activeRect.left, { 
         type: "spring", 
         stiffness: 350, 
@@ -106,10 +115,8 @@ export function CategoryFilter({
         stiffness: 350, 
         damping: 30 
       });
-      
-      setTimeout(() => setIsAnimating(false), 400);
     }
-  }, [activeCategory, buttonRects, isDragging, indicatorX, indicatorWidth, stretchX]);
+  }, [activeCategory, buttonRects, isDragging, isReady, indicatorX, indicatorWidth, stretchX]);
 
   // Find closest category based on indicator position
   const findClosestCategory = useCallback((x: number) => {
@@ -144,6 +151,7 @@ export function CategoryFilter({
     
     const currentX = indicatorX.get();
     const closestCategory = findClosestCategory(currentX);
+    const closestRect = buttonRects.find(r => r.id === closestCategory);
     
     // Reset stretch with bounce
     animate(stretchX, 1, { 
@@ -152,20 +160,24 @@ export function CategoryFilter({
       damping: 25 
     });
     
-    if (closestCategory !== activeCategory) {
-      onCategoryChange(closestCategory);
-    } else {
-      // Snap back to current category
-      const activeRect = buttonRects.find(r => r.id === activeCategory);
-      if (activeRect) {
-        animate(indicatorX, activeRect.left, { 
-          type: "spring", 
-          stiffness: 400, 
-          damping: 30 
-        });
+    if (closestRect) {
+      // Always animate to the closest category position and width
+      animate(indicatorX, closestRect.left, { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 30 
+      });
+      animate(indicatorWidth, closestRect.width, { 
+        type: "spring", 
+        stiffness: 400, 
+        damping: 30 
+      });
+      
+      if (closestCategory !== activeCategory) {
+        onCategoryChange(closestCategory);
       }
     }
-  }, [indicatorX, findClosestCategory, activeCategory, onCategoryChange, buttonRects, stretchX]);
+  }, [indicatorX, indicatorWidth, findClosestCategory, activeCategory, onCategoryChange, buttonRects, stretchX]);
 
   // Calculate drag constraints
   const dragConstraints = buttonRects.length > 0 ? {
@@ -179,39 +191,36 @@ export function CategoryFilter({
       className="relative flex flex-wrap justify-center gap-2 p-1"
     >
       {/* Draggable liquid glass indicator */}
-      <motion.div
-        className="absolute top-1 rounded-full cursor-grab active:cursor-grabbing z-0"
-        style={{
-          x: indicatorX,
-          width: indicatorWidth,
-          height: 'calc(100% - 8px)',
-          scaleX: stretchX,
-          scaleY: stretchY,
-          background: 'linear-gradient(135deg, hsl(211 100% 50% / 0.95), hsl(221 100% 60% / 0.9))',
-          backdropFilter: 'blur(12px) saturate(180%)',
-          boxShadow: `
-            0 4px 24px -4px hsl(211 100% 50% / 0.5),
-            0 8px 32px -8px hsl(211 100% 40% / 0.3),
-            inset 0 1px 2px hsl(0 0% 100% / 0.3),
-            inset 0 -1px 2px hsl(211 100% 30% / 0.2)
-          `,
-          border: '1px solid hsl(0 0% 100% / 0.25)',
-          transformOrigin: 'center',
-        }}
-        drag="x"
-        dragConstraints={dragConstraints}
-        dragElastic={0.1}
-        dragMomentum={false}
-        onDragStart={() => setIsDragging(true)}
-        onDrag={handleDrag}
-        onDragEnd={handleDragEnd}
-        whileDrag={{ scale: 1.02 }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 400, 
-          damping: 30 
-        }}
-      />
+      {isReady && (
+        <motion.div
+          className="absolute top-1 rounded-full cursor-grab active:cursor-grabbing z-0"
+          style={{
+            x: indicatorX,
+            width: indicatorWidth,
+            height: 'calc(100% - 8px)',
+            scaleX: stretchX,
+            scaleY: stretchY,
+            background: 'linear-gradient(135deg, hsl(211 100% 50% / 0.95), hsl(221 100% 60% / 0.9))',
+            backdropFilter: 'blur(12px) saturate(180%)',
+            boxShadow: `
+              0 4px 24px -4px hsl(211 100% 50% / 0.5),
+              0 8px 32px -8px hsl(211 100% 40% / 0.3),
+              inset 0 1px 2px hsl(0 0% 100% / 0.3),
+              inset 0 -1px 2px hsl(211 100% 30% / 0.2)
+            `,
+            border: '1px solid hsl(0 0% 100% / 0.25)',
+            transformOrigin: 'center',
+          }}
+          drag="x"
+          dragConstraints={dragConstraints}
+          dragElastic={0.1}
+          dragMomentum={false}
+          onDragStart={() => setIsDragging(true)}
+          onDrag={handleDrag}
+          onDragEnd={handleDragEnd}
+          whileDrag={{ scale: 1.02 }}
+        />
+      )}
 
       {/* Category buttons */}
       {allCategories.map((category, index) => {
@@ -228,7 +237,7 @@ export function CategoryFilter({
               'relative px-5 py-2.5 text-sm font-medium rounded-full transition-colors duration-200 z-10',
               isActive
                 ? 'text-white'
-                : 'text-muted-foreground hover:text-foreground'
+                : 'text-foreground hover:text-foreground/80'
             )}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -241,13 +250,18 @@ export function CategoryFilter({
               <motion.div
                 className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-200"
                 style={{
-                  background: 'hsl(var(--primary) / 0.1)',
+                  background: 'hsl(var(--primary) / 0.08)',
                 }}
               />
             )}
             
             {/* Text */}
-            <span className="relative z-10 drop-shadow-sm">{category.label}</span>
+            <span className={cn(
+              "relative z-10",
+              isActive ? "drop-shadow-sm" : ""
+            )}>
+              {category.label}
+            </span>
           </motion.button>
         );
       })}
