@@ -72,7 +72,7 @@ export default function Home() {
 
               {/* Main Title */}
               <motion.h1
-                className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-foreground text-balance"
+                className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground text-balance"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
