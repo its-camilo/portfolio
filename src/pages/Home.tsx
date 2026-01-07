@@ -24,12 +24,12 @@ export default function Home() {
         description={`${developerInfo.name} - ${developerInfo.title}. ${developerInfo.biography.split('\n\n')[0]}`}
       />
       
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
+        {/* Global Background Mesh - Applies to entire page */}
+        <div className="fixed inset-0 bg-mesh pointer-events-none" />
+        
         {/* Hero Section - Apple Style */}
         <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-          {/* Animated Background Mesh */}
-          <div className="absolute inset-0 bg-mesh" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50" />
           
           {/* Floating Orbs - Decorative */}
           <motion.div 
@@ -184,7 +184,7 @@ export default function Home() {
         </section>
 
         {/* About Section - Clean & Minimal */}
-        <section className="py-32 md:py-40 px-6 lg:px-8 bg-background">
+        <section className="relative py-32 md:py-40 px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <ScrollReveal>
               <div className="space-y-6">
@@ -207,7 +207,7 @@ export default function Home() {
         </section>
 
         {/* Technologies Section - Grid of Pills */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 bg-muted/50">
+        <section className="relative py-24 md:py-32 px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <ScrollReveal>
               <div className="space-y-4">
@@ -236,7 +236,7 @@ export default function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="py-32 md:py-40 bg-background">
+        <section className="relative py-32 md:py-40">
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4 px-6">
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">
