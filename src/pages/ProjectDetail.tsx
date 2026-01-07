@@ -72,9 +72,9 @@ export default function ProjectDetail() {
         type="article"
       />
       
-      <div className="min-h-screen pt-24">
+      <div className="min-h-screen pt-20">
         {/* Project Info Section */}
-        <section className="max-w-4xl mx-auto px-6 lg:px-8 py-12 md:py-16">
+        <section className="max-w-4xl mx-auto px-6 lg:px-8 py-6 md:py-8">
           <motion.div
             className="space-y-8"
             initial={{ opacity: 0, y: 20 }}
@@ -283,7 +283,7 @@ export default function ProjectDetail() {
         </section>
 
         {/* Bottom spacing */}
-        <div className="h-24" />
+        <div className="h-12" />
       </div>
     </>
   );
