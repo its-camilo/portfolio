@@ -16,6 +16,7 @@ export default function ProjectDetail() {
   const { language, t } = useLanguage();
   const project = slug ? getProjectBySlug(slug) : undefined;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
 
   // 404 if project not found
   if (!project) {
@@ -30,16 +31,16 @@ export default function ProjectDetail() {
   const hasMultipleImages = project.hoverImages && project.hoverImages.length > 1;
   const images = hasMultipleImages ? project.hoverImages! : [project.coverImage];
 
-  // Auto-advance carousel
+  // Auto-advance carousel only when hovering
   useEffect(() => {
-    if (!hasMultipleImages) return;
+    if (!hasMultipleImages || !isHovering) return;
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [hasMultipleImages, images.length]);
+  }, [hasMultipleImages, images.length, isHovering]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -116,6 +117,8 @@ export default function ProjectDetail() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -143,11 +146,11 @@ export default function ProjectDetail() {
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                      border: '1px solid rgba(255, 255, 255, 0.18)'
+                      border: '1px solid rgba(0, 0, 0, 0.5)'
                     }}
                     aria-label="Previous image"
                   >
-                    <ChevronLeft className="size-5 text-white" />
+                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
                   </button>
                   <button
                     onClick={nextImage}
@@ -157,11 +160,11 @@ export default function ProjectDetail() {
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                      border: '1px solid rgba(255, 255, 255, 0.18)'
+                      border: '1px solid rgba(0, 0, 0, 0.5)'
                     }}
                     aria-label="Next image"
                   >
-                    <ChevronRight className="size-5 text-white" />
+                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
                   </button>
                 </>
               )}
