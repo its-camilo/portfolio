@@ -76,7 +76,7 @@ export default function ProjectDetail() {
         {/* Project Info Section */}
         <section className="max-w-4xl mx-auto px-6 lg:px-8 py-6 md:py-8">
           <motion.div
-            className="space-y-8"
+            className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
