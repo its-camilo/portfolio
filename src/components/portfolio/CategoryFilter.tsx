@@ -36,23 +36,20 @@ export function CategoryFilter({
             className={cn(
               'relative px-6 py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300',
               isActive
-                ? 'text-primary-foreground shadow-lg shadow-primary/25'
-                : 'text-muted-foreground hover:text-primary bg-card hover:bg-accent border border-border hover:border-primary/30'
+                ? 'text-primary-foreground'
+                : 'text-muted-foreground hover:text-foreground'
             )}
-            style={{
-              boxShadow: isActive ? '0 4px 14px 0 hsl(211 100% 50% / 0.25)' : undefined
-            }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{ scale: 1.03, y: -2 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {/* Active background pill with gradient */}
             {isActive && (
               <motion.div
                 layoutId="activeCategory"
-                className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full"
+                className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full shadow-lg shadow-primary/25"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
