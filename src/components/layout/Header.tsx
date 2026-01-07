@@ -39,9 +39,9 @@ export function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        isTransparent
-          ? 'bg-transparent'
-          : 'bg-card/95 backdrop-blur-xl border-b border-border shadow-md'
+        isScrolled
+          ? 'bg-card/95 backdrop-blur-xl border-b border-border shadow-lg'
+          : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -50,10 +50,10 @@ export function Header() {
           <Link
             to="/"
             className={cn(
-              'text-base font-light tracking-wide transition-all duration-300',
+              'text-base font-semibold tracking-wide transition-all duration-300',
               isTransparent
-                ? 'text-white hover:text-white/80'
-                : 'text-foreground hover:text-foreground/80'
+                ? 'text-foreground hover:text-primary'
+                : 'text-foreground hover:text-primary'
             )}
           >
             <motion.span
@@ -86,23 +86,13 @@ export function Header() {
                 <Link
                   to={link.path}
                   className={cn(
-                    'relative text-sm font-light tracking-wide transition-colors duration-300',
-                    isTransparent
-                      ? 'text-white hover:text-white/80'
-                      : 'text-foreground hover:text-muted-foreground'
+                    'relative text-sm font-medium tracking-wide transition-all duration-300 px-3 py-1.5 rounded-lg',
+                    location.pathname === link.path
+                      ? 'text-primary bg-primary/10'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                   )}
                 >
                   {link.name}
-                  {location.pathname === link.path && (
-                    <motion.div
-                      layoutId="activeNav"
-                      className={cn(
-                        'absolute -bottom-1 left-0 right-0 h-px',
-                        isTransparent ? 'bg-white' : 'bg-foreground'
-                      )}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
                 </Link>
               </motion.div>
             ))}
@@ -123,10 +113,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={cn(
-                    'size-9',
-                    isTransparent && 'text-white hover:bg-white/10'
-                  )}
+                  className="size-9 text-foreground hover:bg-muted"
                   aria-label="Open menu"
                 >
                   <Menu className="size-5" />
