@@ -108,10 +108,10 @@ export function ProjectCard({
           
           {/* Category badge - visible by default, hidden on hover */}
           {showCategory && <motion.div className="absolute top-4 left-4 z-10" initial={{
-          opacity: 0.92,
+          opacity: 0.95,
           y: 0
         }} animate={{
-          opacity: isHovered ? 0 : 0.92,
+          opacity: isHovered ? 0 : 0.95,
           y: isHovered ? -10 : 0
         }} transition={{
           duration: 0.3
