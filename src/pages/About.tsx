@@ -24,7 +24,7 @@ export default function About() {
         {/* Global Mesh Background */}
         <div className="fixed inset-0 bg-mesh -z-10" />
         {/* Hero Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 border-b border-border">
+        <section className="py-12 md:py-16 px-6 lg:px-8 border-b border-border">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <motion.div
               initial={{ opacity: 0.8, y: 10 }}
@@ -41,65 +41,10 @@ export default function About() {
           </div>
         </section>
 
-        {/* Portrait and Biography - Split Layout */}
-        <section className="py-16 md:py-24 px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-              {/* Portrait Image */}
-              <motion.div
-                className="space-y-6"
-                initial={{ opacity: 0.8, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
-                  <img
-                    src={developerInfo.portraitImage}
-                    alt={developerInfo.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Social Links */}
-                <div className="flex flex-wrap items-center gap-3">
-                  {developerInfo.socialLinks.github && (
-                    <a
-                      href={developerInfo.socialLinks.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
-                    >
-                      <Github className="size-4" />
-                      GitHub
-                    </a>
-                  )}
-                  {developerInfo.socialLinks.linkedin && (
-                    <a
-                      href={developerInfo.socialLinks.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
-                    >
-                      <Linkedin className="size-4" />
-                      LinkedIn
-                    </a>
-                  )}
-                  {developerInfo.socialLinks.itchio && (
-                    <a
-                      href={developerInfo.socialLinks.itchio}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
-                    >
-                      <ExternalLink className="size-4" />
-                      Itch.io
-                    </a>
-                  )}
-                </div>
-              </motion.div>
-
-              {/* Biography and Info */}
+        {/* Biography Section */}
+        <section className="py-12 md:py-16 px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Biography and Info */}
               <motion.div
                 className="space-y-8"
                 initial={{ opacity: 0.8, x: 10 }}
@@ -188,7 +133,6 @@ export default function About() {
                   </div>
                 )}
               </motion.div>
-            </div>
           </div>
         </section>
       </div>
