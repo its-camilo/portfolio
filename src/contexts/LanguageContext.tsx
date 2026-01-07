@@ -73,6 +73,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Common
     'common.repo': 'Repo',
+    'common.viewCV': 'View CV',
   },
   es: {
     // Navigation
@@ -138,6 +139,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Common
     'common.repo': 'Repo',
+    'common.viewCV': 'Ver CV',
   }
 };
 

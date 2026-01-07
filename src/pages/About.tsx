@@ -60,16 +60,16 @@ export default function About() {
                 </div>
                 
                 {/* Social Links */}
-                <div className="flex items-center gap-4">
+                <div className="flex flex-wrap items-center gap-3">
                   {developerInfo.socialLinks.github && (
                     <a
                       href={developerInfo.socialLinks.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                      aria-label="GitHub"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
                     >
-                      <Github className="size-5" />
+                      <Github className="size-4" />
+                      GitHub
                     </a>
                   )}
                   {developerInfo.socialLinks.linkedin && (
@@ -77,10 +77,10 @@ export default function About() {
                       href={developerInfo.socialLinks.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                      aria-label="LinkedIn"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
                     >
-                      <Linkedin className="size-5" />
+                      <Linkedin className="size-4" />
+                      LinkedIn
                     </a>
                   )}
                   {developerInfo.socialLinks.itchio && (
@@ -88,10 +88,10 @@ export default function About() {
                       href={developerInfo.socialLinks.itchio}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 border border-border rounded-sm hover:bg-accent transition-colors"
-                      aria-label="Itch.io"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
                     >
-                      <ExternalLink className="size-5" />
+                      <ExternalLink className="size-4" />
+                      Itch.io
                     </a>
                   )}
                 </div>
