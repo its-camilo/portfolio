@@ -15,6 +15,7 @@ import moodpress0 from '@/assets/moodpress-0.png';
 import moodpress1 from '@/assets/moodpress-1.png';
 import moodpress2 from '@/assets/moodpress-2.png';
 import moodpress3 from '@/assets/moodpress-3.png';
+import spaceShooterProImg from '@/assets/space-shooter-pro.png';
 
 export const projects: Project[] = [
   {
@@ -84,7 +85,7 @@ export const projects: Project[] = [
     descriptionEs: 'En este emocionante juego, elimina a tus rivales alienígenas mientras te mueves por el espacio y evitas peligros. Hecho con Unity y C#.',
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/space-shooter-pro',
-    coverImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=600&fit=crop',
+    coverImage: spaceShooterProImg,
     slug: 'space-shooter-pro'
   },
   {
