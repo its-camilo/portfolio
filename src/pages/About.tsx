@@ -20,7 +20,9 @@ export default function About() {
         image={developerInfo.portraitImage}
       />
       
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
+        {/* Global Mesh Background */}
+        <div className="fixed inset-0 bg-mesh -z-10" />
         {/* Hero Section */}
         <section className="py-24 md:py-32 px-6 lg:px-8 border-b border-border">
           <div className="max-w-4xl mx-auto text-center space-y-6">
