@@ -1,33 +1,33 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Apple-Inspired Design System with Purple/Violet Palette */
+/* Apple-Inspired Design System with Apple Blue Palette */
 /* All colors in HSL format */
 
 :root {
   /* Apple-Style Light Mode - Clean & Premium */
   --background: hsl(0 0% 100%);
-  --foreground: hsl(240 10% 10%);
+  --foreground: hsl(0 0% 10%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(240 10% 10%);
+  --card-foreground: hsl(0 0% 10%);
   --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(240 10% 10%);
+  --popover-foreground: hsl(0 0% 10%);
   
-  /* Primary Purple/Violet */
-  --primary: hsl(270 75% 55%);
+  /* Primary Apple Blue */
+  --primary: hsl(211 100% 50%);
   --primary-foreground: hsl(0 0% 100%);
   
-  /* Secondary - Deeper Purple */
-  --secondary: hsl(280 85% 45%);
+  /* Secondary - Deeper Blue */
+  --secondary: hsl(211 100% 42%);
   --secondary-foreground: hsl(0 0% 100%);
   
   /* Muted */
-  --muted: hsl(240 5% 96%);
-  --muted-foreground: hsl(240 5% 45%);
+  --muted: hsl(210 10% 96%);
+  --muted-foreground: hsl(210 10% 45%);
   
-  /* Accent - Light Violet */
-  --accent: hsl(270 100% 98%);
-  --accent-foreground: hsl(270 75% 45%);
+  /* Accent - Light Blue */
+  --accent: hsl(211 100% 97%);
+  --accent-foreground: hsl(211 100% 45%);
 
   /* Success */
   --success: hsl(152 69% 44%);
@@ -39,62 +39,62 @@
   
   --destructive: hsl(0 84% 60%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 5% 90%);
-  --input: hsl(240 5% 90%);
-  --ring: hsl(270 75% 55%);
+  --border: hsl(210 10% 90%);
+  --input: hsl(210 10% 90%);
+  --ring: hsl(211 100% 50%);
   --radius: 1rem;
   
   /* Sidebar */
   --sidebar-background: hsl(0 0% 99%);
-  --sidebar-foreground: hsl(240 10% 10%);
-  --sidebar-primary: hsl(270 75% 55%);
+  --sidebar-foreground: hsl(0 0% 10%);
+  --sidebar-primary: hsl(211 100% 50%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(270 100% 98%);
-  --sidebar-accent-foreground: hsl(270 75% 45%);
-  --sidebar-border: hsl(240 5% 92%);
-  --sidebar-ring: hsl(270 75% 55%);
+  --sidebar-accent: hsl(211 100% 97%);
+  --sidebar-accent-foreground: hsl(211 100% 45%);
+  --sidebar-border: hsl(210 10% 92%);
+  --sidebar-ring: hsl(211 100% 50%);
 
   /* Apple-Style Shadows - Ultra Soft */
-  --shadow-xs: 0 1px 2px 0 hsl(240 10% 10% / 0.02);
-  --shadow-sm: 0 2px 8px -2px hsl(240 10% 10% / 0.05);
-  --shadow-md: 0 8px 24px -8px hsl(240 10% 10% / 0.08);
-  --shadow-lg: 0 16px 48px -16px hsl(240 10% 10% / 0.12);
-  --shadow-xl: 0 24px 64px -24px hsl(240 10% 10% / 0.16);
-  --shadow-glow: 0 0 60px -12px hsl(270 75% 55% / 0.25);
+  --shadow-xs: 0 1px 2px 0 hsl(0 0% 10% / 0.02);
+  --shadow-sm: 0 2px 8px -2px hsl(0 0% 10% / 0.05);
+  --shadow-md: 0 8px 24px -8px hsl(0 0% 10% / 0.08);
+  --shadow-lg: 0 16px 48px -16px hsl(0 0% 10% / 0.12);
+  --shadow-xl: 0 24px 64px -24px hsl(0 0% 10% / 0.16);
+  --shadow-glow: 0 0 60px -12px hsl(211 100% 50% / 0.25);
   
-  /* Premium Gradients */
-  --gradient-primary: linear-gradient(135deg, hsl(270 75% 55%) 0%, hsl(280 85% 60%) 100%);
-  --gradient-secondary: linear-gradient(135deg, hsl(280 85% 50%) 0%, hsl(290 80% 55%) 100%);
-  --gradient-subtle: linear-gradient(180deg, hsl(270 100% 98%) 0%, hsl(0 0% 100%) 100%);
-  --gradient-hero: linear-gradient(135deg, hsl(270 50% 98%) 0%, hsl(280 30% 95%) 50%, hsl(0 0% 100%) 100%);
-  --gradient-mesh: radial-gradient(ellipse at 30% 20%, hsl(270 75% 55% / 0.08) 0%, transparent 50%),
-                   radial-gradient(ellipse at 70% 80%, hsl(280 85% 60% / 0.06) 0%, transparent 50%);
+  /* Premium Gradients - Apple Blue */
+  --gradient-primary: linear-gradient(135deg, hsl(211 100% 50%) 0%, hsl(211 100% 55%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(211 100% 45%) 0%, hsl(211 100% 55%) 100%);
+  --gradient-subtle: linear-gradient(180deg, hsl(211 100% 98%) 0%, hsl(0 0% 100%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(211 30% 98%) 0%, hsl(211 20% 96%) 50%, hsl(0 0% 100%) 100%);
+  --gradient-mesh: radial-gradient(ellipse at 30% 20%, hsl(211 100% 50% / 0.08) 0%, transparent 50%),
+                   radial-gradient(ellipse at 70% 80%, hsl(211 100% 55% / 0.06) 0%, transparent 50%);
 }
 
 .dark {
   /* Apple-Style Dark Mode - Elegant & Rich */
-  --background: hsl(240 10% 6%);
+  --background: hsl(220 15% 6%);
   --foreground: hsl(0 0% 98%);
-  --card: hsl(240 10% 10%);
+  --card: hsl(220 15% 10%);
   --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(240 10% 10%);
+  --popover: hsl(220 15% 10%);
   --popover-foreground: hsl(0 0% 98%);
   
-  /* Primary Purple/Violet - Brighter for Dark Mode */
-  --primary: hsl(270 80% 65%);
+  /* Primary Apple Blue - Brighter for Dark Mode */
+  --primary: hsl(211 100% 60%);
   --primary-foreground: hsl(0 0% 100%);
   
-  /* Secondary - Vibrant Purple */
-  --secondary: hsl(280 90% 60%);
+  /* Secondary - Vibrant Blue */
+  --secondary: hsl(211 100% 55%);
   --secondary-foreground: hsl(0 0% 100%);
   
   /* Muted */
-  --muted: hsl(240 10% 14%);
-  --muted-foreground: hsl(240 5% 55%);
+  --muted: hsl(220 15% 14%);
+  --muted-foreground: hsl(210 10% 55%);
   
   /* Accent */
-  --accent: hsl(270 30% 15%);
-  --accent-foreground: hsl(270 80% 70%);
+  --accent: hsl(211 50% 15%);
+  --accent-foreground: hsl(211 100% 70%);
 
   /* Success */
   --success: hsl(152 69% 50%);
@@ -106,19 +106,19 @@
   
   --destructive: hsl(0 63% 55%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 10% 18%);
-  --input: hsl(240 10% 18%);
-  --ring: hsl(270 80% 65%);
+  --border: hsl(220 15% 18%);
+  --input: hsl(220 15% 18%);
+  --ring: hsl(211 100% 60%);
   
   /* Sidebar - Dark */
-  --sidebar-background: hsl(240 10% 8%);
+  --sidebar-background: hsl(220 15% 8%);
   --sidebar-foreground: hsl(0 0% 98%);
-  --sidebar-primary: hsl(270 80% 65%);
+  --sidebar-primary: hsl(211 100% 60%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(270 30% 18%);
-  --sidebar-accent-foreground: hsl(270 80% 70%);
-  --sidebar-border: hsl(240 10% 16%);
-  --sidebar-ring: hsl(270 80% 65%);
+  --sidebar-accent: hsl(211 50% 18%);
+  --sidebar-accent-foreground: hsl(211 100% 70%);
+  --sidebar-border: hsl(220 15% 16%);
+  --sidebar-ring: hsl(211 100% 60%);
 
   /* Dark Mode Shadows - Subtle Glow */
   --shadow-xs: 0 1px 3px 0 hsl(0 0% 0% / 0.3);
@@ -126,15 +126,15 @@
   --shadow-md: 0 12px 32px -12px hsl(0 0% 0% / 0.5);
   --shadow-lg: 0 24px 64px -24px hsl(0 0% 0% / 0.6);
   --shadow-xl: 0 32px 80px -32px hsl(0 0% 0% / 0.7);
-  --shadow-glow: 0 0 80px -20px hsl(270 80% 65% / 0.35);
+  --shadow-glow: 0 0 80px -20px hsl(211 100% 60% / 0.35);
   
-  /* Gradients - Dark */
-  --gradient-primary: linear-gradient(135deg, hsl(270 80% 60%) 0%, hsl(280 85% 65%) 100%);
-  --gradient-secondary: linear-gradient(135deg, hsl(280 85% 55%) 0%, hsl(290 80% 60%) 100%);
-  --gradient-subtle: linear-gradient(180deg, hsl(240 10% 8%) 0%, hsl(240 10% 6%) 100%);
-  --gradient-hero: linear-gradient(135deg, hsl(240 10% 6%) 0%, hsl(270 20% 8%) 50%, hsl(240 10% 6%) 100%);
-  --gradient-mesh: radial-gradient(ellipse at 30% 20%, hsl(270 80% 65% / 0.12) 0%, transparent 50%),
-                   radial-gradient(ellipse at 70% 80%, hsl(280 85% 60% / 0.08) 0%, transparent 50%);
+  /* Gradients - Dark Apple Blue */
+  --gradient-primary: linear-gradient(135deg, hsl(211 100% 55%) 0%, hsl(211 100% 65%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(211 100% 50%) 0%, hsl(211 100% 60%) 100%);
+  --gradient-subtle: linear-gradient(180deg, hsl(220 15% 8%) 0%, hsl(220 15% 6%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(220 15% 6%) 0%, hsl(211 30% 8%) 50%, hsl(220 15% 6%) 100%);
+  --gradient-mesh: radial-gradient(ellipse at 30% 20%, hsl(211 100% 60% / 0.12) 0%, transparent 50%),
+                   radial-gradient(ellipse at 70% 80%, hsl(211 100% 55% / 0.08) 0%, transparent 50%);
 }
 
 @theme {
@@ -265,17 +265,17 @@
     font-weight: 500;
     font-size: 0.9375rem;
     letter-spacing: -0.01em;
-    box-shadow: var(--shadow-md), 0 0 20px -5px hsl(270 75% 55% / 0.3);
+    box-shadow: var(--shadow-md), 0 0 20px -5px hsl(211 100% 50% / 0.3);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .apple-btn:hover {
-    box-shadow: var(--shadow-lg), 0 0 30px -5px hsl(270 75% 55% / 0.4);
-    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-lg), 0 0 30px -5px hsl(211 100% 50% / 0.4);
+    transform: scale(1.05);
   }
 
   .apple-btn:active {
-    transform: translateY(0) scale(0.98);
+    transform: scale(0.98);
   }
 
   /* Glass Effect */
