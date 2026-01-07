@@ -45,6 +45,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.education': 'Education',
     'about.university': 'University',
     'about.location': 'Location',
+    'about.viewCV': 'View CV',
     
     // Contact page
     'contact.title': 'Contact',
@@ -62,6 +63,13 @@ const translations: Record<Language, Record<string, string>> = {
     // Developer info
     'developer.title': 'Student | Junior Game Developer',
     'developer.biography': 'My name is Camilo. I have experience programming video game mechanics and systems, as well as developing full-stack web applications. I am proficient in using various design patterns, such as the singleton pattern and object-oriented programming.\n\nI am passionate about creating interactive experiences that engage users, whether through immersive video games or intuitive web applications. My background in computer science gives me a solid foundation in algorithms, data structures, and software architecture.',
+    'developer.skills.gameDev': 'Game Development',
+    'developer.skills.webDev': 'Web Development',
+    'developer.skills.designPatterns': 'Design Patterns',
+    'developer.skills.oop': 'Object-Oriented Programming',
+    'developer.skills.fullstack': 'Full-Stack Development',
+    'developer.education.degree': 'Computer & Systems Engineering',
+    'developer.education.university': 'National University of Colombia',
     
     // Common
     'common.repo': 'Repo',
@@ -102,6 +110,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.education': 'Educación',
     'about.university': 'Universidad',
     'about.location': 'Ubicación',
+    'about.viewCV': 'Ver CV',
     
     // Contact page
     'contact.title': 'Contacto',
@@ -119,6 +128,13 @@ const translations: Record<Language, Record<string, string>> = {
     // Developer info
     'developer.title': 'Estudiante | Desarrollador de Videojuegos Junior',
     'developer.biography': 'Mi nombre es Camilo. Tengo experiencia programando mecánicas y sistemas de videojuegos, así como desarrollando aplicaciones web full-stack. Soy competente en el uso de varios patrones de diseño, como el patrón singleton y programación orientada a objetos.\n\nMe apasiona crear experiencias interactivas que involucren a los usuarios, ya sea a través de videojuegos inmersivos o aplicaciones web intuitivas. Mi formación en ciencias de la computación me da una base sólida en algoritmos, estructuras de datos y arquitectura de software.',
+    'developer.skills.gameDev': 'Desarrollo de Videojuegos',
+    'developer.skills.webDev': 'Desarrollo Web',
+    'developer.skills.designPatterns': 'Patrones de Diseño',
+    'developer.skills.oop': 'Programación Orientada a Objetos',
+    'developer.skills.fullstack': 'Desarrollo Full-Stack',
+    'developer.education.degree': 'Ingeniería de Sistemas y Computación',
+    'developer.education.university': 'Universidad Nacional de Colombia',
     
     // Common
     'common.repo': 'Repo',

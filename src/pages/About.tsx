@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, ExternalLink, FileText } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { TechBadge } from '@/components/ui/TechBadge';
@@ -135,8 +135,8 @@ export default function About() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-light tracking-wide">{t('about.skills')}</h3>
                   <div className="flex flex-wrap gap-2">
-                    {developerInfo.skills.map((skill) => (
-                      <TechBadge key={skill} name={skill} variant="outline" size="sm" />
+                    {['developer.skills.gameDev', 'developer.skills.webDev', 'developer.skills.designPatterns', 'developer.skills.oop', 'developer.skills.fullstack'].map((skillKey) => (
+                      <TechBadge key={skillKey} name={t(skillKey)} variant="outline" size="sm" />
                     ))}
                   </div>
                 </div>
@@ -156,13 +156,13 @@ export default function About() {
                   <div className="text-sm font-light tracking-wide">
                     <span className="text-muted-foreground">{t('about.education')}: </span>
                     <span className="text-foreground">
-                      {developerInfo.education.degree}
+                      {t('developer.education.degree')}
                     </span>
                   </div>
                   <div className="text-sm font-light tracking-wide">
                     <span className="text-muted-foreground">{t('about.university')}: </span>
                     <span className="text-foreground">
-                      {developerInfo.education.university}
+                      {t('developer.education.university')}
                     </span>
                   </div>
                   <div className="text-sm font-light tracking-wide">
@@ -170,6 +170,21 @@ export default function About() {
                     <span className="text-foreground">{developerInfo.location}</span>
                   </div>
                 </div>
+
+                {/* CV Button */}
+                {developerInfo.cvUrl && (
+                  <div className="pt-4">
+                    <a
+                      href={developerInfo.cvUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-sm hover:bg-accent transition-colors font-light"
+                    >
+                      <FileText className="size-5" />
+                      {t('about.viewCV')}
+                    </a>
+                  </div>
+                )}
               </motion.div>
             </div>
           </div>

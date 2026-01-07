@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, ExternalLink, FileText } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ContactForm } from '@/components/forms/ContactForm';
@@ -174,6 +174,17 @@ export default function Contact() {
                       >
                         <ExternalLink className="size-4" />
                         Google Play
+                      </a>
+                    )}
+                    {developerInfo.cvUrl && (
+                      <a
+                        href={developerInfo.cvUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                      >
+                        <FileText className="size-4" />
+                        {t('about.viewCV')}
                       </a>
                     )}
                   </div>
