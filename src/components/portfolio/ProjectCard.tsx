@@ -95,7 +95,7 @@ export function ProjectCard({
         }}>
               <span 
                 className="capitalize bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg"
-                style={{ textShadow: '0.25px 0.25px 0 #000, -0.25px -0.25px 0 #000, 0.25px -0.25px 0 #000, -0.25px 0.25px 0 #000' }}
+                style={{ textShadow: '0.4px 0.4px 0 #000, -0.4px -0.4px 0 #000, 0.4px -0.4px 0 #000, -0.4px 0.4px 0 #000' }}
               >
                 {categoryLabels[project.category]}
               </span>
