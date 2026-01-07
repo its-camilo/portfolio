@@ -27,14 +27,9 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
         <Button
           variant="ghost"
           size="sm"
-          className="gap-1.5 px-3 h-9 rounded-full border-0"
+          className="gap-1.5 px-3 h-9 rounded-full bg-background/60 backdrop-blur-sm border border-border/40 shadow-sm hover:shadow-md hover:bg-background/80 transition-all duration-200"
           style={{ 
-            color: 'rgba(255,255,255,0.95)',
-            background: 'rgba(60,60,60,0.35)',
-            backdropFilter: 'blur(40px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-            boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
-            border: '0.5px solid rgba(255,255,255,0.18)'
+            boxShadow: '0 1px 2px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.06) inset'
           }}
         >
           <Globe className="size-4" />
@@ -44,14 +39,9 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
       </DropdownMenuTrigger>
       <DropdownMenuContent 
         align="end" 
-        className="min-w-[150px] border-0"
+        className="min-w-[150px] bg-background/95 backdrop-blur-sm border border-border/40"
         style={{ 
-          color: 'rgba(255,255,255,0.95)',
-          background: 'rgba(60,60,60,0.35)',
-          backdropFilter: 'blur(40px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-          boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
-          border: '0.5px solid rgba(255,255,255,0.18)'
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1), 0 1px 0 rgba(255,255,255,0.06) inset'
         }}
       >
         {languages.map((lang) => (
