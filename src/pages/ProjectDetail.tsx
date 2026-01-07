@@ -1,6 +1,6 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowLeft } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { TechBadge } from '@/components/ui/TechBadge';
@@ -42,13 +42,6 @@ export default function ProjectDetail() {
     return () => clearInterval(interval);
   }, [hasMultipleImages, images.length, isHovering]);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
 
   // Map aspectRatio to CSS class
   const getAspectRatioClass = () => {
@@ -131,58 +124,6 @@ export default function ProjectDetail() {
                   />
                 ))}
               </div>
-
-              {/* Navigation Arrows - Inside image at middle height */}
-              {hasMultipleImages && (
-                <>
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                      border: '1px solid rgba(255, 255, 255, 0.18)'
-                    }}
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                      border: '1px solid rgba(255, 255, 255, 0.18)'
-                    }}
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
-                  </button>
-                </>
-              )}
-
-              {/* Indicator Dots - Centered inside image */}
-              {hasMultipleImages && (
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                  {images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        index === currentImageIndex
-                          ? 'bg-white w-4'
-                          : 'bg-white/50 hover:bg-white/70 w-2'
-                      }`}
-                      aria-label={`Go to image ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Technologies */}
