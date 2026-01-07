@@ -72,13 +72,12 @@ export default function Home() {
 
               {/* Main Title */}
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground text-balance"
+                className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <span className="block">{developerInfo.name.split(' ')[0]}</span>
-                <span className="block gradient-text">{developerInfo.name.split(' ').slice(1).join(' ')}</span>
+                {developerInfo.name}
               </motion.h1>
 
               {/* Subtitle */}
@@ -111,7 +110,7 @@ export default function Home() {
                 )}
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-accent text-foreground font-medium transition-all duration-300 hover:border-primary/50"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-accent text-foreground font-medium transition-all duration-300 hover:border-primary/50 hover:scale-105"
                 >
                   {t('home.viewAllProjects')}
                   <ArrowRight className="size-4" />
