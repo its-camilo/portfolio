@@ -93,7 +93,10 @@ export function ProjectCard({
         }} transition={{
           duration: 0.3
         }}>
-              <span className="capitalize bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+              <span 
+                className="capitalize bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg"
+                style={{ textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000' }}
+              >
                 {categoryLabels[project.category]}
               </span>
             </motion.div>}
