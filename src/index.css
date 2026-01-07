@@ -5,13 +5,13 @@
 /* All colors in HSL format */
 
 :root {
-  /* Apple-Style Light Mode - Clean & Premium */
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 10%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(0 0% 10%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(0 0% 10%);
+  /* Apple-Style Light Mode - Warm Off-White */
+  --background: hsl(210 20% 98%);
+  --foreground: hsl(215 25% 15%);
+  --card: hsl(210 15% 99%);
+  --card-foreground: hsl(215 25% 15%);
+  --popover: hsl(210 15% 99%);
+  --popover-foreground: hsl(215 25% 15%);
   
   /* Primary Apple Blue */
   --primary: hsl(211 100% 50%);
@@ -72,13 +72,13 @@
 }
 
 .dark {
-  /* Apple-Style Dark Mode - Elegant & Rich */
-  --background: hsl(220 15% 6%);
-  --foreground: hsl(0 0% 98%);
-  --card: hsl(220 15% 10%);
-  --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(220 15% 10%);
-  --popover-foreground: hsl(0 0% 98%);
+  /* Apple-Style Dark Mode - Deep Blue-Black */
+  --background: hsl(215 35% 8%);
+  --foreground: hsl(210 20% 98%);
+  --card: hsl(215 30% 12%);
+  --card-foreground: hsl(210 20% 98%);
+  --popover: hsl(215 30% 12%);
+  --popover-foreground: hsl(210 20% 98%);
   
   /* Primary Apple Blue - Brighter for Dark Mode */
   --primary: hsl(211 100% 60%);
@@ -89,8 +89,8 @@
   --secondary-foreground: hsl(0 0% 100%);
   
   /* Muted */
-  --muted: hsl(220 15% 14%);
-  --muted-foreground: hsl(210 10% 55%);
+  --muted: hsl(215 30% 15%);
+  --muted-foreground: hsl(210 15% 60%);
   
   /* Accent */
   --accent: hsl(211 50% 15%);
@@ -106,18 +106,18 @@
   
   --destructive: hsl(0 63% 55%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(220 15% 18%);
-  --input: hsl(220 15% 18%);
+  --border: hsl(215 25% 20%);
+  --input: hsl(215 25% 20%);
   --ring: hsl(211 100% 60%);
   
   /* Sidebar - Dark */
-  --sidebar-background: hsl(220 15% 8%);
-  --sidebar-foreground: hsl(0 0% 98%);
+  --sidebar-background: hsl(215 35% 10%);
+  --sidebar-foreground: hsl(210 20% 98%);
   --sidebar-primary: hsl(211 100% 60%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
   --sidebar-accent: hsl(211 50% 18%);
   --sidebar-accent-foreground: hsl(211 100% 70%);
-  --sidebar-border: hsl(220 15% 16%);
+  --sidebar-border: hsl(215 25% 18%);
   --sidebar-ring: hsl(211 100% 60%);
 
   /* Dark Mode Shadows - Subtle Glow */
@@ -131,8 +131,8 @@
   /* Gradients - Dark Apple Blue */
   --gradient-primary: linear-gradient(135deg, hsl(211 100% 55%) 0%, hsl(211 100% 65%) 100%);
   --gradient-secondary: linear-gradient(135deg, hsl(211 100% 50%) 0%, hsl(211 100% 60%) 100%);
-  --gradient-subtle: linear-gradient(180deg, hsl(220 15% 8%) 0%, hsl(220 15% 6%) 100%);
-  --gradient-hero: linear-gradient(135deg, hsl(220 15% 6%) 0%, hsl(211 30% 8%) 50%, hsl(220 15% 6%) 100%);
+  --gradient-subtle: linear-gradient(180deg, hsl(215 35% 10%) 0%, hsl(215 35% 8%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(215 35% 8%) 0%, hsl(215 40% 12%) 50%, hsl(215 35% 8%) 100%);
   --gradient-mesh: radial-gradient(ellipse at 30% 20%, hsl(211 100% 60% / 0.12) 0%, transparent 50%),
                    radial-gradient(ellipse at 70% 80%, hsl(211 100% 55% / 0.08) 0%, transparent 50%);
 }
