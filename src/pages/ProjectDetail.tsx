@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
@@ -16,7 +16,7 @@ export default function ProjectDetail() {
   const { language, t } = useLanguage();
   const project = slug ? getProjectBySlug(slug) : undefined;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
+  
 
   // 404 if project not found
   if (!project) {
@@ -31,16 +31,16 @@ export default function ProjectDetail() {
   const hasMultipleImages = project.hoverImages && project.hoverImages.length > 1;
   const images = hasMultipleImages ? project.hoverImages! : [project.coverImage];
 
-  // Auto-advance carousel only when hovering
+  // Auto-advance carousel always
   useEffect(() => {
-    if (!hasMultipleImages || !isHovering) return;
+    if (!hasMultipleImages) return;
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [hasMultipleImages, images.length, isHovering]);
+  }, [hasMultipleImages, images.length]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -113,75 +113,70 @@ export default function ProjectDetail() {
 
             {/* Project Image Carousel */}
             <div className="space-y-4">
-              <div className="flex justify-start">
-                <motion.div
-                  className={`relative w-1/3 overflow-hidden rounded-xl bg-muted`}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentImageIndex}
-                    src={images[currentImageIndex]}
-                    alt={`${title} - ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    fetchPriority="high"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </AnimatePresence>
+              <div className="relative w-1/3">
+                <div className="overflow-hidden rounded-xl bg-muted">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                  >
+                    {images.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={`${title} - ${index + 1}`}
+                        className="w-full h-full object-cover flex-shrink-0"
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    ))}
+                  </div>
+                </div>
 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows - Outside image */}
                 {hasMultipleImages && (
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
+                      className="absolute -left-12 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
                       style={{
                         background: 'rgba(255, 255, 255, 0.1)',
                         backdropFilter: 'blur(20px)',
                         WebkitBackdropFilter: 'blur(20px)',
-                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
+                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+                        border: '1px solid rgba(255, 255, 255, 0.18)'
                       }}
                       aria-label="Previous image"
                     >
-                      <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
+                      <ChevronLeft className="size-5 text-foreground" />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
+                      className="absolute -right-12 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
                       style={{
                         background: 'rgba(255, 255, 255, 0.1)',
                         backdropFilter: 'blur(20px)',
                         WebkitBackdropFilter: 'blur(20px)',
-                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
+                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+                        border: '1px solid rgba(255, 255, 255, 0.18)'
                       }}
                       aria-label="Next image"
                     >
-                      <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
+                      <ChevronRight className="size-5 text-foreground" />
                     </button>
                   </>
                 )}
-                </motion.div>
               </div>
 
-              {/* Indicator Dots - Centered */}
+              {/* Indicator Dots - Centered on page */}
               {hasMultipleImages && (
                 <div className="flex justify-center gap-2">
                   {images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      className={`h-2 rounded-full transition-all duration-300 ${
                         index === currentImageIndex
                           ? 'bg-foreground w-4'
-                          : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
+                          : 'bg-muted-foreground/50 hover:bg-muted-foreground/70 w-2'
                       }`}
                       aria-label={`Go to image ${index + 1}`}
                     />
