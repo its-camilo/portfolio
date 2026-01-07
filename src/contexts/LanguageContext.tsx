@@ -61,7 +61,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.findMe': 'Find me on these platforms or reach out directly.',
     
     // Developer info
-    'developer.title': 'Student | Junior Game Developer',
+    'developer.title': 'Full Stack Developer | Junior Game Developer',
     'developer.biography': 'My name is Camilo. I have experience programming video game mechanics and systems, as well as developing full-stack web applications. I am proficient in using various design patterns, such as the singleton pattern and object-oriented programming.\n\nI am passionate about creating interactive experiences that engage users, whether through immersive video games or intuitive web applications. My background in computer science gives me a solid foundation in algorithms, data structures, and software architecture.',
     'developer.skills.gameDev': 'Game Development',
     'developer.skills.webDev': 'Web Development',
@@ -127,7 +127,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.findMe': 'Encuéntrame en estas plataformas o contáctame directamente.',
     
     // Developer info
-    'developer.title': 'Estudiante | Desarrollador de Videojuegos Junior',
+    'developer.title': 'Desarrollador Full Stack | Desarrollador de Videojuegos Junior',
     'developer.biography': 'Mi nombre es Camilo. Tengo experiencia programando mecánicas y sistemas de videojuegos, así como desarrollando aplicaciones web full-stack. Soy competente en el uso de varios patrones de diseño, como el patrón singleton y programación orientada a objetos.\n\nMe apasiona crear experiencias interactivas que involucren a los usuarios, ya sea a través de videojuegos inmersivos o aplicaciones web intuitivas. Mi formación en ciencias de la computación me da una base sólida en algoritmos, estructuras de datos y arquitectura de software.',
     'developer.skills.gameDev': 'Desarrollo de Videojuegos',
     'developer.skills.webDev': 'Desarrollo Web',
