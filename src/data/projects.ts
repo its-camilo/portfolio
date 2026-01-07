@@ -29,7 +29,8 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/its-camilo/ecommerce',
     playStoreUrl: 'https://play.google.com/store',
     coverImage: ecommerceImg,
-    slug: 'ecommerce'
+    slug: 'ecommerce',
+    aspectRatio: 'landscape'
   },
   {
     id: '2',
@@ -40,7 +41,8 @@ export const projects: Project[] = [
     technologies: ['Unreal Engine', 'C++'],
     repoUrl: 'https://github.com/its-camilo/mars-marine',
     coverImage: marsMarineImg,
-    slug: 'mars-marine'
+    slug: 'mars-marine',
+    aspectRatio: 'landscape'
   },
   {
     id: '3',
@@ -52,7 +54,8 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/its-camilo/moodpress',
     coverImage: moodpress0,
     hoverImages: [moodpress0, moodpress1, moodpress2, moodpress3],
-    slug: 'moodpress'
+    slug: 'moodpress',
+    aspectRatio: 'portrait'
   },
   {
     id: '4',
@@ -65,7 +68,8 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/its-camilo/schedule-generator',
     coverImage: scheduleGenerator0,
     hoverImages: [scheduleGenerator0, scheduleGenerator1, scheduleGenerator2],
-    slug: 'schedule-generator'
+    slug: 'schedule-generator',
+    aspectRatio: 'landscape'
   },
   {
     id: '5',
@@ -76,7 +80,8 @@ export const projects: Project[] = [
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/dungeon-escape',
     coverImage: dungeonEscapeImg,
-    slug: 'dungeon-escape'
+    slug: 'dungeon-escape',
+    aspectRatio: 'landscape'
   },
   {
     id: '6',
@@ -87,7 +92,8 @@ export const projects: Project[] = [
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/space-shooter-pro',
     coverImage: spaceShooterProImg,
-    slug: 'space-shooter-pro'
+    slug: 'space-shooter-pro',
+    aspectRatio: 'portrait'
   },
   {
     id: '7',
@@ -99,7 +105,8 @@ export const projects: Project[] = [
     technologies: ['JavaScript', 'CSS', 'HTML'],
     repoUrl: 'https://github.com/its-camilo/promedios-unal',
     coverImage: promediosUnalImg,
-    slug: 'promedios-unal'
+    slug: 'promedios-unal',
+    aspectRatio: 'landscape'
   },
   {
     id: '8',
@@ -112,7 +119,8 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/its-camilo/clock',
     coverImage: clock0,
     hoverImages: [clock0, clock1, clock2, clock3, clock4],
-    slug: 'clock'
+    slug: 'clock',
+    aspectRatio: 'landscape'
   },
   {
     id: '9',
@@ -123,7 +131,8 @@ export const projects: Project[] = [
     technologies: ['Unity', 'C#', 'GitHub'],
     repoUrl: 'https://github.com/its-camilo/the-great-fleece',
     coverImage: theGreatFleeceImg,
-    slug: 'the-great-fleece'
+    slug: 'the-great-fleece',
+    aspectRatio: 'landscape'
   }
 ];
 
