@@ -33,7 +33,15 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
-      className="size-9 transition-colors hover:bg-accent"
+      className="size-9 rounded-full border-0"
+      style={{ 
+        color: 'rgba(255,255,255,0.95)',
+        background: 'rgba(60,60,60,0.35)',
+        backdropFilter: 'blur(40px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+        boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+        border: '0.5px solid rgba(255,255,255,0.18)'
+      }}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
