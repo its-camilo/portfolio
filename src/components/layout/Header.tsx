@@ -84,7 +84,20 @@ export function Header() {
             <ThemeToggle />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="size-9 rounded-full text-foreground hover:bg-muted" aria-label="Open menu">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="size-9 rounded-full border-0"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
+                  aria-label="Open menu"
+                >
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
