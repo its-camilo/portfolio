@@ -1,6 +1,7 @@
 import type { Project, ProjectCategory } from '@/types';
 import dungeonEscapeImg from '@/assets/dungeon-escape.png';
 import ecommerceImg from '@/assets/ecommerce.png';
+import promediosUnalImg from '@/assets/promedios-unal.jpg';
 
 export const projects: Project[] = [
   {
@@ -80,7 +81,7 @@ export const projects: Project[] = [
     descriptionEs: 'Un sitio web diseñado para ayudar a los estudiantes a calcular sus notas, construido solo con JavaScript, CSS y HTML.',
     technologies: ['JavaScript', 'CSS', 'HTML'],
     repoUrl: 'https://github.com/its-camilo/promedios-unal',
-    coverImage: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=600&fit=crop',
+    coverImage: promediosUnalImg,
     slug: 'promedios-unal'
   },
   {
