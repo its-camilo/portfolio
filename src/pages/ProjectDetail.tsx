@@ -109,7 +109,15 @@ export default function ProjectDetail() {
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-sm hover:bg-accent transition-colors font-light"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
                 >
                   <Github className="size-5" />
                   {language === 'es' ? 'Ver Repositorio' : 'View Repository'}
@@ -120,7 +128,15 @@ export default function ProjectDetail() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-sm hover:bg-foreground/90 transition-colors font-light"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
                 >
                   <ExternalLink className="size-5" />
                   {language === 'es' ? 'Ver en Vivo' : 'View Live'}
@@ -131,7 +147,15 @@ export default function ProjectDetail() {
                   href={project.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-sm hover:bg-accent transition-colors font-light"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
                 >
                   <ExternalLink className="size-5" />
                   Google Play
@@ -142,7 +166,15 @@ export default function ProjectDetail() {
                   href={project.itchUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-sm hover:bg-accent transition-colors font-light"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
                 >
                   <ExternalLink className="size-5" />
                   Itch.io
