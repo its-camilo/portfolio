@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Project } from '@/types';
 import { cn } from '@/lib/utils';
+import { categoryLabels } from '@/data/projects';
 interface ProjectCardProps {
   project: Project;
   aspectRatio?: 'portrait' | 'landscape' | 'square';
@@ -93,7 +94,7 @@ export function ProjectCard({
           duration: 0.3
         }}>
               <span className="capitalize bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
-                {project.category}
+                {categoryLabels[project.category]}
               </span>
             </motion.div>}
 
