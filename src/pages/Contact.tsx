@@ -73,7 +73,7 @@ export default function Contact() {
                     {t('contact.socialLinks')}
                   </h2>
                   <p className="text-muted-foreground font-light">
-                    Find me on these platforms or reach out directly.
+                    {t('contact.findMe')}
                   </p>
                 </div>
 

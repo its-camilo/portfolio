@@ -33,7 +33,7 @@ export default function About() {
                 {t('about.title')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
-                {developerInfo.title}
+                {t('developer.title')}
               </p>
             </motion.div>
           </div>
@@ -111,7 +111,7 @@ export default function About() {
                     {developerInfo.name}
                   </h2>
                   <p className="text-lg text-muted-foreground font-light tracking-wide">
-                    {developerInfo.title}
+                    {t('developer.title')}
                   </p>
                 </div>
 
@@ -119,7 +119,7 @@ export default function About() {
 
                 {/* Biography */}
                 <div className="space-y-4">
-                  {developerInfo.biography.split('\n\n').map((paragraph, index) => (
+                  {t('developer.biography').split('\n\n').map((paragraph, index) => (
                     <p
                       key={index}
                       className="text-base md:text-lg font-light leading-relaxed text-muted-foreground"

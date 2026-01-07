@@ -38,7 +38,7 @@ export default function Portfolio() {
                 {t('portfolio.title')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide max-w-2xl mx-auto">
-                A collection of video games, web applications, and more
+                {t('portfolio.description')}
               </p>
             </motion.div>
           </div>
@@ -79,7 +79,7 @@ export default function Portfolio() {
             {filteredProjects.length === 0 && (
               <div className="text-center py-16">
                 <p className="text-muted-foreground font-light">
-                  No projects found in this category.
+                  {t('portfolio.noProjects')}
                 </p>
               </div>
             )}

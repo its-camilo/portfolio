@@ -4,13 +4,15 @@ import { ExternalLink, Github, ArrowLeft } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { TechBadge } from '@/components/ui/TechBadge';
-import { getProjectBySlug, categoryLabels } from '@/data/projects';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getProjectBySlug, getLocalizedTitle, getLocalizedDescription } from '@/data/projects';
 
 /**
  * Project detail page with project info and links
  */
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
+  const { language, t } = useLanguage();
   const project = slug ? getProjectBySlug(slug) : undefined;
 
   // 404 if project not found
@@ -18,11 +20,15 @@ export default function ProjectDetail() {
     return <Navigate to="/404" replace />;
   }
 
+  const title = getLocalizedTitle(project, language);
+  const description = getLocalizedDescription(project, language);
+  const categoryKey = `category.${project.category}` as const;
+
   return (
     <>
       <SEOHead
-        title={project.title}
-        description={project.description}
+        title={title}
+        description={description}
         image={project.coverImage}
         type="article"
       />
@@ -37,7 +43,7 @@ export default function ProjectDetail() {
         >
           <img
             src={project.coverImage}
-            alt={project.title}
+            alt={title}
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
@@ -60,16 +66,18 @@ export default function ProjectDetail() {
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="size-4" />
-              <span className="text-sm font-light">Back to Projects</span>
+              <span className="text-sm font-light">
+                {language === 'es' ? 'Volver a Proyectos' : 'Back to Projects'}
+              </span>
             </Link>
 
             {/* Title and Category */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide">
-                {project.title}
+                {title}
               </h1>
               <p className="text-lg text-muted-foreground font-light">
-                {categoryLabels[project.category]}
+                {t(categoryKey)}
               </p>
             </div>
 
@@ -78,13 +86,15 @@ export default function ProjectDetail() {
             {/* Description */}
             <div className="space-y-4">
               <p className="text-lg md:text-xl font-light leading-relaxed text-foreground">
-                {project.description}
+                {description}
               </p>
             </div>
 
             {/* Technologies */}
             <div className="space-y-4">
-              <h2 className="text-lg font-light tracking-wide">Technologies</h2>
+              <h2 className="text-lg font-light tracking-wide">
+                {t('about.technologies')}
+              </h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <TechBadge key={tech} name={tech} />
@@ -102,7 +112,7 @@ export default function ProjectDetail() {
                   className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-sm hover:bg-accent transition-colors font-light"
                 >
                   <Github className="size-5" />
-                  View Repository
+                  {language === 'es' ? 'Ver Repositorio' : 'View Repository'}
                 </a>
               )}
               {project.liveUrl && (
@@ -113,7 +123,7 @@ export default function ProjectDetail() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-sm hover:bg-foreground/90 transition-colors font-light"
                 >
                   <ExternalLink className="size-5" />
-                  View Live
+                  {language === 'es' ? 'Ver en Vivo' : 'View Live'}
                 </a>
               )}
               {project.playStoreUrl && (

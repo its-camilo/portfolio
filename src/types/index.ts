@@ -17,8 +17,10 @@ export interface ProjectImage {
 export interface Project {
   id: string;
   title: string;
+  titleEs?: string;
   category: ProjectCategory;
   description: string;
+  descriptionEs?: string;
   technologies: string[];
   repoUrl?: string;
   liveUrl?: string;
