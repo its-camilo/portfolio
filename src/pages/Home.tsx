@@ -70,7 +70,13 @@ export default function Home() {
             }} transition={{
               duration: 0.6,
               delay: 0.2
-            }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent border border-border">
+            }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+              border: '1px solid rgba(255, 255, 255, 0.18)'
+            }}>
                 
                 <span className="text-sm font-medium text-foreground">{t('developer.title')}</span>
               </motion.div>
@@ -118,7 +124,13 @@ export default function Home() {
                     <FileText className="size-4" />
                     {t('common.viewCV')}
                   </a>}
-                <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card hover:bg-accent text-foreground font-medium transition-all duration-300 hover:border-primary/50 hover:scale-105">
+                <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-foreground font-medium transition-all duration-300 hover:scale-105" style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+                  border: '1px solid rgba(255, 255, 255, 0.18)'
+                }}>
                   {t('home.viewAllProjects')}
                   <ArrowRight className="size-4" />
                 </Link>
@@ -252,7 +264,13 @@ export default function Home() {
           {/* View All Link */}
           <ScrollReveal delay={0.4}>
             <div className="flex justify-center mt-16 px-6">
-              <Link to="/portfolio" className="group inline-flex items-center gap-3 apple-btn">
+              <Link to="/portfolio" className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full text-foreground font-medium transition-all duration-300 hover:scale-105" style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+                border: '1px solid rgba(255, 255, 255, 0.18)'
+              }}>
                 <span>{t('home.viewAllProjects')}</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
