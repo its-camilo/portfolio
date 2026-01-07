@@ -71,16 +71,16 @@ export function ProjectCard({
     >
       <Link
         to={`/project/${project.slug}`}
-        className="block relative overflow-hidden rounded-2xl bg-card shadow-md hover:shadow-xl transition-all duration-300"
+        className="block relative overflow-hidden rounded-2xl bg-card shadow-md hover:shadow-xl transition-all duration-500"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        style={{
-          transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-        }}
       >
         {/* Image Container */}
-        <div className={cn('relative overflow-hidden', aspectRatioClasses[ratio])}>
+        <motion.div 
+          className={cn('relative overflow-hidden', aspectRatioClasses[ratio])}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.4 }}
+        >
           {/* Loading placeholder */}
           {!isLoaded && (
             <div className="absolute inset-0 bg-muted animate-pulse" />
@@ -91,60 +91,95 @@ export function ProjectCard({
             src={currentImage}
             alt={project.title}
             className={cn(
-              'absolute inset-0 w-full h-full object-cover transition-all duration-500',
-              isLoaded ? 'opacity-100' : 'opacity-0',
-              'group-hover:scale-105'
+              'absolute inset-0 w-full h-full object-cover',
+              isLoaded ? 'opacity-100' : 'opacity-0'
             )}
             initial={hasHoverImages && isHovered ? { opacity: 0 } : false}
-            animate={hasHoverImages && isHovered ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5 }}
+            animate={{ 
+              opacity: isLoaded ? 1 : 0,
+              scale: isHovered ? 1.1 : 1
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             loading={index < 6 ? 'eager' : 'lazy'}
             onLoad={() => setIsLoaded(true)}
           />
           
-          {/* Overlay with gradient and text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-            <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
-              <h3 className="text-white text-xl md:text-2xl font-medium tracking-wide">
+          {/* Category badge - visible by default, hidden on hover */}
+          {showCategory && (
+            <motion.div 
+              className="absolute top-4 left-4 z-10"
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ 
+                opacity: isHovered ? 0 : 1,
+                y: isHovered ? -10 : 0
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <span className="capitalize bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium shadow-lg">
+                {project.category}
+              </span>
+            </motion.div>
+          )}
+
+          {/* Hover overlay with title only */}
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <motion.div 
+              className="p-6 w-full"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ 
+                y: isHovered ? 0 : 20, 
+                opacity: isHovered ? 1 : 0 
+              }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <h3 className="text-white text-xl md:text-2xl font-semibold tracking-wide">
                 {project.title}
               </h3>
-              {showCategory && (
-                <div className="flex items-center gap-3 text-sm text-white/90 font-medium tracking-wide">
-                  <span className="capitalize bg-white/20 px-3 py-0.5 rounded-full backdrop-blur-sm">
-                    {project.category}
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Image indicator dots for carousel */}
           {hasHoverImages && isHovered && (
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <motion.div 
+              className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            >
               {project.hoverImages!.map((_, idx) => (
-                <div
+                <motion.div
                   key={idx}
                   className={cn(
-                    'w-2.5 h-2.5 rounded-full transition-all duration-300 shadow-sm',
+                    'w-2 h-2 rounded-full transition-all duration-300',
                     idx === currentImageIndex 
-                      ? 'bg-white scale-110 shadow-md' 
-                      : 'bg-white/50 hover:bg-white/70'
+                      ? 'bg-white w-4' 
+                      : 'bg-white/50'
                   )}
+                  whileHover={{ scale: 1.2 }}
                 />
               ))}
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
         
-        {/* Card footer with title for non-hover state */}
-        <div className="p-4 bg-card">
-          <h3 className="text-foreground font-medium tracking-wide group-hover:text-primary transition-colors">
+        {/* Card footer */}
+        <motion.div 
+          className="p-4 bg-card"
+          whileHover={{ backgroundColor: 'var(--accent)' }}
+          transition={{ duration: 0.3 }}
+        >
+          <h3 className="text-foreground font-medium tracking-wide group-hover:text-primary transition-colors duration-300">
             {project.title}
           </h3>
           <p className="text-sm text-muted-foreground mt-1 capitalize">
             {project.category}
           </p>
-        </div>
+        </motion.div>
       </Link>
     </motion.div>
   );
