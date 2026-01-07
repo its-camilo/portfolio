@@ -16,6 +16,7 @@ import moodpress1 from '@/assets/moodpress-1.png';
 import moodpress2 from '@/assets/moodpress-2.png';
 import moodpress3 from '@/assets/moodpress-3.png';
 import spaceShooterProImg from '@/assets/space-shooter-pro.png';
+import theGreatFleeceImg from '@/assets/the-great-fleece.png';
 
 export const projects: Project[] = [
   {
@@ -121,7 +122,7 @@ export const projects: Project[] = [
     descriptionEs: 'Darren, ¿puedes pasar desapercibido y llegar a la bóveda? Un juego de sigilo donde debes evitar cámaras de seguridad y guardias. Hecho con Unity y C#.',
     technologies: ['Unity', 'C#', 'GitHub'],
     repoUrl: 'https://github.com/its-camilo/the-great-fleece',
-    coverImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop',
+    coverImage: theGreatFleeceImg,
     slug: 'the-great-fleece'
   }
 ];
