@@ -145,12 +145,11 @@ export default function ProjectDetail() {
                       background: 'rgba(255, 255, 255, 0.1)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                      border: '1px solid rgba(0, 0, 0, 0.5)'
+                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
                     }}
                     aria-label="Previous image"
                   >
-                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
+                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(1px 0 0 rgba(0,0,0,0.8)) drop-shadow(-1px 0 0 rgba(0,0,0,0.8)) drop-shadow(0 1px 0 rgba(0,0,0,0.8)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8))' }} />
                   </button>
                   <button
                     onClick={nextImage}
@@ -159,12 +158,11 @@ export default function ProjectDetail() {
                       background: 'rgba(255, 255, 255, 0.1)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                      border: '1px solid rgba(0, 0, 0, 0.5)'
+                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
                     }}
                     aria-label="Next image"
                   >
-                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
+                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(1px 0 0 rgba(0,0,0,0.8)) drop-shadow(-1px 0 0 rgba(0,0,0,0.8)) drop-shadow(0 1px 0 rgba(0,0,0,0.8)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8))' }} />
                   </button>
                 </>
               )}
