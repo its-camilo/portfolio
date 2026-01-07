@@ -97,9 +97,9 @@ export function ProjectCard({
                 className="capitalize px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-2xl backdrop-saturate-150"
                 style={{ 
                   color: 'rgba(0,0,0,0.7)',
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.35) 100%)',
-                  boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.8) inset, 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)',
-                  border: '0.5px solid rgba(255,255,255,0.5)'
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.2) 100%)',
+                  boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.6) inset, 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06)',
+                  border: '0.5px solid rgba(255,255,255,0.4)'
                 }}
               >
                 {categoryLabels[project.category]}
