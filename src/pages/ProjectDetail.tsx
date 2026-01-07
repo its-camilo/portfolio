@@ -131,12 +131,12 @@ export default function ProjectDetail() {
                   </div>
                 </div>
 
-                {/* Navigation Arrows - Outside image */}
+                {/* Navigation Arrows - Inside image */}
                 {hasMultipleImages && (
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute -left-12 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
                       style={{
                         background: 'rgba(255, 255, 255, 0.1)',
                         backdropFilter: 'blur(20px)',
@@ -146,11 +146,11 @@ export default function ProjectDetail() {
                       }}
                       aria-label="Previous image"
                     >
-                      <ChevronLeft className="size-5 text-foreground" />
+                      <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute -right-12 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
                       style={{
                         background: 'rgba(255, 255, 255, 0.1)',
                         backdropFilter: 'blur(20px)',
@@ -160,7 +160,7 @@ export default function ProjectDetail() {
                       }}
                       aria-label="Next image"
                     >
-                      <ChevronRight className="size-5 text-foreground" />
+                      <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
                     </button>
                   </>
                 )}
