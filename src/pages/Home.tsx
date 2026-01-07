@@ -179,7 +179,7 @@ export default function Home() {
         </section>
 
         {/* About Section - Clean & Minimal */}
-        <section className="relative py-10 md:py-12 px-6 lg:px-8">
+        <section className="relative py-6 md:py-8 px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <ScrollReveal>
               <div className="space-y-6">
