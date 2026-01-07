@@ -179,7 +179,7 @@ export default function Home() {
         </section>
 
         {/* About Section - Clean & Minimal */}
-        <section className="relative py-16 md:py-20 px-6 lg:px-8">
+        <section className="relative py-10 md:py-12 px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <ScrollReveal>
               <div className="space-y-6">
@@ -199,7 +199,7 @@ export default function Home() {
         </section>
 
         {/* Technologies Section - Grid of Pills */}
-        <section className="relative py-16 md:py-20 px-6 lg:px-8">
+        <section className="relative py-10 md:py-12 px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <ScrollReveal>
               <div className="space-y-4">
@@ -231,9 +231,9 @@ export default function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        <section className="relative py-16 md:py-20">
+        <section className="relative py-10 md:py-12">
           <ScrollReveal>
-            <div className="text-center mb-16 space-y-4 px-6">
+            <div className="text-center mb-12 space-y-4 px-6">
               <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">
                 {t('home.featuredProjects')}
               </h2>
