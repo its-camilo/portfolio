@@ -112,14 +112,15 @@ export default function ProjectDetail() {
             </div>
 
             {/* Project Image Carousel */}
-            <motion.div
-              className={`relative w-full overflow-hidden rounded-xl bg-muted ${getAspectRatioClass()}`}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
+            <div className="flex justify-center">
+              <motion.div
+                className={`relative w-1/3 overflow-hidden rounded-xl bg-muted`}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentImageIndex}
@@ -184,7 +185,8 @@ export default function ProjectDetail() {
                   ))}
                 </div>
               )}
-            </motion.div>
+              </motion.div>
+            </div>
 
             {/* Technologies */}
             <div className="space-y-4">
