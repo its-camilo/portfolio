@@ -113,25 +113,23 @@ export default function ProjectDetail() {
 
             {/* Project Image Carousel */}
             <div 
-              className="relative w-1/3"
+              className="relative w-1/3 overflow-hidden rounded-xl bg-muted"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              <div className="overflow-hidden rounded-xl bg-muted">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                >
-                  {images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`${title} - ${index + 1}`}
-                      className="w-full h-full object-cover flex-shrink-0"
-                      loading={index === 0 ? "eager" : "lazy"}
-                    />
-                  ))}
-                </div>
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+              >
+                {images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${title} - ${index + 1}`}
+                    className="w-full h-full object-cover flex-shrink-0"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                ))}
               </div>
 
               {/* Navigation Arrows - Inside image at middle height */}
