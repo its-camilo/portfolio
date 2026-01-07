@@ -27,19 +27,33 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
         <Button
           variant="ghost"
           size="sm"
-          className={cn(
-            'gap-1.5 px-2.5 h-9 rounded-full border bg-background/80 backdrop-blur-sm',
-            isTransparent
-              ? 'text-foreground hover:bg-accent border-border/50'
-              : 'text-foreground hover:bg-accent border-border'
-          )}
+          className="gap-1.5 px-3 h-9 rounded-full border-0"
+          style={{ 
+            color: 'rgba(255,255,255,0.95)',
+            background: 'rgba(60,60,60,0.35)',
+            backdropFilter: 'blur(40px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+            border: '0.5px solid rgba(255,255,255,0.18)'
+          }}
         >
           <Globe className="size-4" />
           <span className="text-sm font-medium uppercase">{language}</span>
           <ChevronDown className="size-3 opacity-60" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[150px]">
+      <DropdownMenuContent 
+        align="end" 
+        className="min-w-[150px] border-0"
+        style={{ 
+          color: 'rgba(255,255,255,0.95)',
+          background: 'rgba(60,60,60,0.35)',
+          backdropFilter: 'blur(40px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+          boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+          border: '0.5px solid rgba(255,255,255,0.18)'
+        }}
+      >
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
