@@ -94,10 +94,11 @@ export function ProjectCard({
           duration: 0.3
         }}>
               <span 
-                className="capitalize px-3 py-1 rounded-full text-sm font-medium shadow-lg backdrop-blur-md bg-white/20 text-white border border-white/30"
+                className="capitalize px-3 py-1.5 rounded-full text-sm font-medium text-white/95 backdrop-blur-xl border border-white/20"
                 style={{ 
-                  textShadow: '0.4px 0.4px 0 #000, -0.4px -0.4px 0 #000, 0.4px -0.4px 0 #000, -0.4px 0.4px 0 #000',
-                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                  textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -1px 1px rgba(0,0,0,0.05)'
                 }}
               >
                 {categoryLabels[project.category]}
