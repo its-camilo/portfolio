@@ -25,7 +25,7 @@ export function CategoryFilter({
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+    <div className="flex flex-wrap justify-center gap-3">
       {allCategories.map((category, index) => {
         const isActive = activeCategory === category.id;
         
@@ -34,22 +34,25 @@ export function CategoryFilter({
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
             className={cn(
-              'relative px-5 py-2 text-sm font-medium tracking-wide rounded-full transition-all duration-300',
+              'relative px-6 py-2.5 text-sm font-medium tracking-wide rounded-full transition-all duration-300',
               isActive
-                ? 'text-primary-foreground shadow-lg'
-                : 'text-muted-foreground hover:text-foreground bg-secondary/50 hover:bg-secondary border border-border/50 hover:border-border'
+                ? 'text-primary-foreground shadow-lg shadow-primary/25'
+                : 'text-muted-foreground hover:text-primary bg-card hover:bg-accent border border-border hover:border-primary/30'
             )}
+            style={{
+              boxShadow: isActive ? '0 4px 14px 0 hsl(211 100% 50% / 0.25)' : undefined
+            }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
           >
-            {/* Active background pill */}
+            {/* Active background pill with gradient */}
             {isActive && (
               <motion.div
                 layoutId="activeCategory"
-                className="absolute inset-0 bg-primary rounded-full"
+                className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full"
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
