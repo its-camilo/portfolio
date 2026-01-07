@@ -27,6 +27,7 @@ export interface Project {
   playStoreUrl?: string;
   itchUrl?: string;
   coverImage: string;
+  hoverImages?: string[];
   slug: string;
   // Optional fields for compatibility
   year?: string;
