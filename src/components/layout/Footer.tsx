@@ -70,7 +70,7 @@ export function Footer() {
               Connect
             </h4>
             <div className="flex items-center gap-2">
-              {socialLinks.filter(link => link.show).map((link, index) => <a key={index} href={link.href} target="_blank" rel="noopener noreferrer" className="size-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-all duration-300" aria-label={link.label}>
+              {socialLinks.filter(link => link.show).map((link, index) => <a key={index} href={link.href} target="_blank" rel="noopener noreferrer" className="size-10 rounded-full flex items-center justify-center text-muted-foreground backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:text-primary hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300" aria-label={link.label}>
                   <link.icon className="size-4" />
                 </a>)}
             </div>
@@ -82,7 +82,7 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} {developerInfo.name}. All rights reserved.
           </p>
-          {developerInfo.cvUrl && developerInfo.cvUrl !== '#' && <a href={developerInfo.cvUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
+          {developerInfo.cvUrl && developerInfo.cvUrl !== '#' && <a href={developerInfo.cvUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300">
               <FileText className="size-4" />
               <span>{t('common.viewCV')}</span>
             </a>}

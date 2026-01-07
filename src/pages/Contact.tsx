@@ -128,7 +128,7 @@ export default function Contact() {
                         href={developerInfo.socialLinks.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
                       >
                         <Github className="size-4" />
                         GitHub
@@ -139,7 +139,7 @@ export default function Contact() {
                         href={developerInfo.socialLinks.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
                       >
                         <Linkedin className="size-4" />
                         LinkedIn
@@ -150,7 +150,7 @@ export default function Contact() {
                         href={developerInfo.socialLinks.itchio}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
                       >
                         <ExternalLink className="size-4" />
                         Itch.io
@@ -161,7 +161,7 @@ export default function Contact() {
                         href={developerInfo.socialLinks.linktree}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
                       >
                         <ExternalLink className="size-4" />
                         Linktree
@@ -172,7 +172,7 @@ export default function Contact() {
                         href={developerInfo.socialLinks.googlePlay}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
                       >
                         <ExternalLink className="size-4" />
                         Google Play
@@ -183,7 +183,7 @@ export default function Contact() {
                         href={developerInfo.cvUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-sm hover:bg-accent transition-colors text-sm font-light"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
                       >
                         <FileText className="size-4" />
                         {t('about.viewCV')}
