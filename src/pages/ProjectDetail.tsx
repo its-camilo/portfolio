@@ -112,7 +112,7 @@ export default function ProjectDetail() {
             </div>
 
             {/* Project Image Carousel */}
-            <div className="flex justify-center">
+            <div className="flex justify-start">
               <motion.div
                 className={`relative w-1/3 overflow-hidden rounded-xl bg-muted`}
                 initial={{ opacity: 0, scale: 0.98 }}
