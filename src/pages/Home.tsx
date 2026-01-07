@@ -66,9 +66,9 @@ export default function Home() {
                 {t('developer.education.university')} • {t('developer.education.degree')}
               </motion.p>
 
-              {/* Social Links */}
+              {/* Social Links - Material UI style */}
               <motion.div
-                className="flex flex-wrap items-center justify-center gap-3 pt-4"
+                className="flex flex-wrap items-center justify-center gap-3 pt-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -78,9 +78,9 @@ export default function Home() {
                     href={developerInfo.socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-border rounded-full hover:border-primary/50 hover:bg-accent hover:shadow-md transition-all duration-300 text-sm font-medium"
                   >
-                    <Github className="size-4" />
+                    <Github className="size-4 text-primary" />
                     GitHub
                   </a>
                 )}
@@ -89,7 +89,7 @@ export default function Home() {
                     href={developerInfo.cvUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-full shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 text-sm font-medium"
                   >
                     <FileText className="size-4" />
                     {t('common.viewCV')}
@@ -100,9 +100,9 @@ export default function Home() {
                     href={developerInfo.socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-border rounded-full hover:border-primary/50 hover:bg-accent hover:shadow-md transition-all duration-300 text-sm font-medium"
                   >
-                    <Linkedin className="size-4" />
+                    <Linkedin className="size-4 text-primary" />
                     LinkedIn
                   </a>
                 )}
@@ -111,9 +111,9 @@ export default function Home() {
                     href={developerInfo.socialLinks.googlePlay}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-border rounded-full hover:border-primary/50 hover:bg-accent hover:shadow-md transition-all duration-300 text-sm font-medium"
                   >
-                    <ExternalLink className="size-4" />
+                    <ExternalLink className="size-4 text-primary" />
                     Google Play
                   </a>
                 )}
@@ -122,9 +122,9 @@ export default function Home() {
                     href={developerInfo.socialLinks.linktree}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-border rounded-full hover:border-primary/50 hover:bg-accent hover:shadow-md transition-all duration-300 text-sm font-medium"
                   >
-                    <ExternalLink className="size-4" />
+                    <ExternalLink className="size-4 text-primary" />
                     Linktree
                   </a>
                 )}
@@ -133,9 +133,9 @@ export default function Home() {
                     href={developerInfo.socialLinks.itchio}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-card border border-border rounded-full hover:border-primary/50 hover:bg-accent hover:shadow-md transition-all duration-300 text-sm font-medium"
                   >
-                    <ExternalLink className="size-4" />
+                    <ExternalLink className="size-4 text-primary" />
                     Itch.io
                   </a>
                 )}
