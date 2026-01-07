@@ -2,6 +2,9 @@ import type { Project, ProjectCategory } from '@/types';
 import dungeonEscapeImg from '@/assets/dungeon-escape.png';
 import ecommerceImg from '@/assets/ecommerce.png';
 import promediosUnalImg from '@/assets/promedios-unal.jpg';
+import scheduleGenerator0 from '@/assets/schedule-generator-0.png';
+import scheduleGenerator1 from '@/assets/schedule-generator-1.png';
+import scheduleGenerator2 from '@/assets/schedule-generator-2.png';
 
 export const projects: Project[] = [
   {
@@ -47,7 +50,8 @@ export const projects: Project[] = [
     descriptionEs: 'Una aplicación web de página única diseñada para ayudar a estudiantes universitarios a generar horarios personalizados basados en sus cursos, grupos y prioridades. Todo funciona en el navegador, sin instalación ni cuentas requeridas.',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     repoUrl: 'https://github.com/its-camilo/schedule-generator',
-    coverImage: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
+    coverImage: scheduleGenerator0,
+    hoverImages: [scheduleGenerator0, scheduleGenerator1, scheduleGenerator2],
     slug: 'schedule-generator'
   },
   {
