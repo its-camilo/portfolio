@@ -73,15 +73,38 @@ export function ProjectCard({
           {/* Loading placeholder */}
           {!isLoaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
           
-          <motion.img key={currentImage} src={currentImage} alt={project.title} className={cn('absolute inset-0 w-full h-full object-cover', isLoaded ? 'opacity-100' : 'opacity-0')} initial={hasHoverImages && isHovered ? {
-          opacity: 0
-        } : false} animate={{
-          opacity: isLoaded ? 1 : 0,
-          scale: isHovered ? 1.1 : 1
-        }} transition={{
-          duration: 0.6,
-          ease: "easeOut"
-        }} loading={index < 6 ? 'eager' : 'lazy'} onLoad={() => setIsLoaded(true)} />
+          {/* Blurred background layer for images that don't fill container */}
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{
+              backgroundImage: `url(${currentImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(20px) brightness(0.7)',
+              transform: 'scale(1.1)',
+            }}
+          />
+          
+          <motion.img 
+            key={currentImage} 
+            src={currentImage} 
+            alt={project.title} 
+            className={cn(
+              'absolute inset-0 w-full h-full object-contain z-10',
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            )} 
+            initial={hasHoverImages && isHovered ? { opacity: 0 } : false} 
+            animate={{
+              opacity: isLoaded ? 1 : 0,
+              scale: isHovered ? 1.05 : 1
+            }} 
+            transition={{
+              duration: 0.6,
+              ease: "easeOut"
+            }} 
+            loading={index < 6 ? 'eager' : 'lazy'} 
+            onLoad={() => setIsLoaded(true)} 
+          />
           
           {/* Category badge - visible by default, hidden on hover */}
           {showCategory && <motion.div className="absolute top-4 left-4 z-10" initial={{
