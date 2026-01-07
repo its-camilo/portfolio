@@ -149,7 +149,7 @@ export default function ProjectDetail() {
                     }}
                     aria-label="Previous image"
                   >
-                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(1px 0 0 rgba(0,0,0,0.8)) drop-shadow(-1px 0 0 rgba(0,0,0,0.8)) drop-shadow(0 1px 0 rgba(0,0,0,0.8)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8))' }} />
+                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
                   </button>
                   <button
                     onClick={nextImage}
@@ -162,7 +162,7 @@ export default function ProjectDetail() {
                     }}
                     aria-label="Next image"
                   >
-                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(1px 0 0 rgba(0,0,0,0.8)) drop-shadow(-1px 0 0 rgba(0,0,0,0.8)) drop-shadow(0 1px 0 rgba(0,0,0,0.8)) drop-shadow(0 -1px 0 rgba(0,0,0,0.8))' }} />
+                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
                   </button>
                 </>
               )}
