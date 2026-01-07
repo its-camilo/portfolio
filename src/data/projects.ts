@@ -1,5 +1,6 @@
 import type { Project, ProjectCategory } from '@/types';
 import dungeonEscapeImg from '@/assets/dungeon-escape.png';
+import ecommerceImg from '@/assets/ecommerce.png';
 
 export const projects: Project[] = [
   {
@@ -11,7 +12,7 @@ export const projects: Project[] = [
     technologies: ['JavaScript', 'HTML', 'CSS'],
     repoUrl: 'https://github.com/its-camilo/ecommerce',
     playStoreUrl: 'https://play.google.com/store',
-    coverImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
+    coverImage: ecommerceImg,
     slug: 'ecommerce'
   },
   {
