@@ -112,80 +112,82 @@ export default function ProjectDetail() {
             </div>
 
             {/* Project Image Carousel */}
-            <div className="flex justify-center">
-              <motion.div
-                className={`relative w-1/3 overflow-hidden rounded-xl bg-muted`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImageIndex}
-                  src={images[currentImageIndex]}
-                  alt={`${title} - ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                  fetchPriority="high"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </AnimatePresence>
+            <div className="space-y-4">
+              <div className="flex justify-start">
+                <motion.div
+                  className={`relative w-1/3 overflow-hidden rounded-xl bg-muted`}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
+                >
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImageIndex}
+                    src={images[currentImageIndex]}
+                    alt={`${title} - ${currentImageIndex + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    fetchPriority="high"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </AnimatePresence>
 
-              {/* Navigation Arrows */}
-              {hasMultipleImages && (
-                <>
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
-                    }}
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
-                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
-                    }}
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
-                  </button>
-                </>
-              )}
+                {/* Navigation Arrows */}
+                {hasMultipleImages && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
+                      }}
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)'
+                      }}
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))' }} />
+                    </button>
+                  </>
+                )}
+                </motion.div>
+              </div>
 
-              {/* Indicator Dots */}
+              {/* Indicator Dots - Centered */}
               {hasMultipleImages && (
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="flex justify-center gap-2">
                   {images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
                         index === currentImageIndex
-                          ? 'bg-white w-4'
-                          : 'bg-white/50 hover:bg-white/70'
+                          ? 'bg-foreground w-4'
+                          : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
                       }`}
                       aria-label={`Go to image ${index + 1}`}
                     />
                   ))}
                 </div>
               )}
-              </motion.div>
             </div>
 
             {/* Technologies */}
