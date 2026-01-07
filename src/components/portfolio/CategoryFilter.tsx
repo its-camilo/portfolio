@@ -25,7 +25,7 @@ export function CategoryFilter({
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-2">
+    <div className="flex flex-wrap justify-center gap-2 p-1">
       {allCategories.map((category, index) => {
         const isActive = activeCategory === category.id;
         
@@ -34,29 +34,55 @@ export function CategoryFilter({
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
             className={cn(
-              'relative px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300',
+              'relative px-5 py-2.5 text-sm font-medium rounded-full transition-colors duration-200',
               isActive
-                ? 'text-primary-foreground'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                ? 'text-white'
+                : 'text-muted-foreground hover:text-foreground'
             )}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            whileHover={{ scale: isActive ? 1 : 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: isActive ? 1 : 1.02 }}
+            whileTap={{ scale: 0.97 }}
           >
-            {/* Active background with gradient */}
+            {/* Hover preview indicator */}
+            {!isActive && (
+              <motion.div
+                className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-200"
+                style={{
+                  background: 'hsl(var(--primary) / 0.1)',
+                }}
+              />
+            )}
+            
+            {/* Active liquid glass indicator */}
             {isActive && (
               <motion.div
-                layoutId="activeCategory"
-                className="absolute inset-0 rounded-full shadow-lg"
-                style={{ background: 'var(--gradient-primary)' }}
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                layoutId="activeCategoryLiquid"
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: 'linear-gradient(135deg, hsl(211 100% 50% / 0.95), hsl(221 100% 60% / 0.9))',
+                  backdropFilter: 'blur(12px) saturate(180%)',
+                  boxShadow: `
+                    0 4px 24px -4px hsl(211 100% 50% / 0.5),
+                    0 8px 32px -8px hsl(211 100% 40% / 0.3),
+                    inset 0 1px 2px hsl(0 0% 100% / 0.3),
+                    inset 0 -1px 2px hsl(211 100% 30% / 0.2)
+                  `,
+                  border: '1px solid hsl(0 0% 100% / 0.25)',
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 300, 
+                  damping: 25,
+                  mass: 1.2
+                }}
+                initial={false}
               />
             )}
             
             {/* Text */}
-            <span className="relative z-10">{category.label}</span>
+            <span className="relative z-10 drop-shadow-sm">{category.label}</span>
           </motion.button>
         );
       })}
