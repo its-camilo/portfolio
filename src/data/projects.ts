@@ -1,4 +1,5 @@
 import type { Project, ProjectCategory } from '@/types';
+import dungeonEscapeImg from '@/assets/dungeon-escape.png';
 
 export const projects: Project[] = [
   {
@@ -55,7 +56,7 @@ export const projects: Project[] = [
     descriptionEs: '¿Puedes derrotar a los monstruos, recolectar los diamantes y escapar antes de que sea demasiado tarde? ¡La mazmorra te espera! Hecho con Unity y C#.',
     technologies: ['Unity', 'C#'],
     repoUrl: 'https://github.com/its-camilo/dungeon-escape',
-    coverImage: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=600&fit=crop',
+    coverImage: dungeonEscapeImg,
     slug: 'dungeon-escape'
   },
   {
