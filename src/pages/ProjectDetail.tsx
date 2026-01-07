@@ -37,7 +37,7 @@ export default function ProjectDetail() {
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [hasMultipleImages, images.length, isHovering]);
