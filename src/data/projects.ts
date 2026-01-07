@@ -11,6 +11,10 @@ import clock2 from '@/assets/clock-2.png';
 import clock3 from '@/assets/clock-3.png';
 import clock4 from '@/assets/clock-4.png';
 import marsMarineImg from '@/assets/mars-marine.png';
+import moodpress0 from '@/assets/moodpress-0.png';
+import moodpress1 from '@/assets/moodpress-1.png';
+import moodpress2 from '@/assets/moodpress-2.png';
+import moodpress3 from '@/assets/moodpress-3.png';
 
 export const projects: Project[] = [
   {
@@ -44,7 +48,8 @@ export const projects: Project[] = [
     descriptionEs: 'Una aplicación de bienestar para el seguimiento diario del estado de ánimo que identifica patrones y proporciona consejos personalizados de salud mental. Hecho como proyecto en equipo con C#.',
     technologies: ['C#', '.NET'],
     repoUrl: 'https://github.com/its-camilo/moodpress',
-    coverImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+    coverImage: moodpress0,
+    hoverImages: [moodpress0, moodpress1, moodpress2, moodpress3],
     slug: 'moodpress'
   },
   {
