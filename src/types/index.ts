@@ -29,6 +29,7 @@ export interface Project {
   coverImage: string;
   hoverImages?: string[];
   slug: string;
+  aspectRatio?: AspectRatio;
   // Optional fields for compatibility
   year?: string;
   location?: string;

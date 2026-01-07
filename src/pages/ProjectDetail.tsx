@@ -24,6 +24,19 @@ export default function ProjectDetail() {
   const description = getLocalizedDescription(project, language);
   const categoryKey = `category.${project.category}` as const;
 
+  // Map aspectRatio to CSS class
+  const getAspectRatioClass = () => {
+    switch (project.aspectRatio) {
+      case 'portrait':
+        return 'aspect-[3/4]';
+      case 'square':
+        return 'aspect-square';
+      case 'landscape':
+      default:
+        return 'aspect-video';
+    }
+  };
+
   return (
     <>
       <SEOHead
@@ -33,25 +46,7 @@ export default function ProjectDetail() {
         type="article"
       />
       
-      <div className="min-h-screen">
-        {/* Hero Image - 70vh */}
-        <motion.div
-          className="relative w-full h-[70vh] overflow-hidden bg-muted"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <img
-            src={project.coverImage}
-            alt={title}
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-          {/* Gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-        </motion.div>
-
+      <div className="min-h-screen pt-24">
         {/* Project Info Section */}
         <section className="max-w-4xl mx-auto px-6 lg:px-8 py-12 md:py-16">
           <motion.div
@@ -89,6 +84,22 @@ export default function ProjectDetail() {
                 {description}
               </p>
             </div>
+
+            {/* Project Image - Between Description and Technologies */}
+            <motion.div
+              className={`relative w-full overflow-hidden rounded-xl bg-muted ${getAspectRatioClass()}`}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img
+                src={project.coverImage}
+                alt={title}
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </motion.div>
 
             {/* Technologies */}
             <div className="space-y-4">
