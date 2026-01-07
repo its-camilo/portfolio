@@ -16,7 +16,7 @@ export default function ProjectDetail() {
   const { language, t } = useLanguage();
   const project = slug ? getProjectBySlug(slug) : undefined;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+  const [isHovering, setIsHovering] = useState(false);
 
   // 404 if project not found
   if (!project) {
@@ -31,16 +31,16 @@ export default function ProjectDetail() {
   const hasMultipleImages = project.hoverImages && project.hoverImages.length > 1;
   const images = hasMultipleImages ? project.hoverImages! : [project.coverImage];
 
-  // Auto-advance carousel always
+  // Auto-advance carousel only when hovering
   useEffect(() => {
-    if (!hasMultipleImages) return;
+    if (!hasMultipleImages || !isHovering) return;
     
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [hasMultipleImages, images.length]);
+  }, [hasMultipleImages, images.length, isHovering]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
@@ -112,71 +112,73 @@ export default function ProjectDetail() {
             </div>
 
             {/* Project Image Carousel */}
-            <div className="space-y-4">
-              <div className="relative w-1/3">
-                <div className="overflow-hidden rounded-xl bg-muted">
-                  <div 
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-                  >
-                    {images.map((image, index) => (
-                      <img
-                        key={index}
-                        src={image}
-                        alt={`${title} - ${index + 1}`}
-                        className="w-full h-full object-cover flex-shrink-0"
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    ))}
-                  </div>
+            <div 
+              className="relative w-1/3"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              <div className="overflow-hidden rounded-xl bg-muted">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                >
+                  {images.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`${title} - ${index + 1}`}
+                      className="w-full h-full object-cover flex-shrink-0"
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
+                  ))}
                 </div>
-
-                {/* Navigation Arrows - Inside image */}
-                {hasMultipleImages && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        backdropFilter: 'blur(20px)',
-                        WebkitBackdropFilter: 'blur(20px)',
-                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                        border: '1px solid rgba(255, 255, 255, 0.18)'
-                      }}
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        backdropFilter: 'blur(20px)',
-                        WebkitBackdropFilter: 'blur(20px)',
-                        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
-                        border: '1px solid rgba(255, 255, 255, 0.18)'
-                      }}
-                      aria-label="Next image"
-                    >
-                      <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
-                    </button>
-                  </>
-                )}
               </div>
 
-              {/* Indicator Dots - Centered on page */}
+              {/* Navigation Arrows - Inside image at middle height */}
               {hasMultipleImages && (
-                <div className="flex justify-center gap-2">
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+                      border: '1px solid rgba(255, 255, 255, 0.18)'
+                    }}
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full transition-all duration-300 hover:scale-110 z-10"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                      boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
+                      border: '1px solid rgba(255, 255, 255, 0.18)'
+                    }}
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="size-5 text-white" style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.5))' }} />
+                  </button>
+                </>
+              )}
+
+              {/* Indicator Dots - Centered inside image */}
+              {hasMultipleImages && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                   {images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`h-2 rounded-full transition-all duration-300 ${
                         index === currentImageIndex
-                          ? 'bg-foreground w-4'
-                          : 'bg-muted-foreground/50 hover:bg-muted-foreground/70 w-2'
+                          ? 'bg-white w-4'
+                          : 'bg-white/50 hover:bg-white/70 w-2'
                       }`}
                       aria-label={`Go to image ${index + 1}`}
                     />
