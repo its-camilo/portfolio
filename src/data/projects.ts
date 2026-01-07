@@ -91,6 +91,13 @@ export const projects: Project[] = [
     technologies: ['C++', 'Arduino', 'ThingSpeak'],
     repoUrl: 'https://github.com/its-camilo/clock',
     coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
+    hoverImages: [
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1501139083538-0139583c060f?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1524567248408-cbfd37e65e2d?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800&h=600&fit=crop'
+    ],
     slug: 'clock'
   },
   {
