@@ -63,7 +63,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                {developerInfo.education.university} • {developerInfo.education.degree}
+                {t('developer.education.university')} • {t('developer.education.degree')}
               </motion.p>
 
               {/* Social Links */}
@@ -89,10 +89,10 @@ export default function Home() {
                     href={developerInfo.cvUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 border border-border rounded-full hover:bg-accent transition-colors"
-                    aria-label="CV"
+                    className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-full hover:bg-accent transition-colors text-sm font-light"
                   >
-                    <FileText className="size-5" />
+                    <FileText className="size-4" />
+                    {t('about.viewCV')}
                   </a>
                 )}
                 {developerInfo.socialLinks.googlePlay && (
