@@ -23,7 +23,7 @@ export default function Contact() {
         {/* Global Mesh Background */}
         <div className="fixed inset-0 bg-mesh -z-10" />
         {/* Hero Section */}
-        <section className="py-24 md:py-32 px-6 lg:px-8 border-b border-border">
+        <section className="py-12 md:py-16 px-6 lg:px-8 border-b border-border">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <motion.div
               initial={{ opacity: 0.8, y: 10 }}
@@ -41,7 +41,7 @@ export default function Contact() {
         </section>
 
         {/* Main Content */}
-        <section className="py-16 md:py-24 px-6 lg:px-8">
+        <section className="py-12 md:py-16 px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
               {/* Contact Form */}
@@ -197,7 +197,7 @@ export default function Contact() {
         </section>
 
         {/* Bottom spacing */}
-        <div className="h-16" />
+        <div className="h-8" />
       </div>
     </>
   );

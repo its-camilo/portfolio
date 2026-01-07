@@ -29,7 +29,7 @@ export default function Portfolio() {
         {/* Global Mesh Background */}
         <div className="fixed inset-0 bg-mesh -z-10" />
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 px-6 lg:px-8 border-b border-border">
+        <section className="relative py-12 md:py-16 px-6 lg:px-8 border-b border-border">
           <div className="max-w-7xl mx-auto text-center space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export default function Portfolio() {
         </section>
 
         {/* Bottom spacing */}
-        <div className="h-24" />
+        <div className="h-12" />
       </div>
     </>
   );
