@@ -28,6 +28,8 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.title': 'Projects',
     'portfolio.subtitle': 'Portfolio',
     'portfolio.all': 'All',
+    'portfolio.description': 'A collection of video games, web applications, and more',
+    'portfolio.noProjects': 'No projects found in this category.',
     
     // Categories
     'category.all': 'All',
@@ -55,6 +57,11 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.sending': 'Sending...',
     'contact.success': 'Message sent successfully!',
     'contact.socialLinks': 'Social Links',
+    'contact.findMe': 'Find me on these platforms or reach out directly.',
+    
+    // Developer info
+    'developer.title': 'Student | Junior Game Developer',
+    'developer.biography': 'My name is Camilo. I have experience programming video game mechanics and systems, as well as developing full-stack web applications. I am proficient in using various design patterns, such as the singleton pattern and object-oriented programming.\n\nI am passionate about creating interactive experiences that engage users, whether through immersive video games or intuitive web applications. My background in computer science gives me a solid foundation in algorithms, data structures, and software architecture.',
     
     // Common
     'common.repo': 'Repo',
@@ -78,6 +85,8 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.title': 'Proyectos',
     'portfolio.subtitle': 'Portafolio',
     'portfolio.all': 'Todos',
+    'portfolio.description': 'Una colección de videojuegos, aplicaciones web y más',
+    'portfolio.noProjects': 'No se encontraron proyectos en esta categoría.',
     
     // Categories
     'category.all': 'Todos',
@@ -105,6 +114,11 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.sending': 'Enviando...',
     'contact.success': '¡Mensaje enviado exitosamente!',
     'contact.socialLinks': 'Redes Sociales',
+    'contact.findMe': 'Encuéntrame en estas plataformas o contáctame directamente.',
+    
+    // Developer info
+    'developer.title': 'Estudiante | Desarrollador de Videojuegos Junior',
+    'developer.biography': 'Mi nombre es Camilo. Tengo experiencia programando mecánicas y sistemas de videojuegos, así como desarrollando aplicaciones web full-stack. Soy competente en el uso de varios patrones de diseño, como el patrón singleton y programación orientada a objetos.\n\nMe apasiona crear experiencias interactivas que involucren a los usuarios, ya sea a través de videojuegos inmersivos o aplicaciones web intuitivas. Mi formación en ciencias de la computación me da una base sólida en algoritmos, estructuras de datos y arquitectura de software.',
     
     // Common
     'common.repo': 'Repo',

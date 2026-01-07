@@ -54,7 +54,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {developerInfo.title}
+                {t('developer.title')}
               </motion.p>
 
               <motion.p
@@ -152,7 +152,7 @@ export default function Home() {
                   {t('home.aboutMe')}
                 </h2>
                 <p className="text-lg font-light leading-relaxed text-muted-foreground">
-                  {developerInfo.biography.split('\n\n')[0]}
+                  {t('developer.biography').split('\n\n')[0]}
                 </p>
                 <Link
                   to="/about"
