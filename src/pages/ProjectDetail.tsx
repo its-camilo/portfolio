@@ -106,7 +106,7 @@ export default function ProjectDetail() {
 
             {/* Project Image Carousel */}
             <div 
-              className="relative w-1/3 overflow-hidden rounded-xl bg-muted"
+              className="relative w-full md:w-1/2 lg:w-1/3 overflow-hidden rounded-xl bg-muted"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
