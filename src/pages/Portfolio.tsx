@@ -47,7 +47,7 @@ export default function Portfolio() {
         </section>
 
         {/* Category Filters */}
-        <section className="py-3 px-6 lg:px-8 sticky top-16 bg-background/95 backdrop-blur-sm z-40 overflow-visible">
+        <section className="py-3 px-6 lg:px-8 border-b border-border sticky top-16 bg-background/95 backdrop-blur-sm z-40">
           <CategoryFilter
             categories={categories}
             activeCategory={activeCategory}
