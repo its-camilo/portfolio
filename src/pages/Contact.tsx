@@ -159,15 +159,13 @@ export default function Contact() {
                       </a>
                     )}
                     {developerInfo.cvUrl && (
-                      <a
-                        href={developerInfo.cvUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300"
+                      <button
+                        onClick={() => window.open(developerInfo.cvUrl, '_blank', 'noopener,noreferrer')}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-light backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300 cursor-pointer"
                       >
                         <FileText className="size-4" />
                         {t('about.viewCV')}
-                      </a>
+                      </button>
                     )}
                   </div>
                 </div>

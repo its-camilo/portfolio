@@ -120,10 +120,10 @@ export default function Home() {
               duration: 0.8,
               delay: 0.5
             }}>
-                {developerInfo.cvUrl && <a href={developerInfo.cvUrl} target="_blank" rel="noopener noreferrer" className="apple-btn inline-flex items-center gap-2">
+                {developerInfo.cvUrl && <button onClick={() => window.open(developerInfo.cvUrl, '_blank', 'noopener,noreferrer')} className="apple-btn inline-flex items-center gap-2">
                     <FileText className="size-4" />
                     {t('common.viewCV')}
-                  </a>}
+                  </button>}
                 <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-foreground font-medium transition-all duration-300 hover:scale-105" style={{
                   background: 'rgba(255, 255, 255, 0.1)',
                   backdropFilter: 'blur(20px)',
