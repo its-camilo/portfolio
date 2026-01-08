@@ -163,13 +163,15 @@ export function CategoryFilter({
                 className="absolute inset-0 rounded-full cursor-grab active:cursor-grabbing touch-none"
                 style={{
                   x: dragOffset,
-                  background: 'linear-gradient(135deg, hsl(211 100% 50%), hsl(221 100% 55%))',
+                  background: 'linear-gradient(135deg, hsl(211 100% 50% / 0.95), hsl(221 100% 60% / 0.9))',
+                  backdropFilter: 'blur(12px) saturate(180%)',
                   boxShadow: `
-                    0 0 20px 4px hsl(211 100% 50% / 0.6),
-                    0 0 40px 8px hsl(211 100% 50% / 0.4),
-                    0 0 60px 12px hsl(211 100% 50% / 0.2),
-                    inset 0 1px 1px hsl(0 0% 100% / 0.2)
+                    0 4px 24px -4px hsl(211 100% 50% / 0.5),
+                    0 8px 32px -8px hsl(211 100% 40% / 0.3),
+                    inset 0 1px 2px hsl(0 0% 100% / 0.3),
+                    inset 0 -1px 2px hsl(211 100% 30% / 0.2)
                   `,
+                  border: '1px solid hsl(0 0% 100% / 0.25)',
                 }}
                 drag="x"
                 dragConstraints={{ left: -300, right: 300 }}
