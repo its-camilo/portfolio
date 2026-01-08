@@ -139,9 +139,9 @@ export const projects: Project[] = [
 // Category labels for UI (used as fallback, prefer translations)
 export const categoryLabels: Record<ProjectCategory, string> = {
   videogames: 'Video Games',
-  web: 'Web Apps',
+  web: 'Web',
   wellness: 'Apps',
-  iot: 'IoT / Hardware'
+  iot: 'IoT'
 };
 
 // Helper function to get project by slug
