@@ -82,10 +82,10 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} {developerInfo.name}. All rights reserved.
           </p>
-          {developerInfo.cvUrl && developerInfo.cvUrl !== '#' && <a href={developerInfo.cvUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300">
+          {developerInfo.cvUrl && developerInfo.cvUrl !== '#' && <button onClick={() => window.open(developerInfo.cvUrl, '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.1)] hover:bg-white/15 hover:border-white/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300 cursor-pointer">
               <FileText className="size-4" />
               <span>{t('common.viewCV')}</span>
-            </a>}
+            </button>}
         </div>
       </div>
     </footer>;
