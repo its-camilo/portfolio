@@ -34,10 +34,10 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Categories
     'category.all': 'All',
-    'category.web': 'Web Apps',
+    'category.web': 'Web',
     'category.videogames': 'Video Games',
     'category.wellness': 'Apps',
-    'category.iot': 'IoT / Hardware',
+    'category.iot': 'IoT',
     
     // About page
     'about.title': 'About',
@@ -101,10 +101,10 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Categories
     'category.all': 'Todos',
-    'category.web': 'Web Apps',
+    'category.web': 'Web',
     'category.videogames': 'Videojuegos',
     'category.wellness': 'Apps',
-    'category.iot': 'IoT / Hardware',
+    'category.iot': 'IoT',
     
     // About page
     'about.title': 'Sobre mí',
