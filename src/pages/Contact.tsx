@@ -2,12 +2,11 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Github, Linkedin, ExternalLink, FileText } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ContactForm } from '@/components/forms/ContactForm';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
 
 /**
- * Contact page with form and social links
+ * Contact page with social links
  */
 export default function Contact() {
   const { t } = useLanguage();
@@ -42,26 +41,7 @@ export default function Contact() {
 
         {/* Main Content */}
         <section className="py-12 md:py-16 px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-              {/* Contact Form */}
-              <motion.div
-                className="space-y-6"
-                initial={{ opacity: 0.8, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="space-y-3">
-                  <h2 className="text-3xl md:text-4xl font-light tracking-wide">
-                    {t('contact.send')}
-                  </h2>
-                  <p className="text-muted-foreground font-light">
-                    {t('contact.description')}
-                  </p>
-                </div>
-
-                <ContactForm />
-              </motion.div>
+          <div className="max-w-3xl mx-auto">
 
               {/* Contact Information */}
               <motion.div
@@ -192,7 +172,6 @@ export default function Contact() {
                   </div>
                 </div>
               </motion.div>
-            </div>
           </div>
         </section>
 

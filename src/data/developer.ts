@@ -38,7 +38,7 @@ I am passionate about creating interactive experiences that engage users, whethe
     linktree: 'https://linktr.ee/camilolagos',
     itchio: 'https://camilolagos.itch.io'
   },
-  cvUrl: '#',
+  cvUrl: 'https://drive.google.com/drive/folders/10TAY8yCDxAuCCGQxvKdTVb6UMgaDsJb4?usp=drive_link',
   // Sample portrait image
   portraitImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=800&fit=crop'
 };
