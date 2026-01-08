@@ -166,8 +166,8 @@ export function CategoryFilter({
                   background: 'linear-gradient(135deg, hsl(211 100% 50% / 0.95), hsl(221 100% 60% / 0.9))',
                   backdropFilter: 'blur(12px) saturate(180%)',
                   boxShadow: `
-                    0 4px 24px -4px hsl(211 100% 50% / 0.5),
-                    0 8px 32px -8px hsl(211 100% 40% / 0.3),
+                    0 2px 12px -2px hsl(211 100% 50% / 0.4),
+                    0 4px 16px -4px hsl(211 100% 40% / 0.25),
                     inset 0 1px 2px hsl(0 0% 100% / 0.3),
                     inset 0 -1px 2px hsl(211 100% 30% / 0.2)
                   `,
