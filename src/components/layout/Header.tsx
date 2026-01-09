@@ -51,7 +51,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors duration-300">
-            <img src="/favicon.png" alt="CL Logo" className="size-8 rounded-lg" />
+            
           </Link>
 
           {/* Desktop Navigation */}
@@ -84,20 +84,14 @@ export function Header() {
             <ThemeToggle />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="size-9 rounded-full border-0"
-                  style={{
-                    color: 'rgba(255,255,255,0.95)',
-                    background: 'rgba(60,60,60,0.35)',
-                    backdropFilter: 'blur(40px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
-                    border: '0.5px solid rgba(255,255,255,0.18)'
-                  }}
-                  aria-label="Open menu"
-                >
+                <Button variant="ghost" size="icon" className="size-9 rounded-full border-0" style={{
+                color: 'rgba(255,255,255,0.95)',
+                background: 'rgba(60,60,60,0.35)',
+                backdropFilter: 'blur(40px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                border: '0.5px solid rgba(255,255,255,0.18)'
+              }} aria-label="Open menu">
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
