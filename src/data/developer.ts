@@ -33,10 +33,10 @@ I am passionate about creating interactive experiences that engage users, whethe
   email: 'contact@example.com',
   socialLinks: {
     github: 'https://github.com/its-camilo',
-    linkedin: 'https://linkedin.com/in/camilo-lagos',
-    googlePlay: 'https://play.google.com/store/apps/developer?id=CamiloLagos',
-    linktree: 'https://linktr.ee/camilolagos',
-    itchio: 'https://camilolagos.itch.io'
+    linkedin: 'https://www.linkedin.com/in/camilo-alejandro-lagos-malaver-0a363b364/',
+    googlePlay: 'https://play.google.com/store/apps/dev?id=5796610576483017103',
+    linktree: 'https://linktr.ee/its_camilo',
+    itchio: 'https://its-camilo.itch.io'
   },
   cvUrl: 'https://drive.google.com/drive/folders/10TAY8yCDxAuCCGQxvKdTVb6UMgaDsJb4?usp=drive_link',
   // Sample portrait image
