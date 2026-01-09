@@ -30,7 +30,7 @@ I am passionate about creating interactive experiences that engage users, whethe
     'GitHub'
   ],
   location: 'Colombia',
-  email: 'contact@example.com',
+  email: 'camiloalejandrolagosmalaver@gmail.com',
   socialLinks: {
     github: 'https://github.com/its-camilo',
     linkedin: 'https://www.linkedin.com/in/camilo-alejandro-lagos-malaver-0a363b364/',
