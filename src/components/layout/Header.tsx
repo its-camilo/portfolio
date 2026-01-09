@@ -50,8 +50,8 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors duration-300">
-            
+          <Link to="/" className="flex items-center gap-2 text-base font-semibold tracking-tight text-foreground hover:text-primary transition-colors duration-300">
+            <img src="/favicon.png" alt="CL Logo" className="size-8 rounded-lg" />
           </Link>
 
           {/* Desktop Navigation */}
