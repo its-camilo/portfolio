@@ -20,10 +20,10 @@ export function SEOHead({
   type = 'website'
 }: SEOHeadProps) {
   const location = useLocation();
-  
+  const siteName = "Camilo Portfolio";
   const fullTitle = title 
-    ? `${title} | ${developerInfo.name}` 
-    : `${developerInfo.name} - ${developerInfo.title}`;
+    ? `${title} | ${siteName}` 
+    : `${siteName} - ${developerInfo.title}`;
   
   const defaultDescription = developerInfo.heroIntroduction || developerInfo.biography.split('\n\n')[0];
   const fullDescription = description || defaultDescription;
@@ -58,7 +58,7 @@ export function SEOHead({
     updateMetaTag('og:type', type, true);
     updateMetaTag('og:url', fullUrl, true);
     updateMetaTag('og:image', image, true);
-    updateMetaTag('og:site_name', developerInfo.name, true);
+    updateMetaTag('og:site_name', siteName, true);
     
     // Twitter Card tags
     updateMetaTag('twitter:card', 'summary_large_image');

@@ -1,77 +1,86 @@
-# Welcome to your Lovable project
+# Developer Portfolio — Core & Code
 
-## Project info
+A high-performance, minimalist portfolio designed to showcase a multidisciplinary career spanning Web Development, Game Design, IoT, and Mobile Applications. Built with a focus on immersive interactions and seamless performance using React 18, TypeScript, and Tailwind CSS v4.
 
-**URL**: https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Overview
 
-**Use Lovable**
+This portfolio serves as a centralized hub for my professional work across diverse technical fields. Originally adapted from a high-end visual design template, it has been re-engineered into a robust platform to highlight technical complexity through a refined, polished interface.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Key Features
 
-**Use your preferred IDE**
+- **Multidisciplinary Showcase**: Specialized sections for **Web Development**, **Video Games**, **IoT**, and **Mobile Apps**.
+- **Bilingual Experience**: Full English and Spanish localization handled via a custom Context API.
+- **Dynamic Masonry Layout**: A responsive grid that gracefully displays varying project previews (UI/UX shots, gameplay clips, hardware photos).
+- **Advanced Animations**: Powered by `framer-motion` for meaningful transitions and page entry animations.
+- **Theme Perfection**: Native support for Dark/Light modes with system preference detection (`next-themes`).
+- **Performance Optimized**: Built on Vite 5 with Tailwind CSS v4 for near-instant load times.
+- **Form Integration**: Validated contact system using `react-hook-form` and `zod`.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tech Stack
 
-Follow these steps:
+- **Framework**: [React 18](https://reactjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Engine**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
+- **Motion**: [Framer Motion](https://www.framer.com/motion/)
+- **Routing**: [React Router 6](https://reactrouter.com/)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📂 Project Structure
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── layout/       # Navigation, Footer, Language/Theme controls
+│   ├── portfolio/    # Grid layouts, Project cards, Filtering logic
+│   ├── forms/        # Validated Contact forms
+│   └── ui/           # Radix-based design system components
+├── contexts/         # Language (i18n) and Theme state management
+├── data/             # Project definitions and developer biography
+├── hooks/            # Custom hooks for scroll, media queries, and state
+├── pages/            # View components (Home, Portfolio, Details)
+└── types/            # Centralized TypeScript definitions
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## ⚙️ Configuration & Data
 
-**Use GitHub Codespaces**
+The portfolio is data-driven, making it easy to update without touching core logic:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1.  **Projects**: Populate `src/data/projects.ts` with your work.
+2.  **Profile**: Update `src/data/developer.ts` with your social links and bio.
+3.  **Localization**: Add or modify translation keys in `src/contexts/LanguageContext.tsx`.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🚀 Getting Started
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```sh
+# Install dependencies
+bun install # or npm install
 
-## How can I deploy this project?
+# Start development server
+bun run dev
 
-Simply open [Lovable](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and click on Share -> Publish.
+# Build for production
+bun run build
+```
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-
-# ./tailwind-plus folder:
-
-The tailwind-plus folder contains tailwind components and themes to be used as inspiration for the project. DO NOT REMOVE THE FOLDER UNLESS SPECIFICALLY TOLD TO DO SO
+Developed with curiosity by [its-camilo](https://github.com/its-camilo)
