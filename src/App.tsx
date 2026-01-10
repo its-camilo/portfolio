@@ -1,7 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -20,8 +19,6 @@ const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-
-const queryClient = new QueryClient();
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -84,24 +81,22 @@ function AnimatedRoutes() {
 
 const App = () => (
   <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <HashRouter>
-              <SkipToContent />
-              <Layout>
-                <Suspense fallback={<LoadingFallback />}>
-                  <AnimatedRoutes />
-                </Suspense>
-              </Layout>
-            </HashRouter>
-          </TooltipProvider>
-        </LanguageProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <HashRouter>
+            <SkipToContent />
+            <Layout>
+              <Suspense fallback={<LoadingFallback />}>
+                <AnimatedRoutes />
+              </Suspense>
+            </Layout>
+          </HashRouter>
+        </TooltipProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   </ErrorBoundary>
 );
 
