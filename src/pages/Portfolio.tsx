@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { projects, getCategories, getProjectsByCategory } from '@/data/projects';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CategoryFilter } from '@/components/portfolio/CategoryFilter';
@@ -12,7 +12,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Portfolio() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('all');
+  const [isSticky, setIsSticky] = useState(false);
+  const stickyRef = useRef<HTMLElement>(null);
   const categories = getCategories();
+
+  // Detect when the category filter becomes sticky
+  useEffect(() => {
+    const stickyElement = stickyRef.current;
+    if (!stickyElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When the element is not fully visible (intersecting), it means it's sticky
+        setIsSticky(!entry.isIntersecting);
+      },
+      {
+        threshold: 1,
+        rootMargin: '-65px 0px 0px 0px' // Account for the header height (top-16 = 64px)
+      }
+    );
+
+    observer.observe(stickyElement);
+    return () => observer.disconnect();
+  }, []);
   
   const filteredProjects = useMemo(() => {
     return getProjectsByCategory(activeCategory);
@@ -47,7 +69,12 @@ export default function Portfolio() {
         </section>
 
         {/* Category Filters */}
-        <section className="py-3 px-6 lg:px-8 border-b border-border/50 sticky top-16 glass z-40">
+        <section 
+          ref={stickyRef}
+          className={`py-3 px-6 lg:px-8 border-b border-border/50 sticky top-16 z-40 transition-all duration-300 ${
+            isSticky ? 'glass' : 'bg-transparent'
+          }`}
+        >
           <CategoryFilter
             categories={categories}
             activeCategory={activeCategory}
