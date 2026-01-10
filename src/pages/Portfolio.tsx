@@ -18,22 +18,20 @@ export default function Portfolio() {
 
   // Detect when the category filter becomes sticky
   useEffect(() => {
-    const stickyElement = stickyRef.current;
-    if (!stickyElement) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When the element is not fully visible (intersecting), it means it's sticky
-        setIsSticky(!entry.isIntersecting);
-      },
-      {
-        threshold: 1,
-        rootMargin: '-65px 0px 0px 0px' // Account for the header height (top-16 = 64px)
+    const handleScroll = () => {
+      if (stickyRef.current) {
+        const { top } = stickyRef.current.getBoundingClientRect();
+        // 64 is the height of header (4rem). We use 65 to add a small buffer/tolerance.
+        // When it hits the sticky position, top will be fixed at 64.
+        setIsSticky(top <= 65);
       }
-    );
+    };
 
-    observer.observe(stickyElement);
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll);
+    // Trigger once on mount to set initial state
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
   const filteredProjects = useMemo(() => {
@@ -72,7 +70,7 @@ export default function Portfolio() {
         <section 
           ref={stickyRef}
           className={`py-3 px-6 lg:px-8 sticky top-16 z-40 transition-all duration-300 ${
-            isSticky ? 'glass border-b border-border/50' : ''
+            isSticky ? 'glass border-b border-border/50' : 'bg-transparent'
           }`}
         >
           <CategoryFilter
