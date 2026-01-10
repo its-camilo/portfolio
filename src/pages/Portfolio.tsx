@@ -71,8 +71,8 @@ export default function Portfolio() {
         {/* Category Filters */}
         <section 
           ref={stickyRef}
-          className={`py-3 px-6 lg:px-8 border-b border-border/50 sticky top-16 z-40 transition-all duration-300 ${
-            isSticky ? 'glass' : 'bg-transparent'
+          className={`py-3 px-6 lg:px-8 sticky top-16 z-40 transition-all duration-300 ${
+            isSticky ? 'glass border-b border-border/50' : ''
           }`}
         >
           <CategoryFilter
