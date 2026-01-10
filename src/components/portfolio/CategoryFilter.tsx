@@ -126,7 +126,7 @@ export function CategoryFilter({
   return (
     <div 
       ref={containerRef}
-      className="flex flex-nowrap justify-center gap-1 sm:gap-2 px-1 py-4 overflow-x-auto overflow-y-visible scrollbar-hide"
+      className="flex flex-nowrap justify-center gap-1 sm:gap-2 px-4 py-3 overflow-x-auto overflow-y-visible scrollbar-hide glass rounded-full border border-border/50 mx-auto w-fit"
     >
       {allCategories.map((category, index) => {
         const isActive = activeCategory === category.id;
