@@ -78,8 +78,12 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.navigation': 'Navigation',
-    'footer.connect': 'Connect',
+    'footer.connect': 'Social',
     'footer.rights': 'All rights reserved.',
+    
+    // Project Detail
+    'project.backToProjects': 'Back to Projects',
+    'project.viewRepo': 'View Repository',
   },
   es: {
     // Navigation
@@ -150,8 +154,12 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Footer
     'footer.navigation': 'Navegación',
-    'footer.connect': 'Conectar',
+    'footer.connect': 'Redes sociales',
     'footer.rights': 'Todos los derechos reservados.',
+    
+    // Project Detail
+    'project.backToProjects': 'Volver a Proyectos',
+    'project.viewRepo': 'Ver Repositorio',
   }
 };
 

@@ -81,7 +81,7 @@ export default function ProjectDetail() {
             >
               <ArrowLeft className="size-4" />
               <span className="text-sm font-light">
-                {language === 'es' ? 'Volver a Proyectos' : 'Back to Projects'}
+                {t('project.backToProjects')}
               </span>
             </Link>
 
@@ -156,7 +156,7 @@ export default function ProjectDetail() {
                   }}
                 >
                   <Github className="size-5" />
-                  {language === 'es' ? 'Ver Repositorio' : 'View Repository'}
+                  {t('project.viewRepo')}
                 </a>
               )}
               {project.liveUrl && (
