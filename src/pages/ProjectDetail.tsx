@@ -175,7 +175,7 @@ export default function ProjectDetail() {
                   }}
                 >
                   <ExternalLink className="size-5" />
-                  {language === 'es' ? 'Ver en Vivo' : 'View Live'}
+                  Web
                 </a>
               )}
               {project.playStoreUrl && (

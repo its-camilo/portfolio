@@ -27,7 +27,8 @@ export const projects: Project[] = [
     descriptionEs: 'Una aplicación web de comercio electrónico completa construida con JavaScript. Incluye catálogo de productos, carrito de compras y gestión de usuarios. Disponible como aplicación web y móvil en Google Play.',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     repoUrl: 'https://github.com/its-camilo/ecommerce',
-    playStoreUrl: 'https://play.google.com/store',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.itscamilo.ecommerce',
+    liveUrl: 'https://its-camilo.github.io/Ecommerce/',
     coverImage: ecommerceImg,
     slug: 'ecommerce',
     aspectRatio: 'landscape'
@@ -40,6 +41,7 @@ export const projects: Project[] = [
     descriptionEs: 'El planeta rojo es implacable, y la amenaza alienígena nunca se detiene. ¿Cuánto tiempo puedes sobrevivir? Hecho con Unreal Engine.',
     technologies: ['Unreal Engine', 'C++'],
     repoUrl: 'https://github.com/its-camilo/mars-marine',
+    itchUrl: 'https://its-camilo.itch.io/mars-marine',
     coverImage: marsMarineImg,
     slug: 'mars-marine',
     aspectRatio: 'landscape'
@@ -51,7 +53,7 @@ export const projects: Project[] = [
     description: 'A wellness application for daily mood tracking that identifies patterns and provides personalized mental health tips. Made as a team project with C#.',
     descriptionEs: 'Una aplicación de bienestar para el seguimiento diario del estado de ánimo que identifica patrones y proporciona consejos personalizados de salud mental. Hecho como proyecto en equipo con C#.',
     technologies: ['C#', '.NET'],
-    repoUrl: 'https://github.com/its-camilo/moodpress',
+    repoUrl: 'https://github.com/JohnFPy/LosInadaptados',
     coverImage: moodpress0,
     hoverImages: [moodpress0, moodpress1, moodpress2, moodpress3],
     slug: 'moodpress',
@@ -66,6 +68,7 @@ export const projects: Project[] = [
     descriptionEs: 'Una aplicación web de página única diseñada para ayudar a estudiantes universitarios a generar horarios personalizados basados en sus cursos, grupos y prioridades. Todo funciona en el navegador, sin instalación ni cuentas requeridas.',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     repoUrl: 'https://github.com/its-camilo/schedule-generator',
+    liveUrl: 'https://its-camilo.github.io/Schedule-Generator/',
     coverImage: scheduleGenerator0,
     hoverImages: [scheduleGenerator0, scheduleGenerator1, scheduleGenerator2],
     slug: 'schedule-generator',
@@ -78,7 +81,9 @@ export const projects: Project[] = [
     description: 'Can you defeat the monsters, collect the diamonds, and escape before it\'s too late? The dungeon awaits! Made with Unity and C#.',
     descriptionEs: '¿Puedes derrotar a los monstruos, recolectar los diamantes y escapar antes de que sea demasiado tarde? ¡La mazmorra te espera! Hecho con Unity y C#.',
     technologies: ['Unity', 'C#'],
-    repoUrl: 'https://github.com/its-camilo/dungeon-escape',
+    repoUrl: 'https://github.com/its-camilo/Dungeon-Scape',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.TechNestGamesStudios.DungeonEscape',
+    itchUrl: 'https://its-camilo.itch.io/dungeon-escape',
     coverImage: dungeonEscapeImg,
     slug: 'dungeon-escape',
     aspectRatio: 'landscape'
@@ -90,7 +95,8 @@ export const projects: Project[] = [
     description: 'In this exciting game, eliminate your alien rivals while moving through space and avoiding dangers. Made with Unity and C#.',
     descriptionEs: 'En este emocionante juego, elimina a tus rivales alienígenas mientras te mueves por el espacio y evitas peligros. Hecho con Unity y C#.',
     technologies: ['Unity', 'C#'],
-    repoUrl: 'https://github.com/its-camilo/space-shooter-pro',
+    repoUrl: 'https://github.com/its-camilo/Space-Shooter',
+    itchUrl: 'https://its-camilo.itch.io/space-shooter-pro',
     coverImage: spaceShooterProImg,
     slug: 'space-shooter-pro',
     aspectRatio: 'portrait'
@@ -103,7 +109,8 @@ export const projects: Project[] = [
     description: 'A website designed to help students calculate their grades, built with only JavaScript, CSS, and HTML.',
     descriptionEs: 'Un sitio web diseñado para ayudar a los estudiantes a calcular sus notas, construido solo con JavaScript, CSS y HTML.',
     technologies: ['JavaScript', 'CSS', 'HTML'],
-    repoUrl: 'https://github.com/its-camilo/promedios-unal',
+    repoUrl: 'https://github.com/promediosunal/promediosunal',
+    liveUrl: 'https://promediosunal.github.io/promediosunal/',
     coverImage: promediosUnalImg,
     slug: 'promedios-unal',
     aspectRatio: 'landscape'
@@ -130,6 +137,7 @@ export const projects: Project[] = [
     descriptionEs: 'Darren, ¿puedes pasar desapercibido y llegar a la bóveda? Un juego de sigilo donde debes evitar cámaras de seguridad y guardias. Hecho con Unity y C#.',
     technologies: ['Unity', 'C#', 'GitHub'],
     repoUrl: 'https://github.com/its-camilo/the-great-fleece',
+    itchUrl: 'https://its-camilo.itch.io/the-great-fleece',
     coverImage: theGreatFleeceImg,
     slug: 'the-great-fleece',
     aspectRatio: 'landscape'
