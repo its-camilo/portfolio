@@ -75,6 +75,11 @@ const translations: Record<Language, Record<string, string>> = {
     // Common
     'common.repo': 'Repo',
     'common.viewCV': 'View CV',
+    
+    // Footer
+    'footer.navigation': 'Navigation',
+    'footer.connect': 'Connect',
+    'footer.rights': 'All rights reserved.',
   },
   es: {
     // Navigation
@@ -142,6 +147,11 @@ const translations: Record<Language, Record<string, string>> = {
     // Common
     'common.repo': 'Repo',
     'common.viewCV': 'Ver CV',
+    
+    // Footer
+    'footer.navigation': 'Navegación',
+    'footer.connect': 'Conectar',
+    'footer.rights': 'Todos los derechos reservados.',
   }
 };
 
