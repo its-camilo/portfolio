@@ -17,6 +17,8 @@ import moodpress2 from '@/assets/moodpress-2.png';
 import moodpress3 from '@/assets/moodpress-3.png';
 import spaceShooterProImg from '@/assets/space-shooter-pro.png';
 import theGreatFleeceImg from '@/assets/the-great-fleece.png';
+import healthScope0 from '@/assets/health-scope-0.png';
+import healthScope1 from '@/assets/health-scope-1.png';
 
 export const projects: Project[] = [
   {
@@ -61,6 +63,21 @@ export const projects: Project[] = [
   },
   {
     id: '4',
+    title: 'Health Scope',
+    category: 'apps',
+    description: 'A comprehensive health and wellness application that leverages Gemini AI to provide personalized health insights. It features AI-driven analysis that provides an overall health score, general recommendations, and alopecia risk assessment.',
+    descriptionEs: 'Una aplicación integral de salud y bienestar que aprovecha la IA de Gemini para ofrecer información personalizada. Incluye un análisis de IA que determina el puntaje general de salud, recomendaciones generales y riesgo de alopecia.',
+    technologies: ['JavaScript', 'React', 'GitHub', 'Gemini AI'],
+    repoUrl: 'https://github.com/its-camilo/health-scope',
+    liveUrl: 'https://its-camilo.github.io/health-scope/',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=co.median.android.odxzdar',
+    coverImage: healthScope0,
+    hoverImages: [healthScope0, healthScope1],
+    slug: 'health-scope',
+    aspectRatio: 'portrait'
+  },
+  {
+    id: '5',
     title: 'Schedule Generator',
     titleEs: 'Generador de Horarios',
     category: 'web',
@@ -75,7 +92,7 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
-    id: '5',
+    id: '6',
     title: 'Dungeon Escape',
     category: 'videogames',
     description: 'Can you defeat the monsters, collect the diamonds, and escape before it\'s too late? The dungeon awaits! Made with Unity and C#.',
@@ -89,7 +106,7 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
-    id: '6',
+    id: '7',
     title: 'Space Shooter Pro',
     category: 'videogames',
     description: 'In this exciting game, eliminate your alien rivals while moving through space and avoiding dangers. Made with Unity and C#.',
@@ -102,7 +119,7 @@ export const projects: Project[] = [
     aspectRatio: 'portrait'
   },
   {
-    id: '7',
+    id: '8',
     title: 'Promedios Universidad Nacional',
     titleEs: 'Promedios Universidad Nacional',
     category: 'web',
@@ -116,7 +133,7 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
-    id: '8',
+    id: '9',
     title: 'Clock',
     titleEs: 'Reloj',
     category: 'iot',
@@ -130,7 +147,7 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
-    id: '9',
+    id: '10',
     title: 'The Great Fleece',
     category: 'videogames',
     description: 'Darren, can you go unnoticed and reach the vault? A stealth game where you must avoid security cameras and guards. Made with Unity and C#.',
@@ -148,7 +165,8 @@ export const projects: Project[] = [
 export const categoryLabels: Record<ProjectCategory, string> = {
   videogames: 'Video Games',
   web: 'Web',
-  wellness: 'Apps',
+  wellness: 'Wellness',
+  apps: 'Apps',
   iot: 'IoT'
 };
 

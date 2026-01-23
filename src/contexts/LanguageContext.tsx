@@ -15,7 +15,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.portfolio': 'Portfolio',
     'nav.about': 'About',
     'nav.contact': 'Contact',
-    
+
     // Home page
     'home.aboutMe': 'About Me',
     'home.learnMore': 'Learn More',
@@ -24,21 +24,22 @@ const translations: Record<Language, Record<string, string>> = {
     'home.featuredProjects': 'Featured Projects',
     'home.selectionOfWork': 'A selection of recent work',
     'home.viewAllProjects': 'View All Projects',
-    
+
     // Portfolio page
     'portfolio.title': 'Projects',
     'portfolio.subtitle': 'Portfolio',
     'portfolio.all': 'All',
     'portfolio.description': 'A collection of video games, web applications, and more',
     'portfolio.noProjects': 'No projects found in this category.',
-    
+
     // Categories
     'category.all': 'All',
     'category.web': 'Web',
     'category.videogames': 'Video Games',
-    'category.wellness': 'Apps',
+    'category.wellness': 'Wellness',
+    'category.apps': 'Apps',
     'category.iot': 'IoT',
-    
+
     // About page
     'about.title': 'About',
     'about.skills': 'Skills',
@@ -47,7 +48,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.university': 'University',
     'about.location': 'Location',
     'about.viewCV': 'View CV',
-    
+
     // Contact page
     'contact.title': 'Contact',
     'contact.subtitle': 'Get in Touch',
@@ -60,7 +61,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.success': 'Message sent successfully!',
     'contact.socialLinks': 'Social Links',
     'contact.findMe': 'Find me on these platforms or reach out directly.',
-    
+
     // Developer info
     'developer.title': 'Full Stack Developer | Junior Game Developer',
     'developer.biography': 'My name is Camilo. I have experience programming video game mechanics and systems, as well as developing full-stack web applications. I am proficient in using various design patterns, such as the singleton pattern and object-oriented programming.\n\nI am passionate about creating interactive experiences that engage users, whether through immersive video games or intuitive web applications. My background in computer science gives me a solid foundation in algorithms, data structures, and software architecture.',
@@ -71,16 +72,16 @@ const translations: Record<Language, Record<string, string>> = {
     'developer.skills.fullstack': 'Full-Stack Development',
     'developer.education.degree': 'Computer & Systems Engineering',
     'developer.education.university': 'National University of Colombia',
-    
+
     // Common
     'common.repo': 'Repo',
     'common.viewCV': 'View CV',
-    
+
     // Footer
     'footer.navigation': 'Navigation',
     'footer.connect': 'Social',
     'footer.rights': 'All rights reserved.',
-    
+
     // Project Detail
     'project.backToProjects': 'Back to Projects',
     'project.viewRepo': 'View Repository',
@@ -91,7 +92,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.portfolio': 'Portafolio',
     'nav.about': 'Sobre mí',
     'nav.contact': 'Contacto',
-    
+
     // Home page
     'home.aboutMe': 'Sobre mí',
     'home.learnMore': 'Conocer más',
@@ -100,21 +101,22 @@ const translations: Record<Language, Record<string, string>> = {
     'home.featuredProjects': 'Proyectos Destacados',
     'home.selectionOfWork': 'Una selección de trabajos recientes',
     'home.viewAllProjects': 'Ver Todos los Proyectos',
-    
+
     // Portfolio page
     'portfolio.title': 'Proyectos',
     'portfolio.subtitle': 'Portafolio',
     'portfolio.all': 'Todos',
     'portfolio.description': 'Una colección de videojuegos, aplicaciones web y más',
     'portfolio.noProjects': 'No se encontraron proyectos en esta categoría.',
-    
+
     // Categories
     'category.all': 'Todos',
     'category.web': 'Web',
     'category.videogames': 'Videojuegos',
-    'category.wellness': 'Apps',
+    'category.wellness': 'Bienestar',
+    'category.apps': 'Apps',
     'category.iot': 'IoT',
-    
+
     // About page
     'about.title': 'Sobre mí',
     'about.skills': 'Habilidades',
@@ -123,7 +125,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.university': 'Universidad',
     'about.location': 'Ubicación',
     'about.viewCV': 'Ver CV',
-    
+
     // Contact page
     'contact.title': 'Contacto',
     'contact.subtitle': 'Ponte en Contacto',
@@ -136,7 +138,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.success': '¡Mensaje enviado exitosamente!',
     'contact.socialLinks': 'Redes Sociales',
     'contact.findMe': 'Encuéntrame en estas plataformas o contáctame directamente.',
-    
+
     // Developer info
     'developer.title': 'Desarrollador Full Stack | Desarrollador de Videojuegos Junior',
     'developer.biography': 'Mi nombre es Camilo. Tengo experiencia programando mecánicas y sistemas de videojuegos, así como desarrollando aplicaciones web full-stack. Soy competente en el uso de varios patrones de diseño, como el patrón singleton y programación orientada a objetos.\n\nMe apasiona crear experiencias interactivas que involucren a los usuarios, ya sea a través de videojuegos inmersivos o aplicaciones web intuitivas. Mi formación en ciencias de la computación me da una base sólida en algoritmos, estructuras de datos y arquitectura de software.',
@@ -147,16 +149,16 @@ const translations: Record<Language, Record<string, string>> = {
     'developer.skills.fullstack': 'Desarrollo Full-Stack',
     'developer.education.degree': 'Ingeniería de Sistemas y Computación',
     'developer.education.university': 'Universidad Nacional de Colombia',
-    
+
     // Common
     'common.repo': 'Repo',
     'common.viewCV': 'Ver CV',
-    
+
     // Footer
     'footer.navigation': 'Navegación',
     'footer.connect': 'Redes sociales',
     'footer.rights': 'Todos los derechos reservados.',
-    
+
     // Project Detail
     'project.backToProjects': 'Volver a Proyectos',
     'project.viewRepo': 'Ver Repositorio',

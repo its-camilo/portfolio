@@ -27,7 +27,8 @@ I am passionate about creating interactive experiences that engage users, whethe
     'Unity',
     'Unreal Engine',
     'React',
-    'GitHub'
+    'GitHub',
+    'Gemini AI'
   ],
   location: 'Colombia',
   email: 'camiloalejandrolagosmalaver@gmail.com',
