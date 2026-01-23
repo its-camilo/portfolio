@@ -51,7 +51,7 @@ export const projects: Project[] = [
   {
     id: '3',
     title: 'MoodPress',
-    category: 'wellness',
+    category: 'apps',
     description: 'A wellness application for daily mood tracking that identifies patterns and provides personalized mental health tips. Made as a team project with C#.',
     descriptionEs: 'Una aplicación de bienestar para el seguimiento diario del estado de ánimo que identifica patrones y proporciona consejos personalizados de salud mental. Hecho como proyecto en equipo con C#.',
     technologies: ['C#', '.NET'],
@@ -165,7 +165,6 @@ export const projects: Project[] = [
 export const categoryLabels: Record<ProjectCategory, string> = {
   videogames: 'Video Games',
   web: 'Web',
-  wellness: 'Wellness',
   apps: 'Apps',
   iot: 'IoT'
 };

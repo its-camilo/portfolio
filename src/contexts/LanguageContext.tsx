@@ -36,7 +36,6 @@ const translations: Record<Language, Record<string, string>> = {
     'category.all': 'All',
     'category.web': 'Web',
     'category.videogames': 'Video Games',
-    'category.wellness': 'Wellness',
     'category.apps': 'Apps',
     'category.iot': 'IoT',
 
@@ -113,7 +112,6 @@ const translations: Record<Language, Record<string, string>> = {
     'category.all': 'Todos',
     'category.web': 'Web',
     'category.videogames': 'Videojuegos',
-    'category.wellness': 'Bienestar',
     'category.apps': 'Apps',
     'category.iot': 'IoT',
 
