@@ -19,6 +19,9 @@ import spaceShooterProImg from '@/assets/space-shooter-pro.png';
 import theGreatFleeceImg from '@/assets/the-great-fleece.png';
 import healthScope0 from '@/assets/health-scope-0.png';
 import healthScope1 from '@/assets/health-scope-1.png';
+import agenticNodes0 from '@/assets/agentic-nodes-0.png';
+import agenticNodes1 from '@/assets/agentic-nodes-1.png';
+import agenticNodes2 from '@/assets/agentic-nodes-2.png';
 
 export const projects: Project[] = [
   {
@@ -75,6 +78,20 @@ export const projects: Project[] = [
     hoverImages: [healthScope0, healthScope1],
     slug: 'health-scope',
     aspectRatio: 'portrait'
+  },
+  {
+    id: '11',
+    title: 'Agentic Nodes',
+    category: 'web',
+    description: 'AI-powered supply chain simulation platform. Describe your procurement needs in natural language and let autonomous agents discover suppliers, plan shipping routes, negotiate pricing, and build execution plans — all in real time.',
+    descriptionEs: 'Plataforma de simulación de cadena de suministro impulsada por IA. Describe tus necesidades de adquisición en lenguaje natural y deja que agentes autónomos descubran proveedores, planifiquen rutas de envío, negocien precios y construyan planes de ejecución — todo en tiempo real.',
+    technologies: ['Python', 'TypeScript', 'AI', 'GitHub'],
+    repoUrl: 'https://github.com/its-camilo/agentic-nodes',
+    liveUrl: 'https://its-camilo.github.io/agentic-nodes/',
+    coverImage: agenticNodes0,
+    hoverImages: [agenticNodes0, agenticNodes1, agenticNodes2],
+    slug: 'agentic-nodes',
+    aspectRatio: 'landscape'
   },
   {
     id: '5',
