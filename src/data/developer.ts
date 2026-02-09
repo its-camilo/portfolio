@@ -23,12 +23,14 @@ I am passionate about creating interactive experiences that engage users, whethe
     'Java',
     'C#',
     'JavaScript',
+    'TypeScript',
+    'Python',
     'C++',
     'Unity',
     'Unreal Engine',
     'React',
     'GitHub',
-    'Gemini AI'
+    'AI'
   ],
   location: 'Colombia',
   email: 'camiloalejandrolagosmalaver@gmail.com',
