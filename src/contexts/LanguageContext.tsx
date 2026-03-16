@@ -22,6 +22,7 @@ const translations: Record<Language, Record<string, string>> = {
     'home.technologies': 'Technologies',
     'home.technologiesSubtitle': 'Tools & technologies I work with',
     'home.featuredProjects': 'Featured Projects',
+    'home.experience': 'Experience',
     'home.selectionOfWork': 'A selection of recent work',
     'home.viewAllProjects': 'View All Projects',
 
@@ -73,6 +74,14 @@ const translations: Record<Language, Record<string, string>> = {
     'developer.education.degree': 'Computer & Systems Engineering',
     'developer.education.university': 'National University of Colombia',
 
+    // Experience
+    'experience.intern.title': 'Intern',
+    'experience.intern.date': 'Jul. 2024 - Jan. 2026',
+    'experience.intern.desc': 'Comprehensive academic linkage with the Department of Systems and Industrial Engineering, focused on teaching support and educational technological development.',
+    'experience.junior.title': 'Junior Software Engineer',
+    'experience.junior.date': 'Feb. 2026 - Present',
+    'experience.junior.desc': 'Junior Web Developer – Informatics Unit (FCE). Development and maintenance of internal web applications to optimize administrative and academic processes of the Faculty of Economic Sciences.',
+
     // Common
     'common.repo': 'Repo',
     'common.viewCV': 'View CV',
@@ -102,6 +111,7 @@ const translations: Record<Language, Record<string, string>> = {
     'home.technologies': 'Tecnologías',
     'home.technologiesSubtitle': 'Herramientas y tecnologías con las que trabajo',
     'home.featuredProjects': 'Proyectos Destacados',
+    'home.experience': 'Experiencia Laboral',
     'home.selectionOfWork': 'Una selección de trabajos recientes',
     'home.viewAllProjects': 'Ver Todos los Proyectos',
 
@@ -152,6 +162,14 @@ const translations: Record<Language, Record<string, string>> = {
     'developer.skills.fullstack': 'Desarrollo Full-Stack',
     'developer.education.degree': 'Ingeniería de Sistemas y Computación',
     'developer.education.university': 'Universidad Nacional de Colombia',
+
+    // Experiencia
+    'experience.intern.title': 'Becario',
+    'experience.intern.date': 'jul. 2024 - ene. 2026',
+    'experience.intern.desc': 'Vinculación académica integral con el Departamento de Ingeniería de Sistemas e Industrial, enfocada en el apoyo a la docencia y el desarrollo tecnológico educativo.',
+    'experience.junior.title': 'Ingeniero de software junior',
+    'experience.junior.date': 'feb. 2026 - actualidad',
+    'experience.junior.desc': 'Desarrollador Junior Web – Unidad de Informática (FCE) Desarrollo y mantenimiento de aplicativos web internos para optimizar procesos administrativos y académicos de la Facultad de Ciencias Económicas.',
 
     // Common
     'common.repo': 'Repo',

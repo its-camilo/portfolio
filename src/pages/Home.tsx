@@ -7,8 +7,9 @@ import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { TechBadge } from '@/components/ui/TechBadge';
 import { SEOHead } from '@/components/seo/SEOHead';
-import { ArrowRight, Github, Linkedin, FileText, ExternalLink } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, FileText, ExternalLink, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ScrollStack, { ScrollStackItem } from '@/components/ui/ScrollStack/ScrollStack';
 
 /**
  * Homepage with Apple-inspired design - Hero, Technologies, Featured Projects
@@ -192,6 +193,56 @@ export default function Home() {
                 </Link>
               </div>
             </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section className="relative py-10 md:py-12 px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <ScrollReveal>
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+                  {t('home.experience')}
+                </h2>
+              </div>
+            </ScrollReveal>
+            
+            <div className="relative min-h-[500px]">
+              <ScrollStack 
+                useWindowScroll={true} 
+                itemDistance={20} 
+                itemStackDistance={30}
+                rotationAmount={0}
+                blurAmount={2}
+                className="h-full"
+                stackPosition="40%"
+              >
+                <ScrollStackItem>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-2 text-primary font-medium">
+                      <Briefcase className="size-4" />
+                      <span className="text-sm opacity-80">{t('experience.intern.date')}</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold">{t('experience.intern.title')}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {t('experience.intern.desc')}
+                    </p>
+                  </div>
+                </ScrollStackItem>
+                <ScrollStackItem>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-2 text-primary font-medium">
+                      <Briefcase className="size-4" />
+                      <span className="text-sm opacity-80">{t('experience.junior.date')}</span>
+                    </div>
+                    <h3 className="text-2xl font-semibold">{t('experience.junior.title')}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {t('experience.junior.desc')}
+                    </p>
+                  </div>
+                </ScrollStackItem>
+              </ScrollStack>
+            </div>
           </div>
         </section>
 
