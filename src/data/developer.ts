@@ -14,6 +14,7 @@ export const developerInfo: DeveloperInfo = {
 I am passionate about creating interactive experiences that engage users, whether through immersive video games or intuitive web applications. My background in computer science gives me a solid foundation in algorithms, data structures, and software architecture.`,
   skills: [
     'Game Development',
+    'VR Development',
     'Web Development',
     'Design Patterns',
     'Object-Oriented Programming',
@@ -28,9 +29,10 @@ I am passionate about creating interactive experiences that engage users, whethe
     'C++',
     'Unity',
     'Unreal Engine',
+    'VR Development',
     'React',
     'GitHub',
-    'AI'
+    'AI Development'
   ],
   location: 'Colombia',
   email: 'camiloalejandrolagosmalaver@gmail.com',

@@ -26,6 +26,7 @@ export interface Project {
   liveUrl?: string;
   playStoreUrl?: string;
   itchUrl?: string;
+  metaStoreUrl?: string;
   coverImage: string;
   hoverImages?: string[];
   slug: string;

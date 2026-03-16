@@ -223,7 +223,7 @@ export default function Home() {
               }} viewport={{
                 once: true
               }}>
-                    <TechBadge name={tech} size="md" />
+                    <TechBadge name={t(tech)} size="md" />
                   </motion.div>)}
               </div>
             </ScrollReveal>

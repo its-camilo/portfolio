@@ -22,6 +22,12 @@ import healthScope1 from '@/assets/health-scope-1.png';
 import agenticNodes0 from '@/assets/agentic-nodes-0.png';
 import agenticNodes1 from '@/assets/agentic-nodes-1.png';
 import agenticNodes2 from '@/assets/agentic-nodes-2.png';
+import tejoStrike0 from '@/assets/tejo-strike-0.png';
+import tejoStrike1 from '@/assets/tejo-strike-1.png';
+import tejoStrike2 from '@/assets/tejo-strike-2.png';
+import tejoStrike3 from '@/assets/tejo-strike-3.png';
+
+
 
 export const projects: Project[] = [
   {
@@ -65,12 +71,26 @@ export const projects: Project[] = [
     aspectRatio: 'portrait'
   },
   {
+    id: '11',
+    title: 'Agentic Nodes',
+    category: 'web',
+    description: 'AI Development-powered supply chain simulation platform. Describe your procurement needs in natural language and let autonomous agents discover suppliers, plan shipping routes, negotiate pricing, and build execution plans — all in real time. Developed at the Hack-Nation Global AI Hackathon - 4th Edition.',
+    descriptionEs: 'Plataforma de simulación de cadena de suministro impulsada por Desarrollo AI. Describe tus necesidades de adquisición en lenguaje natural y deja que agentes autónomos descubran proveedores, planifiquen rutas de envío, negocien precios y construyan planes de ejecución — todo en tiempo real. Desarrollado en la Hack-Nation Global AI Hackaton - 4 Edicion.',
+    technologies: ['Python', 'TypeScript', 'AI Development', 'GitHub'],
+    repoUrl: 'https://github.com/its-camilo/agentic-nodes',
+    liveUrl: 'https://its-camilo.github.io/agentic-nodes/',
+    coverImage: agenticNodes0,
+    hoverImages: [agenticNodes0, agenticNodes1, agenticNodes2],
+    slug: 'agentic-nodes',
+    aspectRatio: 'landscape'
+  },
+  {
     id: '4',
     title: 'Health Scope',
     category: 'apps',
-    description: 'A comprehensive health and wellness application that leverages AI to provide personalized health insights. It features AI-driven analysis that provides an overall health score, general recommendations, and alopecia risk assessment.',
-    descriptionEs: 'Una aplicación integral de salud y bienestar que aprovecha la IA para ofrecer información personalizada. Incluye un análisis de IA que determina el puntaje general de salud, recomendaciones generales y riesgo de alopecia.',
-    technologies: ['JavaScript', 'React', 'GitHub', 'AI'],
+    description: 'A comprehensive health and wellness application that leverages AI Development to provide personalized health insights. It features AI Development-driven analysis that provides an overall health score, general recommendations, and alopecia risk assessment.',
+    descriptionEs: 'Una aplicación integral de salud y bienestar que aprovecha el Desarrollo AI para ofrecer información personalizada. Incluye un análisis de Desarrollo AI que determina el puntaje general de salud, recomendaciones generales y riesgo de alopecia.',
+    technologies: ['JavaScript', 'React', 'GitHub', 'AI Development'],
     repoUrl: 'https://github.com/its-camilo/health-scope',
     liveUrl: 'https://its-camilo.github.io/health-scope/',
     playStoreUrl: 'https://play.google.com/store/apps/details?id=co.median.android.odxzdar',
@@ -80,17 +100,18 @@ export const projects: Project[] = [
     aspectRatio: 'portrait'
   },
   {
-    id: '11',
-    title: 'Agentic Nodes',
-    category: 'web',
-    description: 'AI-powered supply chain simulation platform. Describe your procurement needs in natural language and let autonomous agents discover suppliers, plan shipping routes, negotiate pricing, and build execution plans — all in real time.',
-    descriptionEs: 'Plataforma de simulación de cadena de suministro impulsada por IA. Describe tus necesidades de adquisición en lenguaje natural y deja que agentes autónomos descubran proveedores, planifiquen rutas de envío, negocien precios y construyan planes de ejecución — todo en tiempo real.',
-    technologies: ['Python', 'TypeScript', 'AI', 'GitHub'],
-    repoUrl: 'https://github.com/its-camilo/agentic-nodes',
-    liveUrl: 'https://its-camilo.github.io/agentic-nodes/',
-    coverImage: agenticNodes0,
-    hoverImages: [agenticNodes0, agenticNodes1, agenticNodes2],
-    slug: 'agentic-nodes',
+    id: '12',
+    title: 'Tejo Strike',
+    category: 'videogames',
+    description: 'The Most Explosive Sport in the World Comes to VR! Developed for the Meta Quest.',
+    descriptionEs: '¡El deporte más explosivo del mundo llega a la VR! Desarrollado para el Meta Quest.',
+    technologies: ['C#', 'Unity', 'VR Development', 'GitHub'],
+    repoUrl: 'https://github.com/its-camilo/Tejo-VR',
+    itchUrl: 'https://its-camilo.itch.io/tejo-strike',
+    metaStoreUrl: 'https://www.meta.com/experiences/tejo-strike/26590651387187461/',
+    coverImage: tejoStrike0,
+    hoverImages: [tejoStrike0, tejoStrike1, tejoStrike2, tejoStrike3],
+    slug: 'tejo-strike',
     aspectRatio: 'landscape'
   },
   {

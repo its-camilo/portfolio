@@ -82,7 +82,7 @@ export default function About() {
                 <div className="space-y-4">
                   <h3 className="text-lg font-light tracking-wide">{t('about.skills')}</h3>
                   <div className="flex flex-wrap gap-2">
-                    {['developer.skills.gameDev', 'developer.skills.webDev', 'developer.skills.designPatterns', 'developer.skills.oop', 'developer.skills.fullstack'].map((skillKey) => (
+                    {['developer.skills.gameDev', 'developer.skills.vrDev', 'developer.skills.webDev', 'developer.skills.designPatterns', 'developer.skills.oop', 'developer.skills.fullstack'].map((skillKey) => (
                       <TechBadge key={skillKey} name={t(skillKey)} variant="outline" size="sm" />
                     ))}
                   </div>
@@ -93,7 +93,7 @@ export default function About() {
                   <h3 className="text-lg font-light tracking-wide">{t('about.technologies')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {developerInfo.technologies.map((tech) => (
-                      <TechBadge key={tech} name={tech} size="sm" />
+                      <TechBadge key={tech} name={t(tech)} size="sm" />
                     ))}
                   </div>
                 </div>

@@ -18,18 +18,9 @@ export default function ProjectDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
-  // 404 if project not found
-  if (!project) {
-    return <Navigate to="/404" replace />;
-  }
-
-  const title = getLocalizedTitle(project, language);
-  const description = getLocalizedDescription(project, language);
-  const categoryKey = `category.${project.category}` as const;
-
-  // Check if project has multiple images
-  const hasMultipleImages = project.hoverImages && project.hoverImages.length > 1;
-  const images = hasMultipleImages ? project.hoverImages! : [project.coverImage];
+  // Derived variables (handle undefined project safely)
+  const hasMultipleImages = project?.hoverImages && project.hoverImages.length > 1;
+  const images = hasMultipleImages ? project.hoverImages! : (project ? [project.coverImage] : []);
 
   // Auto-advance carousel only when hovering
   useEffect(() => {
@@ -41,6 +32,15 @@ export default function ProjectDetail() {
 
     return () => clearInterval(interval);
   }, [hasMultipleImages, images.length, isHovering]);
+
+  // 404 if project not found
+  if (!project) {
+    return <Navigate to="/404" replace />;
+  }
+
+  const title = getLocalizedTitle(project, language);
+  const description = getLocalizedDescription(project, language);
+  const categoryKey = `category.${project.category}` as const;
 
 
   // Map aspectRatio to CSS class
@@ -133,7 +133,7 @@ export default function ProjectDetail() {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <TechBadge key={tech} name={tech} />
+                  <TechBadge key={tech} name={t(tech)} />
                 ))}
               </div>
             </div>
@@ -195,6 +195,25 @@ export default function ProjectDetail() {
                 >
                   <ExternalLink className="size-5" />
                   Google Play
+                </a>
+              )}
+              {project.metaStoreUrl && (
+                <a
+                  href={project.metaStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
+                >
+                  <ExternalLink className="size-5" />
+                  Meta Store
                 </a>
               )}
               {project.itchUrl && (
