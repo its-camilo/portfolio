@@ -22,9 +22,6 @@ export default function Home() {
       <SEOHead title={t('nav.home')} description={`${developerInfo.name} - ${developerInfo.title}. ${developerInfo.biography.split('\n\n')[0]}`} />
       
       <div className="min-h-screen relative">
-        {/* Global Background Mesh - Applies to entire page */}
-        <div className="fixed inset-0 bg-mesh pointer-events-none" />
-        
         {/* Hero Section - Apple Style */}
         <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
           

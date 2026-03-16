@@ -46,8 +46,6 @@ export default function Portfolio() {
       />
       
       <div className="min-h-screen relative">
-        {/* Global Mesh Background */}
-        <div className="fixed inset-0 bg-mesh -z-10" />
         {/* Hero Section */}
         <section className="relative py-12 md:py-16 px-6 lg:px-8 border-b border-border">
           <div className="max-w-7xl mx-auto text-center space-y-6">
