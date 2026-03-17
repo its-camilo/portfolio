@@ -3,8 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import Aurora from '@/components/ui/Aurora/Aurora';
-import Lenis from 'lenis';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,36 +17,10 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const isHomepage = location.pathname === '/';
-  const lenisRef = useRef<Lenis | null>(null);
 
+  // Resets scroll on route change
   useEffect(() => {
-    // Initialize Lenis globally for consistent scroll experience
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      touchMultiplier: 2,
-    });
-
-    lenisRef.current = lenis;
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
-  // Update scroll on route change
-  useEffect(() => {
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(0, { immediate: true });
-    }
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (

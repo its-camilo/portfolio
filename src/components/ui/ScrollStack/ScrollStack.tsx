@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef, useCallback } from 'react';
 import type { ReactNode } from 'react';
-import Lenis from 'lenis';
 import { useIsMobile } from '@/hooks/use-mobile';
 import './ScrollStack.css';
 
@@ -48,7 +47,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const isMobile = useIsMobile();
   const stackCompletedRef = useRef(false);
   const animationFrameRef = useRef<number | null>(null);
-  const lenisRef = useRef<Lenis | null>(null);
   const cardsRef = useRef<HTMLElement[]>([]);
   const lastTransformsRef = useRef(new Map<number, { translateY: number; scale: number; rotation: number; blur: number }>());
   const cardOffsetsRef = useRef<number[]>([]);
@@ -193,7 +191,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     baseScale,
     rotationAmount,
     blurAmount,
-    useWindowScroll,
     onStackComplete,
     calculateProgress,
     parsePercentage,
@@ -205,49 +202,19 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     updateCardTransforms();
   }, [updateCardTransforms]);
 
-  const setupLenis = useCallback(() => {
-    // If using window scroll, we now rely on the global Lenis in Layout
-    // and standard scroll events for transform updates to avoid conflicts.
-    if (useWindowScroll) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      
-      const raf = () => {
-        updateCardTransforms();
-        animationFrameRef.current = requestAnimationFrame(raf);
-      };
+  const setupScrollListener = useCallback(() => {
+    const scroller = useWindowScroll ? window : scrollerRef.current;
+    if (!scroller) return;
+
+    scroller.addEventListener('scroll', handleScroll, { passive: true });
+    
+    const raf = () => {
+      updateCardTransforms();
       animationFrameRef.current = requestAnimationFrame(raf);
-      
-      return null;
-    } else {
-      const scroller = scrollerRef.current;
-      if (!scroller) return;
-
-      const lenis = new Lenis({
-        wrapper: scroller,
-        content: scroller.querySelector('.scroll-stack-inner') as HTMLElement,
-        duration: 1.2,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        touchMultiplier: 2,
-        infinite: false,
-        gestureOrientation: 'vertical',
-        wheelMultiplier: 1,
-        lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075
-      });
-
-      lenis.on('scroll', handleScroll);
-
-      const raf = (time: number) => {
-        lenis.raf(time);
-        animationFrameRef.current = requestAnimationFrame(raf);
-      };
-      animationFrameRef.current = requestAnimationFrame(raf);
-
-      lenisRef.current = lenis;
-      return lenis;
-    }
+    };
+    animationFrameRef.current = requestAnimationFrame(raf);
+    
+    return null;
   }, [handleScroll, useWindowScroll, updateCardTransforms]);
 
   const updateOffsets = useCallback(() => {
@@ -319,16 +286,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     updateOffsets();
 
     window.addEventListener('resize', updateOffsets);
-    setupLenis();
+    setupScrollListener();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
-      }
-      if (lenisRef.current) {
-        lenisRef.current.destroy();
       }
       stackCompletedRef.current = false;
       cardsRef.current = [];
@@ -347,7 +311,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     blurAmount,
     useWindowScroll,
     onStackComplete,
-    setupLenis,
+    setupScrollListener,
     updateCardTransforms,
     isMobile,
     updateOffsets,
