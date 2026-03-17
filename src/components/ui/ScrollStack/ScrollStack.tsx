@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useCallback, useEffect } from 'react';
+import React, { useLayoutEffect, useRef, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import './ScrollStack.css';
@@ -52,7 +52,9 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const lastScrollTopRef = useRef<number>(-1);
   const lastWidthRef = useRef<number>(0);
   const endOffsetRef = useRef<number>(0);
+  const tickingRef = useRef(false);
 
+  // Cached parameters for high-performance calculations
   const scrollParamsRef = useRef({
     stackPositionPx: 0,
     scaleEndPositionPx: 0,
@@ -73,20 +75,27 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, []);
 
   const updateCardTransforms = useCallback(() => {
-    animationFrameRef.current = null;
-
-    if (!cardsRef.current.length) return;
+    if (!cardsRef.current.length) {
+      tickingRef.current = false;
+      return;
+    }
 
     const scrollTop = useWindowScroll 
-      ? window.scrollY
+      ? (window.pageYOffset || document.documentElement.scrollTop)
       : scrollerRef.current?.scrollTop || 0;
 
-    const rounded = Math.round(scrollTop * 2) / 2;
-    if (rounded === lastScrollTopRef.current) return;
-    lastScrollTopRef.current = rounded;
+    // Use a small epsilon to avoid jitter on some devices
+    if (Math.abs(scrollTop - lastScrollTopRef.current) < 0.1) {
+      tickingRef.current = false;
+      return;
+    }
+    lastScrollTopRef.current = scrollTop;
 
     const { stackPositionPx, scaleEndPositionPx, containerHeight } = scrollParamsRef.current;
-    if (containerHeight === 0) return;
+    if (containerHeight === 0) {
+      tickingRef.current = false;
+      return;
+    }
 
     const endElementTop = endOffsetRef.current;
 
@@ -109,6 +118,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         translateY = Math.min(scrollTop - triggerStart, pinEnd - triggerStart);
       }
 
+      // Pro-tip: Avoiding string template literals for every update can save GC pressure
+      // Using transform3d for best GPU compositing
       card.style.transform = `translate3d(0px, ${translateY}px, 0px) scale(${scale}) rotate(${rotation}deg)`;
 
       if (i === cardsRef.current.length - 1) {
@@ -121,6 +132,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         }
       }
     }
+
+    tickingRef.current = false;
   }, [
     useWindowScroll,
     itemScale,
@@ -132,12 +145,14 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   ]);
 
   const handleScroll = useCallback(() => {
-    if (animationFrameRef.current === null) {
+    if (!tickingRef.current) {
+      tickingRef.current = true;
       animationFrameRef.current = requestAnimationFrame(updateCardTransforms);
     }
   }, [updateCardTransforms]);
 
   const updateOffsets = useCallback(() => {
+    // Avoid total re-calculations on height-only resizes (mobile address bar)
     const currentWidth = window.innerWidth;
     if (currentWidth === lastWidthRef.current && lastWidthRef.current !== 0) {
       return;
@@ -161,12 +176,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         : scroller!.querySelectorAll('.scroll-stack-card')
     ) as HTMLElement[];
 
+    // Save state to avoid flashes
     const originalTransforms = cards.map(c => c.style.transform);
     cards.forEach(c => c.style.transform = 'none');
 
     cardOffsetsRef.current = cards.map(c => {
       if (useWindowScroll) {
-        return c.getBoundingClientRect().top + window.scrollY;
+        return c.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop);
       }
       return c.offsetTop;
     });
@@ -177,18 +193,20 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     
     if (endElement) {
       if (useWindowScroll) {
-        endOffsetRef.current = endElement.getBoundingClientRect().top + window.scrollY;
+        endOffsetRef.current = endElement.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop);
       } else {
         endOffsetRef.current = endElement.offsetTop;
       }
     }
 
+    // Restore and trigger immediate update
     cards.forEach((c, i) => c.style.transform = originalTransforms[i]);
-    lastScrollTopRef.current = -1;
     handleScroll();
   }, [useWindowScroll, stackPosition, scaleEndPosition, parsePercentage, handleScroll]);
 
   useLayoutEffect(() => {
+    if (isMobile) return;
+
     const scroller = useWindowScroll ? window : scrollerRef.current;
     if (!scroller) return;
 
@@ -219,32 +237,20 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     return () => {
       scroller.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
-      if (animationFrameRef.current !== null) {
+      if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
-        animationFrameRef.current = null;
       }
       stackCompletedRef.current = false;
       cardsRef.current = [];
+      tickingRef.current = false;
     };
   }, [
+    isMobile,
     itemDistance,
     useWindowScroll,
     handleScroll,
     updateOffsets
   ]);
-
-  useEffect(() => {
-    if (!isMobile) return;
-    const cards = cardsRef.current;
-    cards.forEach(card => {
-      card.style.willChange = 'transform';
-    });
-    return () => {
-      cards.forEach(card => {
-        card.style.willChange = '';
-      });
-    };
-  }, [isMobile]);
 
   return (
     <div className={`scroll-stack-scroller ${className}`.trim()} ref={scrollerRef}>
