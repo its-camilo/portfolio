@@ -48,10 +48,10 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const stackCompletedRef = useRef(false);
   const animationFrameRef = useRef<number | null>(null);
   const cardsRef = useRef<HTMLElement[]>([]);
-  const lastTransformsRef = useRef(new Map<number, { translateY: number; scale: number; rotation: number; blur: number }>());
   const cardOffsetsRef = useRef<number[]>([]);
+  const containerHeightRef = useRef<number>(0);
   const endOffsetRef = useRef<number>(0);
-  const isUpdatingRef = useRef(false);
+  const needsUpdateRef = useRef(true);
 
   const calculateProgress = useCallback((scrollTop: number, start: number, end: number) => {
     if (scrollTop < start) return 0;
@@ -69,16 +69,14 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const getScrollData = useCallback(() => {
     if (useWindowScroll) {
       return {
-        scrollTop: window.scrollY,
-        containerHeight: window.innerHeight,
-        scrollContainer: document.documentElement
+        scrollTop: window.pageYOffset || document.documentElement.scrollTop,
+        containerHeight: containerHeightRef.current || window.innerHeight,
       };
     } else {
       const scroller = scrollerRef.current;
       return {
         scrollTop: scroller!.scrollTop,
         containerHeight: scroller!.clientHeight,
-        scrollContainer: scroller!
       };
     }
   }, [useWindowScroll]);
@@ -87,7 +85,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     (element: HTMLElement) => {
       if (useWindowScroll) {
         const rect = element.getBoundingClientRect();
-        return rect.top + window.scrollY;
+        return rect.top + window.pageYOffset;
       } else {
         return element.offsetTop;
       }
@@ -96,9 +94,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   );
 
   const updateCardTransforms = useCallback(() => {
-    if (!cardsRef.current.length || isUpdatingRef.current) return;
-
-    isUpdatingRef.current = true;
+    if (!cardsRef.current.length) return;
 
     const { scrollTop, containerHeight } = getScrollData();
     const stackPositionPx = parsePercentage(stackPosition, containerHeight);
@@ -146,29 +142,16 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
       }
 
-      const newTransform = {
-        translateY: Math.round(translateY * 100) / 100,
-        scale: Math.round(scale * 1000) / 1000,
-        rotation: Math.round(rotation * 100) / 100,
-        blur: Math.round(blur * 100) / 100
-      };
+      // Pro-tip: Avoiding string building unless values actually changed would be even faster, 
+      // but removing rounding is the key to smoothness here.
+      const transform = `translate3d(0, ${translateY}px, 0) scale(${scale}) rotate(${rotation}deg)`;
+      const filter = blur > 0 ? `blur(${blur}px)` : '';
 
-      const lastTransform = lastTransformsRef.current.get(i);
-      const hasChanged =
-        !lastTransform ||
-        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1 ||
-        Math.abs(lastTransform.scale - newTransform.scale) > 0.001 ||
-        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.1 ||
-        Math.abs(lastTransform.blur - newTransform.blur) > 0.1;
-
-      if (hasChanged) {
-        const transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(${newTransform.scale}) rotate(${newTransform.rotation}deg)`;
-        const filter = newTransform.blur > 0 ? `blur(${newTransform.blur}px)` : '';
-
+      if (card.style.transform !== transform) {
         card.style.transform = transform;
+      }
+      if (card.style.filter !== filter) {
         card.style.filter = filter;
-
-        lastTransformsRef.current.set(i, newTransform);
       }
 
       if (i === cardsRef.current.length - 1) {
@@ -182,7 +165,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       }
     });
 
-    isUpdatingRef.current = false;
+    needsUpdateRef.current = false;
   }, [
     itemScale,
     itemStackDistance,
@@ -199,8 +182,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   ]);
 
   const handleScroll = useCallback(() => {
-    updateCardTransforms();
-  }, [updateCardTransforms]);
+    needsUpdateRef.current = true;
+  }, []);
 
   const setupScrollListener = useCallback(() => {
     const scroller = useWindowScroll ? window : scrollerRef.current;
@@ -209,17 +192,27 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     scroller.addEventListener('scroll', handleScroll, { passive: true });
     
     const raf = () => {
-      updateCardTransforms();
+      if (needsUpdateRef.current) {
+        updateCardTransforms();
+      }
       animationFrameRef.current = requestAnimationFrame(raf);
     };
     animationFrameRef.current = requestAnimationFrame(raf);
     
-    return null;
+    return () => {
+      scroller.removeEventListener('scroll', handleScroll);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, [handleScroll, useWindowScroll, updateCardTransforms]);
 
   const updateOffsets = useCallback(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
+
+    // Stable height to avoid address bar jitter
+    containerHeightRef.current = useWindowScroll ? window.innerHeight : scroller.clientHeight;
 
     const cards = Array.from(
       useWindowScroll
@@ -227,7 +220,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         : scroller.querySelectorAll('.scroll-stack-card')
     ) as HTMLElement[];
 
-    // Temporarily remove transforms to get accurate static offsets
     const originalTransforms = cards.map(c => ({
       transform: c.style.transform,
       filter: c.style.filter
@@ -248,14 +240,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       endOffsetRef.current = getElementOffset(endElement);
     }
 
-    // Restore transforms
     cards.forEach((c, i) => {
       c.style.transform = originalTransforms[i].transform;
       c.style.filter = originalTransforms[i].filter;
     });
 
-    updateCardTransforms();
-  }, [useWindowScroll, getElementOffset, updateCardTransforms]);
+    needsUpdateRef.current = true;
+  }, [useWindowScroll, getElementOffset]);
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;
@@ -268,7 +259,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     ) as HTMLElement[];
 
     cardsRef.current = cards;
-    const transformsCache = lastTransformsRef.current;
 
     cards.forEach((card, i) => {
       if (i < cards.length - 1) {
@@ -277,27 +267,21 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       card.style.willChange = 'transform' + (!isMobile ? ', filter' : '');
       card.style.transformOrigin = 'top center';
       card.style.backfaceVisibility = 'hidden';
-      card.style.transform = 'translateZ(0)';
-      card.style.webkitTransform = 'translateZ(0)';
-      card.style.perspective = '1000px';
-      card.style.webkitPerspective = '1000px';
+      // Use standard perspective for better hardware acceleration stability
+      card.style.transform = 'translate3d(0,0,0)';
     });
 
     updateOffsets();
 
     window.addEventListener('resize', updateOffsets);
-    setupScrollListener();
+    const cleanupScroll = setupScrollListener();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      cleanupScroll?.();
       stackCompletedRef.current = false;
       cardsRef.current = [];
-      transformsCache.clear();
-      isUpdatingRef.current = false;
+      needsUpdateRef.current = false;
     };
   }, [
     itemDistance,
@@ -306,16 +290,12 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     stackPosition,
     scaleEndPosition,
     baseScale,
-    scaleDuration,
     rotationAmount,
     blurAmount,
     useWindowScroll,
-    onStackComplete,
     setupScrollListener,
-    updateCardTransforms,
     isMobile,
-    updateOffsets,
-    handleScroll
+    updateOffsets
   ]);
 
   return (
