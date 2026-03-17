@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: visible; /* Prevent internal scrollbar */
+  overflow: visible;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translateZ(0);
@@ -24,7 +24,6 @@
   transform-origin: top center;
   will-change: transform;
   backface-visibility: hidden;
-  transform-style: preserve-3d;
   box-shadow: 0 10px 30px -10px hsl(0 0% 0% / 0.1);
   height: auto;
   min-height: 12rem;
@@ -42,15 +41,17 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  contain: layout style paint;
 }
 
-/* Solo aplicar efectos pesados en pantallas grandes con potencia de GPU */
 @media (min-width: 769px) {
   .scroll-stack-card {
+    transform-style: preserve-3d;
     background: hsl(var(--card) / 0.8);
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
     box-shadow: 0 20px 50px -10px hsl(0 0% 0% / 0.15);
+    contain: layout style;
   }
 }
 
@@ -66,8 +67,10 @@
   }
 }
 
-.scroll-stack-card:hover {
-  box-shadow: 0 30px 70px -10px hsl(0 0% 0% / 0.2);
+@media (min-width: 769px) {
+  .scroll-stack-card:hover {
+    box-shadow: 0 30px 70px -10px hsl(0 0% 0% / 0.2);
+  }
 }
 
 .scroll-stack-card h3 {
@@ -92,7 +95,7 @@
 
 .scroll-stack-end {
   width: 100%;
-  height: 8rem; /* Reduced to match standard section spacing */
+  height: 8rem;
 }
 
 @media (max-width: 768px) {
