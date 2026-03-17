@@ -5,7 +5,6 @@
   overflow: visible; /* Prevent internal scrollbar */
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
