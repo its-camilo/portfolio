@@ -198,7 +198,6 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     calculateProgress,
     parsePercentage,
     getScrollData,
-    getElementOffset,
     isMobile
   ]);
 
@@ -207,29 +206,18 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
+    // If using window scroll, we now rely on the global Lenis in Layout
+    // and standard scroll events for transform updates to avoid conflicts.
     if (useWindowScroll) {
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        touchMultiplier: 2,
-        infinite: false,
-        wheelMultiplier: 1,
-        lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075
-      });
-
-      lenis.on('scroll', handleScroll);
-
-      const raf = (time: number) => {
-        lenis.raf(time);
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      
+      const raf = () => {
+        updateCardTransforms();
         animationFrameRef.current = requestAnimationFrame(raf);
       };
       animationFrameRef.current = requestAnimationFrame(raf);
-
-      lenisRef.current = lenis;
-      return lenis;
+      
+      return null;
     } else {
       const scroller = scrollerRef.current;
       if (!scroller) return;
@@ -260,7 +248,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       lenisRef.current = lenis;
       return lenis;
     }
-  }, [handleScroll, useWindowScroll]);
+  }, [handleScroll, useWindowScroll, updateCardTransforms]);
 
   const updateOffsets = useCallback(() => {
     const scroller = scrollerRef.current;
@@ -334,6 +322,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     setupLenis();
 
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateOffsets);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -361,7 +350,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     setupLenis,
     updateCardTransforms,
     isMobile,
-    updateOffsets
+    updateOffsets,
+    handleScroll
   ]);
 
   return (
