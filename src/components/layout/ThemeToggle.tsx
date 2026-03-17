@@ -2,6 +2,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 /**
  * Theme toggle button for switching between light/dark modes
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button';
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const isMobile = useIsMobile();
 
   // Prevent hydration mismatch
   useEffect(() => {
@@ -37,8 +39,8 @@ export function ThemeToggle() {
       style={{ 
         color: 'rgba(255,255,255,0.95)',
         background: 'rgba(60,60,60,0.35)',
-        backdropFilter: 'blur(40px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+        backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+        WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
         boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
         border: '0.5px solid rgba(255,255,255,0.18)'
       }}

@@ -7,6 +7,7 @@ import { TechBadge } from '@/components/ui/TechBadge';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getProjectBySlug, getLocalizedTitle, getLocalizedDescription } from '@/data/projects';
 import { useState, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 /**
  * Project detail page with project info and links
@@ -14,6 +15,7 @@ import { useState, useEffect } from 'react';
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { language, t } = useLanguage();
+  const isMobile = useIsMobile();
   const project = slug ? getProjectBySlug(slug) : undefined;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
@@ -149,8 +151,8 @@ export default function ProjectDetail() {
                   style={{
                     color: 'rgba(255,255,255,0.95)',
                     background: 'rgba(60,60,60,0.35)',
-                    backdropFilter: 'blur(40px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                     boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                     border: '0.5px solid rgba(255,255,255,0.18)'
                   }}
@@ -168,8 +170,8 @@ export default function ProjectDetail() {
                   style={{
                     color: 'rgba(255,255,255,0.95)',
                     background: 'rgba(60,60,60,0.35)',
-                    backdropFilter: 'blur(40px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                     boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                     border: '0.5px solid rgba(255,255,255,0.18)'
                   }}
@@ -187,8 +189,8 @@ export default function ProjectDetail() {
                   style={{
                     color: 'rgba(255,255,255,0.95)',
                     background: 'rgba(60,60,60,0.35)',
-                    backdropFilter: 'blur(40px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                     boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                     border: '0.5px solid rgba(255,255,255,0.18)'
                   }}
@@ -206,8 +208,8 @@ export default function ProjectDetail() {
                   style={{
                     color: 'rgba(255,255,255,0.95)',
                     background: 'rgba(60,60,60,0.35)',
-                    backdropFilter: 'blur(40px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                     boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                     border: '0.5px solid rgba(255,255,255,0.18)'
                   }}
@@ -225,8 +227,8 @@ export default function ProjectDetail() {
                   style={{
                     color: 'rgba(255,255,255,0.95)',
                     background: 'rgba(60,60,60,0.35)',
-                    backdropFilter: 'blur(40px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                    backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                     boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                     border: '0.5px solid rgba(255,255,255,0.18)'
                   }}

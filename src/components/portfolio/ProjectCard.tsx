@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import type { Project } from '@/types';
 import { cn } from '@/lib/utils';
 import { categoryLabels } from '@/data/projects';
+import { useIsMobile } from '@/hooks/use-mobile';
 interface ProjectCardProps {
   project: Project;
   aspectRatio?: 'portrait' | 'landscape' | 'square';
@@ -23,6 +24,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const ratio = aspectRatio || 'landscape';
@@ -73,17 +75,22 @@ export function ProjectCard({
           {/* Loading placeholder */}
           {!isLoaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
           
-          {/* Blurred background layer for images that don't fill container */}
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{
-              backgroundImage: `url(${currentImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'blur(20px) brightness(0.7)',
-              transform: 'scale(1.1)',
-            }}
-          />
+          {/* Blurred background layer for images that don't fill container - Disable on Mobile for performance */}
+          {!isMobile && (
+            <div 
+              className="absolute inset-0 w-full h-full"
+              style={{
+                backgroundImage: `url(${currentImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                filter: 'blur(20px) brightness(0.7)',
+                transform: 'scale(1.1)',
+              }}
+            />
+          )}
+
+          {/* Fallback solid background for mobile */}
+          {isMobile && <div className="absolute inset-0 bg-muted/20" />}
           
           <motion.img 
             key={currentImage} 
@@ -121,8 +128,8 @@ export function ProjectCard({
                 style={{ 
                   color: 'rgba(255,255,255,0.95)',
                   background: 'rgba(60,60,60,0.35)',
-                  backdropFilter: 'blur(40px) saturate(180%)',
-                  WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                  backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                  WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                   boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                   border: '0.5px solid rgba(255,255,255,0.18)'
                 }}

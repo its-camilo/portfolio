@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface LanguageDropdownProps {
   isTransparent?: boolean;
@@ -20,6 +21,7 @@ const languages: { code: Language; name: string; flag: string }[] = [
 
 export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProps) {
   const { language, setLanguage } = useLanguage();
+  const isMobile = useIsMobile();
 
   return (
     <DropdownMenu>
@@ -31,8 +33,8 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
           style={{ 
             color: 'rgba(255,255,255,0.95)',
             background: 'rgba(60,60,60,0.35)',
-            backdropFilter: 'blur(40px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+            WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
             boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
             border: '0.5px solid rgba(255,255,255,0.18)'
           }}
@@ -48,8 +50,8 @@ export function LanguageDropdown({ isTransparent = false }: LanguageDropdownProp
         style={{ 
           color: 'rgba(255,255,255,0.95)',
           background: 'rgba(60,60,60,0.35)',
-          backdropFilter: 'blur(40px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+          backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+          WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
           boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
           border: '0.5px solid rgba(255,255,255,0.18)'
         }}

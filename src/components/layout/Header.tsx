@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { developerInfo } from '@/data/developer';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 /**
  * Apple-inspired header with glass effect and smooth transitions
@@ -22,6 +23,7 @@ export function Header() {
   const {
     t
   } = useLanguage();
+  const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isTransparent = location.pathname === '/' && !isScrolled;
   const navLinks = [{
@@ -87,15 +89,15 @@ export function Header() {
                 <Button variant="ghost" size="icon" className="size-9 rounded-full border-0" style={{
                 color: 'rgba(255,255,255,0.95)',
                 background: 'rgba(60,60,60,0.35)',
-                backdropFilter: 'blur(40px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
                 boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
                 border: '0.5px solid rgba(255,255,255,0.18)'
               }} aria-label="Open menu">
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-80 bg-background/95 backdrop-blur-xl">
+              <SheetContent side="right" className={cn("w-full sm:w-80 bg-background/95", isMobile ? "backdrop-blur-md" : "backdrop-blur-xl")}>
                 <nav className="flex flex-col gap-2 mt-8">
                   {navLinks.map(link => <Link key={link.path} to={link.path} onClick={() => setMobileMenuOpen(false)} className={cn('px-4 py-3 rounded-xl text-lg font-medium transition-all duration-300', location.pathname === link.path ? 'text-primary bg-accent' : 'text-muted-foreground hover:text-foreground hover:bg-muted')}>
                       {link.name}

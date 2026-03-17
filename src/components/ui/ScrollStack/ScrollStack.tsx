@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import Lenis from 'lenis';
+import { useIsMobile } from '@/hooks/use-mobile';
 import './ScrollStack.css';
 
 export interface ScrollStackItemProps {
@@ -44,6 +45,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   onStackComplete
 }) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const stackCompletedRef = useRef(false);
   const animationFrameRef = useRef<number | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
@@ -121,15 +123,15 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       const rotation = rotationAmount ? i * rotationAmount * scaleProgress : 0;
 
       let blur = 0;
-        if (blurAmount) {
-          let topCardIndex = 0;
-          for (let j = 0; j < cardsRef.current.length; j++) {
-            const jCardTop = cardOffsetsRef.current[j] || 0;
-            const jTriggerStart = jCardTop - stackPositionPx - itemStackDistance * j;
-            if (scrollTop >= jTriggerStart) {
-              topCardIndex = j;
-            }
+      if (blurAmount && !isMobile) {
+        let topCardIndex = 0;
+        for (let j = 0; j < cardsRef.current.length; j++) {
+          const jCardTop = cardOffsetsRef.current[j] || 0;
+          const jTriggerStart = jCardTop - stackPositionPx - itemStackDistance * j;
+          if (scrollTop >= jTriggerStart) {
+            topCardIndex = j;
           }
+        }
 
         if (i < topCardIndex) {
           const depthInStack = topCardIndex - i;
@@ -196,7 +198,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     calculateProgress,
     parsePercentage,
     getScrollData,
-    getElementOffset
+    getElementOffset,
+    isMobile
   ]);
 
   const handleScroll = useCallback(() => {
@@ -316,7 +319,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       if (i < cards.length - 1) {
         card.style.marginBottom = `${itemDistance}px`;
       }
-      card.style.willChange = 'transform, filter';
+      card.style.willChange = 'transform' + (!isMobile ? ', filter' : '');
       card.style.transformOrigin = 'top center';
       card.style.backfaceVisibility = 'hidden';
       card.style.transform = 'translateZ(0)';
@@ -356,7 +359,9 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     useWindowScroll,
     onStackComplete,
     setupLenis,
-    updateCardTransforms
+    updateCardTransforms,
+    isMobile,
+    updateOffsets
   ]);
 
   return (

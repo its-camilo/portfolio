@@ -10,6 +10,7 @@ import { SEOHead } from '@/components/seo/SEOHead';
 import { ArrowRight, Github, Linkedin, FileText, ExternalLink, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollStack, { ScrollStackItem } from '@/components/ui/ScrollStack/ScrollStack';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 /**
  * Homepage with Apple-inspired design - Hero, Technologies, Featured Projects
@@ -19,6 +20,7 @@ export default function Home() {
     t
   } = useLanguage();
   const featuredProjects = getFeaturedProjects();
+  const isMobile = useIsMobile();
   return <>
       <SEOHead title={t('nav.home')} description={`${developerInfo.name} - ${developerInfo.title}. ${developerInfo.biography.split('\n\n')[0]}`} />
       
@@ -26,25 +28,27 @@ export default function Home() {
         {/* Hero Section - Apple Style */}
         <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
           
-          {/* Floating Orbs - Decorative */}
-          <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" animate={{
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-          scale: [1, 1.1, 1]
-        }} transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
-          <motion.div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl" animate={{
-          x: [0, -20, 0],
-          y: [0, 30, 0],
-          scale: [1.1, 1, 1.1]
-        }} transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }} />
+          {/* Floating Orbs - Decorative - Only on Desktop for Performance */}
+          {!isMobile && <>
+            <motion.div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" animate={{
+              x: [0, 30, 0],
+              y: [0, -20, 0],
+              scale: [1, 1.1, 1]
+            }} transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} />
+            <motion.div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl" animate={{
+              x: [0, -20, 0],
+              y: [0, 30, 0],
+              scale: [1.1, 1, 1.1]
+            }} transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }} />
+          </>}
           
           {/* Hero Content */}
           <div className="relative z-10 px-6 py-32 max-w-4xl mx-auto text-center">
@@ -70,8 +74,8 @@ export default function Home() {
               delay: 0.2
             }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{
               background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
+              backdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
+              WebkitBackdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
               boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
               border: '1px solid rgba(255, 255, 255, 0.18)'
             }}>
@@ -124,8 +128,8 @@ export default function Home() {
                   </a>}
                 <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-foreground font-medium transition-all duration-300 hover:scale-105" style={{
                   background: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
+                  backdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
+                  WebkitBackdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
                   boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
                   border: '1px solid rgba(255, 255, 255, 0.18)'
                 }}>
@@ -314,8 +318,8 @@ export default function Home() {
             <div className="flex justify-center mt-16 px-6">
               <Link to="/portfolio" className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full text-foreground font-medium transition-all duration-300 hover:scale-105" style={{
                 background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
+                backdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
+                WebkitBackdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
                 boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
                 border: '1px solid rgba(255, 255, 255, 0.18)'
               }}>

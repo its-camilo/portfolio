@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface TechBadgeProps {
   name: string;
@@ -8,10 +9,11 @@ interface TechBadgeProps {
 }
 
 export function TechBadge({ name, variant = 'default', size = 'md' }: TechBadgeProps) {
+  const isMobile = useIsMobile();
   const liquidGlassStyle = {
     background: 'rgba(255, 255, 255, 0.1)',
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
+    backdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
+    WebkitBackdropFilter: isMobile ? 'blur(8px)' : 'blur(20px)',
     boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.18), inset 0 1.5px 1.5px 0 rgba(255,255,255,0.18)',
     border: '1px solid rgba(255, 255, 255, 0.18)'
   };

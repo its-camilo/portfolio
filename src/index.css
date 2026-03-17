@@ -277,6 +277,13 @@
     text-shadow: 0 1px 2px hsl(0 0% 0% / 0.2);
   }
 
+  @media (max-width: 768px) {
+    .apple-btn {
+      backdrop-filter: blur(4px) saturate(150%);
+      -webkit-backdrop-filter: blur(4px) saturate(150%);
+    }
+  }
+
   .apple-btn:hover {
     box-shadow: 
       0 6px 32px -4px hsl(211 100% 50% / 0.6),
@@ -303,8 +310,24 @@
     -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
 
+  @media (max-width: 768px) {
+    .glass {
+      backdrop-filter: blur(8px) saturate(150%);
+      -webkit-backdrop-filter: blur(8px) saturate(150%);
+      background: hsl(0 0% 100% / 0.85);
+    }
+  }
+
   .dark .glass {
     background: hsl(240 10% 10% / 0.7);
+  }
+
+  @media (max-width: 768px) {
+    .dark .glass {
+      backdrop-filter: blur(8px) saturate(150%);
+      -webkit-backdrop-filter: blur(8px) saturate(150%);
+      background: hsl(240 10% 10% / 0.85);
+    }
   }
 
   /* Chip Styles */
