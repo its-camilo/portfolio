@@ -57,6 +57,7 @@ export interface DeveloperInfo {
     github?: string;
     linkedin?: string;
     googlePlay?: string;
+    metaStore?: string;
     linktree?: string;
     itchio?: string;
   };

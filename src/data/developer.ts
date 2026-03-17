@@ -40,6 +40,7 @@ I am passionate about creating interactive experiences that engage users, whethe
     github: 'https://github.com/its-camilo',
     linkedin: 'https://www.linkedin.com/in/camilo-alejandro-lagos-malaver-0a363b364/',
     googlePlay: 'https://play.google.com/store/apps/dev?id=5796610576483017103',
+    metaStore: 'https://www.meta.com/experiences/profile/26200747462912290/',
     linktree: 'https://linktr.ee/its_camilo',
     itchio: 'https://its-camilo.itch.io'
   },

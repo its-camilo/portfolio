@@ -163,6 +163,10 @@ export default function Home() {
                     <ExternalLink className="size-4" />
                     <span>Google Play</span>
                   </a>}
+                {developerInfo.socialLinks.metaStore && <a href={developerInfo.socialLinks.metaStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted hover:bg-accent text-muted-foreground hover:text-foreground transition-all duration-300 text-sm font-medium">
+                    <ExternalLink className="size-4" />
+                    <span>Meta Store</span>
+                  </a>}
               </motion.div>
             </motion.div>
 
