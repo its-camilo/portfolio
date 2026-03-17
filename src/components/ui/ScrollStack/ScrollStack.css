@@ -22,10 +22,10 @@
 
 .scroll-stack-card {
   transform-origin: top center;
-  will-change: transform, filter;
+  will-change: transform;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  box-shadow: 0 20px 50px -10px hsl(0 0% 0% / 0.15);
+  box-shadow: 0 10px 30px -10px hsl(0 0% 0% / 0.1);
   height: auto;
   min-height: 12rem;
   width: 100%;
@@ -33,24 +33,37 @@
   padding: 2.5rem;
   border-radius: 2.5rem;
   box-sizing: border-box;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   position: relative;
-  background: hsl(var(--card) / 0.8);
+  background: hsl(var(--card));
   color: var(--card-foreground);
   border: 1px solid hsl(var(--border) / 0.5);
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: box-shadow 0.3s ease;
+}
+
+/* Solo aplicar efectos pesados en pantallas grandes con potencia de GPU */
+@media (min-width: 769px) {
+  .scroll-stack-card {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    box-shadow: 0 20px 50px -10px hsl(0 0% 0% / 0.15);
+  }
 }
 
 .dark .scroll-stack-card {
-  background: hsl(var(--card) / 0.6);
-  box-shadow: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
+  background: hsl(var(--card) / 0.9);
   border: 1px solid hsl(var(--border) / 0.3);
+}
+
+@media (min-width: 769px) {
+  .dark .scroll-stack-card {
+    background: hsl(var(--card) / 0.6);
+    box-shadow: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
+  }
 }
 
 .scroll-stack-card:hover {
