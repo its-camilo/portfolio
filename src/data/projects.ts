@@ -26,6 +26,11 @@ import tejoStrike0 from '@/assets/tejo-strike-0.png';
 import tejoStrike1 from '@/assets/tejo-strike-1.png';
 import tejoStrike2 from '@/assets/tejo-strike-2.png';
 import tejoStrike3 from '@/assets/tejo-strike-3.png';
+import indiaHealth0 from '@/assets/india-health-0.png';
+import indiaHealth1 from '@/assets/india-health-1.png';
+import indiaHealth2 from '@/assets/india-health-2.png';
+import indiaHealth3 from '@/assets/india-health-3.png';
+import indiaHealth4 from '@/assets/india-health-4.png';
 
 
 
@@ -112,6 +117,20 @@ export const projects: Project[] = [
     coverImage: tejoStrike0,
     hoverImages: [tejoStrike0, tejoStrike1, tejoStrike2, tejoStrike3],
     slug: 'tejo-strike',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '13',
+    title: 'India Health Navigator',
+    category: 'web',
+    description: 'A health intelligence project for India that enables searching for medical facilities in natural language, evaluating their reliability with evidence, and visualizing "medical deserts" on an interactive map. Developed at the Hack-Nation Global AI Hackathon - 5th Edition.',
+    descriptionEs: 'Proyecto de inteligencia sanitaria para India que permite buscar instalaciones médicas en lenguaje natural, evaluar su confiabilidad con evidencia y visualizar "desiertos médicos" en un mapa interactivo. Desarrollado en la Hack-Nation Global AI Hackaton - 5 Edicion.',
+    technologies: ['Python', 'TypeScript', 'AI Development', 'GitHub'],
+    repoUrl: 'https://github.com/its-camilo/india-health-navigator',
+    liveUrl: 'https://india-health-navigator.vercel.app/',
+    coverImage: indiaHealth0,
+    hoverImages: [indiaHealth0, indiaHealth1, indiaHealth2, indiaHealth3, indiaHealth4],
+    slug: 'india-health-navigator',
     aspectRatio: 'landscape'
   },
   {
