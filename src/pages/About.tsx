@@ -96,6 +96,16 @@ export default function About() {
                   </div>
                 </div>
 
+                {/* Awards */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-light tracking-wide">{t('about.awards')}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {developerInfo.awards.map((award) => (
+                      <TechBadge key={award} name={t(award)} size="sm" />
+                    ))}
+                  </div>
+                </div>
+
                 {/* Education */}
                 <div className="pt-4 space-y-2">
                   <div className="text-sm font-light tracking-wide">

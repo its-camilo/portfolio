@@ -51,6 +51,7 @@ export interface DeveloperInfo {
   biography: string;
   skills: string[];
   technologies: string[];
+  awards: string[];
   location: string;
   email: string;
   socialLinks: {

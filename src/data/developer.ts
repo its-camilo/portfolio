@@ -34,6 +34,9 @@ I am passionate about creating interactive experiences that engage users, whethe
     'GitHub',
     'AI Development'
   ],
+  awards: [
+    'Finalista de la Hackathon de Innovación en Sistemas de Alerta Temprana Comunitarios de Bajo Costo'
+  ],
   location: 'Colombia',
   email: 'camiloalejandrolagosmalaver@gmail.com',
   socialLinks: {

@@ -47,6 +47,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.education': 'Education',
     'about.university': 'University',
     'about.location': 'Location',
+    'about.awards': 'Awards & Recognitions',
     'about.viewCV': 'View CV',
 
     // Contact page
@@ -97,6 +98,7 @@ const translations: Record<Language, Record<string, string>> = {
     'AI Development': 'AI Development',
     'VR Development': 'VR Development',
     'Game Development': 'Game Development',
+    'Finalista de la Hackathon de Innovación en Sistemas de Alerta Temprana Comunitarios de Bajo Costo': 'Finalist of the Hackathon for Innovation in Low-Cost Community Early Warning Systems',
   },
   es: {
     // Navigation
@@ -136,6 +138,7 @@ const translations: Record<Language, Record<string, string>> = {
     'about.education': 'Educación',
     'about.university': 'Universidad',
     'about.location': 'Ubicación',
+    'about.awards': 'Reconocimientos y premios',
     'about.viewCV': 'Ver CV',
 
     // Contact page
@@ -186,6 +189,7 @@ const translations: Record<Language, Record<string, string>> = {
     'AI Development': 'Desarrollo AI',
     'VR Development': 'Desarrollo VR',
     'Game Development': 'Desarrollo de Videojuegos',
+    'Finalista de la Hackathon de Innovación en Sistemas de Alerta Temprana Comunitarios de Bajo Costo': 'Finalista de la Hackathon de Innovación en Sistemas de Alerta Temprana Comunitarios de Bajo Costo',
   }
 };
 
