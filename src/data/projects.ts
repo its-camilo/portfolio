@@ -31,6 +31,11 @@ import indiaHealth1 from '@/assets/india-health-1.png';
 import indiaHealth2 from '@/assets/india-health-2.png';
 import indiaHealth3 from '@/assets/india-health-3.png';
 import indiaHealth4 from '@/assets/india-health-4.png';
+import cvAiGenerator0 from '@/assets/cv-ai-generator-0.png';
+import cvAiGenerator1 from '@/assets/cv-ai-generator-1.png';
+import cvAiGenerator2 from '@/assets/cv-ai-generator-2.png';
+import cvAiGenerator3 from '@/assets/cv-ai-generator-3.png';
+import cvAiGenerator4 from '@/assets/cv-ai-generator-4.png';
 
 
 
@@ -131,6 +136,20 @@ export const projects: Project[] = [
     coverImage: indiaHealth0,
     hoverImages: [indiaHealth0, indiaHealth1, indiaHealth2, indiaHealth3, indiaHealth4],
     slug: 'india-health-navigator',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '14',
+    title: 'CV AI Generator',
+    category: 'web',
+    description: 'AI-powered CV generator tailored to each job offer. Preview and download PDF in Spanish or English.',
+    descriptionEs: 'Generador de CVs con IA adaptado a cada oferta de trabajo. Vista previa y descarga PDF en español o inglés.',
+    technologies: ['TypeScript', 'GitHub', 'AI Development'],
+    repoUrl: 'https://github.com/its-camilo/cv-ai-generator',
+    liveUrl: 'https://cv-ai-generator-rho.vercel.app/login',
+    coverImage: cvAiGenerator0,
+    hoverImages: [cvAiGenerator0, cvAiGenerator1, cvAiGenerator2, cvAiGenerator3, cvAiGenerator4],
+    slug: 'cv-ai-generator',
     aspectRatio: 'landscape'
   },
   {
