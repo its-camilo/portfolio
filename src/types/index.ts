@@ -2,7 +2,7 @@
  * Core TypeScript interfaces for Developer Portfolio
  */
 
-export type ProjectCategory = 'videogames' | 'web' | 'iot' | 'apps';
+export type ProjectCategory = 'videogames' | 'web' | 'iot' | 'apps' | 'mcp';
 
 export type AspectRatio = 'portrait' | 'landscape' | 'square';
 

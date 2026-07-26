@@ -16,6 +16,7 @@ import moodpress1 from '@/assets/moodpress-1.png';
 import moodpress2 from '@/assets/moodpress-2.png';
 import moodpress3 from '@/assets/moodpress-3.png';
 import spaceShooterProImg from '@/assets/space-shooter-pro.png';
+import anylogicPleMcpImg from '@/assets/anylogicple-mcp.png';
 import theGreatFleeceImg from '@/assets/the-great-fleece.png';
 import healthScope0 from '@/assets/health-scope-0.png';
 import healthScope1 from '@/assets/health-scope-1.png';
@@ -182,6 +183,18 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
+    id: '15',
+    title: 'anylogicPLE-mcp',
+    category: 'mcp',
+    description: 'An MCP server that generates AnyLogic PLE simulation models from natural-language prompts in Claude Code. Describe a queueing system, factory, or ER and get a validated .alp file ready to open and run.',
+    descriptionEs: 'Un servidor MCP que genera modelos de simulación de AnyLogic PLE a partir de prompts en lenguaje natural en Claude Code. Describe un sistema de colas, una fábrica o una urgencia y obtén un archivo .alp validado listo para abrir y ejecutar.',
+    technologies: ['Python', 'MCP', 'AI Development'],
+    repoUrl: 'https://github.com/its-camilo/anylogicPLE-mcp',
+    coverImage: anylogicPleMcpImg,
+    slug: 'anylogicple-mcp',
+    aspectRatio: 'landscape'
+  },
+  {
     id: '7',
     title: 'Space Shooter Pro',
     category: 'videogames',
@@ -242,7 +255,8 @@ export const categoryLabels: Record<ProjectCategory, string> = {
   videogames: 'Video Games',
   web: 'Web',
   apps: 'Apps',
-  iot: 'IoT'
+  iot: 'IoT',
+  mcp: 'MCP Servers'
 };
 
 // Helper function to get project by slug
