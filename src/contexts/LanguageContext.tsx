@@ -39,7 +39,7 @@ const translations: Record<Language, Record<string, string>> = {
     'category.videogames': 'Video Games',
     'category.apps': 'Apps',
     'category.iot': 'IoT',
-    'category.mcp': 'MCP Servers',
+    'category.ai-mcps': 'AI & MCPs',
 
     // About page
     'about.title': 'About',
@@ -131,7 +131,7 @@ const translations: Record<Language, Record<string, string>> = {
     'category.videogames': 'Videojuegos',
     'category.apps': 'Apps',
     'category.iot': 'IoT',
-    'category.mcp': 'Servidores MCP',
+    'category.ai-mcps': 'IA y MCPs',
 
     // About page
     'about.title': 'Sobre mí',

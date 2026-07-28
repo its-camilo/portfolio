@@ -37,6 +37,9 @@ import cvAiGenerator1 from '@/assets/cv-ai-generator-1.png';
 import cvAiGenerator2 from '@/assets/cv-ai-generator-2.png';
 import cvAiGenerator3 from '@/assets/cv-ai-generator-3.png';
 import cvAiGenerator4 from '@/assets/cv-ai-generator-4.png';
+import auri0 from '@/assets/auri-0.png';
+import auri1 from '@/assets/auri-1.png';
+import auri2 from '@/assets/auri-2.png';
 
 
 
@@ -84,7 +87,7 @@ export const projects: Project[] = [
   {
     id: '11',
     title: 'Agentic Nodes',
-    category: 'web',
+    category: 'ai-mcps',
     description: 'AI Development-powered supply chain simulation platform. Describe your procurement needs in natural language and let autonomous agents discover suppliers, plan shipping routes, negotiate pricing, and build execution plans — all in real time. Developed at the Hack-Nation Global AI Hackathon - 4th Edition.',
     descriptionEs: 'Plataforma de simulación de cadena de suministro impulsada por Desarrollo AI. Describe tus necesidades de adquisición en lenguaje natural y deja que agentes autónomos descubran proveedores, planifiquen rutas de envío, negocien precios y construyan planes de ejecución — todo en tiempo real. Desarrollado en la Hack-Nation Global AI Hackaton - 4 Edicion.',
     technologies: ['Python', 'TypeScript', 'AI Development', 'GitHub'],
@@ -128,7 +131,7 @@ export const projects: Project[] = [
   {
     id: '13',
     title: 'India Health Navigator',
-    category: 'web',
+    category: 'ai-mcps',
     description: 'A health intelligence project for India that enables searching for medical facilities in natural language, evaluating their reliability with evidence, and visualizing "medical deserts" on an interactive map. Developed at the Hack-Nation Global AI Hackathon - 5th Edition.',
     descriptionEs: 'Proyecto de inteligencia sanitaria para India que permite buscar instalaciones médicas en lenguaje natural, evaluar su confiabilidad con evidencia y visualizar "desiertos médicos" en un mapa interactivo. Desarrollado en la Hack-Nation Global AI Hackaton - 5 Edicion.',
     technologies: ['Python', 'TypeScript', 'AI Development', 'GitHub'],
@@ -142,7 +145,7 @@ export const projects: Project[] = [
   {
     id: '14',
     title: 'CV AI Generator',
-    category: 'web',
+    category: 'ai-mcps',
     description: 'AI-powered CV generator tailored to each job offer. Preview and download PDF in Spanish or English.',
     descriptionEs: 'Generador de CVs con IA adaptado a cada oferta de trabajo. Vista previa y descarga PDF en español o inglés.',
     technologies: ['TypeScript', 'GitHub', 'AI Development'],
@@ -151,6 +154,20 @@ export const projects: Project[] = [
     coverImage: cvAiGenerator0,
     hoverImages: [cvAiGenerator0, cvAiGenerator1, cvAiGenerator2, cvAiGenerator3, cvAiGenerator4],
     slug: 'cv-ai-generator',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '15',
+    title: 'Auri',
+    category: 'ai-mcps',
+    description: 'Retrieval-Augmented Generation chatbot for Universidad Nacional de Colombia, Bogotá campus. Students can ask in natural language about student assistant, monitor, and scholarship calls, plus general university information.',
+    descriptionEs: 'Chatbot de Retrieval-Augmented Generation que permite a cualquier estudiante consultar en lenguaje natural información sobre convocatorias de estudiantes auxiliares, monitores y becarios, e información general de la universidad.',
+    technologies: ['TypeScript', 'React', 'Python', 'AWS', 'AI Development'],
+    repoUrl: 'https://github.com/YonyChaparro/chatbot-universitario',
+    liveUrl: 'https://d21wzophkkd453.cloudfront.net/',
+    coverImage: auri0,
+    hoverImages: [auri0, auri1, auri2],
+    slug: 'auri',
     aspectRatio: 'landscape'
   },
   {
@@ -183,9 +200,9 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
-    id: '15',
+    id: '16',
     title: 'anylogicPLE-mcp',
-    category: 'mcp',
+    category: 'ai-mcps',
     description: 'An MCP server that generates AnyLogic PLE simulation models from natural-language prompts in Claude Code. Describe a queueing system, factory, or ER and get a validated .alp file ready to open and run.',
     descriptionEs: 'Un servidor MCP que genera modelos de simulación de AnyLogic PLE a partir de prompts en lenguaje natural en Claude Code. Describe un sistema de colas, una fábrica o una urgencia y obtén un archivo .alp validado listo para abrir y ejecutar.',
     technologies: ['Python', 'MCP', 'AI Development'],
@@ -256,7 +273,7 @@ export const categoryLabels: Record<ProjectCategory, string> = {
   web: 'Web',
   apps: 'Apps',
   iot: 'IoT',
-  mcp: 'MCP Servers'
+  'ai-mcps': 'AI & MCPs'
 };
 
 // Helper function to get project by slug
