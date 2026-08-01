@@ -6,6 +6,7 @@ import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { TechBadge } from '@/components/ui/TechBadge';
+import TextType from '@/components/ui/TextType/TextType';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { ArrowRight, Github, Linkedin, FileText, ExternalLink, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -94,7 +95,14 @@ export default function Home() {
               duration: 0.8,
               delay: 0.3
             }}>
-                {developerInfo.name}
+                <TextType
+                  text={developerInfo.name}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                  loop={false}
+                />
               </motion.h1>
 
               {/* Subtitle */}

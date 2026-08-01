@@ -3,6 +3,7 @@ import { projects, getCategories, getProjectsByCategory } from '@/data/projects'
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CategoryFilter } from '@/components/portfolio/CategoryFilter';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
+import TextType from '@/components/ui/TextType/TextType';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -55,7 +56,15 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">
-                {t('portfolio.title')}
+                <TextType
+                  key={t('portfolio.title')}
+                  text={t('portfolio.title')}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                  loop={false}
+                />
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide max-w-2xl mx-auto">
                 {t('portfolio.description')}

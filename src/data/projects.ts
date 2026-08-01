@@ -40,6 +40,15 @@ import cvAiGenerator4 from '@/assets/cv-ai-generator-4.png';
 import auri0 from '@/assets/auri-0.png';
 import auri1 from '@/assets/auri-1.png';
 import auri2 from '@/assets/auri-2.png';
+import appSolicitudesFce0 from '@/assets/app-solicitudes-fce-0.png';
+import appSolicitudesFce1 from '@/assets/app-solicitudes-fce-1.png';
+import appSolicitudesFce2 from '@/assets/app-solicitudes-fce-2.png';
+import appInsigniasFce0 from '@/assets/app-insignias-fce-0.png';
+import appInsigniasFce1 from '@/assets/app-insignias-fce-1.png';
+import appInsigniasFce2 from '@/assets/app-insignias-fce-2.png';
+import appInsigniasFce3 from '@/assets/app-insignias-fce-3.png';
+import appUifce0 from '@/assets/app-uifce-0.png';
+import appUifce1 from '@/assets/app-uifce-1.png';
 
 
 
@@ -171,6 +180,42 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
+    id: '17',
+    title: 'App Solicitudes FCE',
+    category: 'corporate',
+    description: 'Service request portal for the Informatics Unit of the Faculty of Economic Sciences (UIFCE). It lets the university community register and track support and technology service requests, with hybrid authentication (local + UNAL LDAP), role-based access control, and catalogs of services, spaces, and time slots. Built as a team project within the UIFCE development area; I contributed primarily to the frontend.',
+    descriptionEs: 'Portal de solicitudes de servicios de la Unidad de Informática de la Facultad de Ciencias Económicas (UIFCE). Permite a la comunidad universitaria registrar y dar seguimiento a solicitudes de soporte y servicios tecnológicos, con autenticación híbrida (local + LDAP UNAL), control de acceso por roles y catálogos de servicios, espacios y franjas horarias. Desarrollado en equipo dentro del área de desarrollo de la Unidad de Informática de la FCE; contribuí principalmente al frontend.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'LDAP'],
+    coverImage: appSolicitudesFce0,
+    hoverImages: [appSolicitudesFce0, appSolicitudesFce1, appSolicitudesFce2],
+    slug: 'app-solicitudes-fce',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '18',
+    title: 'App Insignias FCE',
+    category: 'corporate',
+    description: 'Web application for managing digital certifications and badges for students of the Faculty of Economic Sciences, with later redemption for 2 free-elective credits. Built as a team project within the UIFCE development area; I contributed primarily to the frontend and also worked on parts of the backend.',
+    descriptionEs: 'Aplicativo web diseñado para la gestión de certificaciones de los estudiantes de la Facultad de Ciencias Económicas y su posterior canje por 2 créditos de libre elección. Desarrollado en equipo dentro del área de desarrollo de la Unidad de Informática de la FCE (UIFCE); contribuí principalmente al frontend y también un poco al backend.',
+    technologies: ['React', 'TypeScript', 'CSS'],
+    coverImage: appInsigniasFce0,
+    hoverImages: [appInsigniasFce0, appInsigniasFce1, appInsigniasFce2, appInsigniasFce3],
+    slug: 'app-insignias-fce',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '19',
+    title: 'App UIFCE',
+    category: 'corporate',
+    description: 'Web application for tracking activities developed in the Informatics Unit of the Faculty of Economic Sciences (UIFCE). Built as a team project within the UIFCE development area; I contributed to developing new modules and debugging.',
+    descriptionEs: 'Aplicativo web para realizar seguimiento de las actividades desarrolladas en la Unidad de Informática de la Facultad de Ciencias Económicas. Desarrollado en equipo dentro del área de desarrollo de la UIFCE; contribuí al desarrollo de nuevos módulos y a hacer debugging.',
+    technologies: ['React', 'JavaScript', 'CSS'],
+    coverImage: appUifce0,
+    hoverImages: [appUifce0, appUifce1],
+    slug: 'app-uifce',
+    aspectRatio: 'landscape'
+  },
+  {
     id: '5',
     title: 'Schedule Generator',
     titleEs: 'Generador de Horarios',
@@ -273,7 +318,43 @@ export const categoryLabels: Record<ProjectCategory, string> = {
   web: 'Web',
   apps: 'Apps',
   iot: 'IoT',
-  'ai-mcps': 'AI & MCPs'
+  'ai-mcps': 'AI & MCPs',
+  corporate: 'Corporate'
+};
+
+/** Preferred display order for the Home / About technologies sections */
+const TECHNOLOGY_ORDER = [
+  'Java',
+  'C#',
+  'JavaScript',
+  'TypeScript',
+  'Python',
+  'C++',
+  'HTML',
+  'CSS',
+  'Tailwind CSS',
+  'React',
+  '.NET',
+  'Unity',
+  'Unreal Engine',
+  'VR Development',
+  'AI Development',
+  'MCP',
+  'AWS',
+  'LDAP',
+  'Arduino',
+  'ThingSpeak',
+  'GitHub'
+] as const;
+
+/** Union of every project's technologies, ordered for Home / About badges */
+export const getAllTechnologies = (): string[] => {
+  const fromProjects = new Set(projects.flatMap((project) => project.technologies));
+  const ordered = TECHNOLOGY_ORDER.filter((tech) => fromProjects.has(tech));
+  const extras = [...fromProjects].filter(
+    (tech) => !TECHNOLOGY_ORDER.includes(tech as (typeof TECHNOLOGY_ORDER)[number])
+  );
+  return [...ordered, ...extras.sort()];
 };
 
 // Helper function to get project by slug

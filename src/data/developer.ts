@@ -1,4 +1,5 @@
 import type { DeveloperInfo } from '@/types';
+import { getAllTechnologies } from '@/data/projects';
 
 export const developerInfo: DeveloperInfo = {
   name: 'Camilo Alejandro Lagos Malaver',
@@ -20,20 +21,8 @@ I am passionate about creating interactive experiences that engage users, whethe
     'Object-Oriented Programming',
     'Full-Stack Development'
   ],
-  technologies: [
-    'Java',
-    'C#',
-    'JavaScript',
-    'TypeScript',
-    'Python',
-    'C++',
-    'Unity',
-    'Unreal Engine',
-    'VR Development',
-    'React',
-    'GitHub',
-    'AI Development'
-  ],
+  // Derived from project technologies — keep in sync via getAllTechnologies()
+  technologies: getAllTechnologies(),
   awards: [
     'Finalista de la Hackathon de Innovación en Sistemas de Alerta Temprana Comunitarios de Bajo Costo'
   ],

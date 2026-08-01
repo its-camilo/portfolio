@@ -3,6 +3,7 @@ import { Github, Linkedin, ExternalLink, FileText } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { TechBadge } from '@/components/ui/TechBadge';
+import TextType from '@/components/ui/TextType/TextType';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
 
@@ -30,7 +31,15 @@ export default function About() {
               transition={{ duration: 0.4 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">
-                {t('about.title')}
+                <TextType
+                  key={t('about.title')}
+                  text={t('about.title')}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor={true}
+                  cursorCharacter="|"
+                  loop={false}
+                />
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
                 {t('developer.title')}

@@ -1,0 +1,28 @@
+---
+description: Conventions for portfolio projects, categories, technologies, and media
+alwaysApply: true
+---
+
+# Portfolio projects
+
+## Adding a project
+
+1. Put screenshots in `src/assets/` as `{slug}-0.png`, `{slug}-1.png`, … in carousel order.
+2. Add the entry in `src/data/projects.ts` at the requested list position.
+3. Set `coverImage` to image `0` and `hoverImages` to the full ordered set for the carrete.
+4. Omit `repoUrl`, `liveUrl`, `playStoreUrl`, `itchUrl`, and `metaStoreUrl` when there should be no external buttons (detail page already hides missing links).
+5. Always set `technologies` from the project description, stack, and UI evidence. Prefer existing label names when they already appear in other projects.
+
+## Categories
+
+- Extend `ProjectCategory` in `src/types/index.ts`.
+- Add `categoryLabels` in `src/data/projects.ts`.
+- Add `category.{id}` in both `en` and `es` in `LanguageContext.tsx`.
+- Known ids: `web`, `apps`, `videogames`, `iot`, `ai-mcps`, `corporate` (Corporate / Corporativo).
+
+## Technologies (Home + About)
+
+- Project `technologies` are the source of truth.
+- After any project add/edit, refresh `developerInfo.technologies` via `getAllTechnologies()` from `src/data/projects.ts` (union of all project techs, preferred order).
+- Home and About must render that list (not a hardcoded unrelated set).
+- Brand/tool names can stay untranslated; only translate labels that need localization (e.g. `AI Development`).
