@@ -2,9 +2,9 @@ import type { Project, ProjectCategory } from '@/types';
 import dungeonEscapeImg from '@/assets/dungeon-escape.png';
 import ecommerceImg from '@/assets/ecommerce.png';
 import promediosUnalImg from '@/assets/promedios-unal.jpg';
-import scheduleGenerator0 from '@/assets/schedule-generator-0.png';
-import scheduleGenerator1 from '@/assets/schedule-generator-1.png';
-import scheduleGenerator2 from '@/assets/schedule-generator-2.png';
+import nexum0 from '@/assets/nexum-0.png';
+import nexum1 from '@/assets/nexum-1.png';
+import nexum2 from '@/assets/nexum-2.png';
 import clock0 from '@/assets/clock-0.jpg';
 import clock1 from '@/assets/clock-1.png';
 import clock2 from '@/assets/clock-2.png';
@@ -105,6 +105,20 @@ export const projects: Project[] = [
     coverImage: agenticNodes0,
     hoverImages: [agenticNodes0, agenticNodes1, agenticNodes2],
     slug: 'agentic-nodes',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '5',
+    title: 'Nexum',
+    category: 'web',
+    description: 'Build your week at Universidad Nacional: bookmark courses from the course finder, sort priorities, generate schedules, and keep your weeks saved to your account.',
+    descriptionEs: 'Arma tu semana en la Universidad Nacional: marca materias del buscador de cursos, ordena prioridades, genera horarios y deja las semanas guardadas en tu cuenta.',
+    technologies: ['TypeScript', 'React', 'AI Development', 'GitHub'],
+    repoUrl: 'https://github.com/its-camilo/nexum',
+    liveUrl: 'https://nexum-unal.vercel.app',
+    coverImage: nexum0,
+    hoverImages: [nexum0, nexum1, nexum2],
+    slug: 'nexum',
     aspectRatio: 'landscape'
   },
   {
@@ -213,21 +227,6 @@ export const projects: Project[] = [
     coverImage: appUifce0,
     hoverImages: [appUifce0, appUifce1],
     slug: 'app-uifce',
-    aspectRatio: 'landscape'
-  },
-  {
-    id: '5',
-    title: 'Schedule Generator',
-    titleEs: 'Generador de Horarios',
-    category: 'web',
-    description: 'A single-page web application designed to help university students generate personalized schedules based on their courses, groups, and priorities. Everything runs in the browser, no installation or accounts required.',
-    descriptionEs: 'Una aplicación web de página única diseñada para ayudar a estudiantes universitarios a generar horarios personalizados basados en sus cursos, grupos y prioridades. Todo funciona en el navegador, sin instalación ni cuentas requeridas.',
-    technologies: ['JavaScript', 'HTML', 'CSS'],
-    repoUrl: 'https://github.com/its-camilo/schedule-generator',
-    liveUrl: 'https://its-camilo.github.io/Schedule-Generator/',
-    coverImage: scheduleGenerator0,
-    hoverImages: [scheduleGenerator0, scheduleGenerator1, scheduleGenerator2],
-    slug: 'schedule-generator',
     aspectRatio: 'landscape'
   },
   {
