@@ -1,6 +1,11 @@
 import type { Project, ProjectCategory } from '@/types';
 import dungeonEscapeImg from '@/assets/dungeon-escape.png';
 import ecommerceImg from '@/assets/ecommerce.png';
+import creacionesFiore0 from '@/assets/creaciones-fiore-0.jpg';
+import creacionesFiore1 from '@/assets/creaciones-fiore-1.png';
+import creacionesFiore2 from '@/assets/creaciones-fiore-2.jpg';
+import creacionesFiore3 from '@/assets/creaciones-fiore-3.jpg';
+import creacionesFiore4 from '@/assets/creaciones-fiore-4.png';
 import promediosUnalImg from '@/assets/promedios-unal.jpg';
 import nexum0 from '@/assets/nexum-0.png';
 import nexum1 from '@/assets/nexum-1.png';
@@ -54,17 +59,17 @@ import appUifce1 from '@/assets/app-uifce-1.png';
 
 export const projects: Project[] = [
   {
-    id: '1',
-    title: 'Ecommerce',
+    id: '20',
+    title: 'Creaciones Fiore Ecommerce',
     category: 'web',
-    description: 'A complete e-commerce web application built with JavaScript. Features include product catalog, shopping cart, and user management. Available as a web app and mobile application on Google Play.',
-    descriptionEs: 'Una aplicación web de comercio electrónico completa construida con JavaScript. Incluye catálogo de productos, carrito de compras y gestión de usuarios. Disponible como aplicación web y móvil en Google Play.',
-    technologies: ['JavaScript', 'HTML', 'CSS'],
-    repoUrl: 'https://github.com/its-camilo/ecommerce',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.itscamilo.ecommerce',
-    liveUrl: 'https://its-camilo.github.io/Ecommerce/',
-    coverImage: ecommerceImg,
-    slug: 'ecommerce',
+    description: 'Online store for personalized items (cushions, towels, blankets, quinceañera robes) and a showcase for event services. Built with Next.js and Supabase.',
+    descriptionEs: 'Tienda en línea de artículos personalizados (cojines, toallas, cobijas, batas de quinceañera) y vitrina de servicios de eventos. Construida con Next.js y Supabase.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'Vercel'],
+    repoUrl: 'https://github.com/its-camilo/creaciones-y-eventos-fiore-ecommerce',
+    liveUrl: 'https://creaciones-fiore.vercel.app',
+    coverImage: creacionesFiore0,
+    hoverImages: [creacionesFiore0, creacionesFiore1, creacionesFiore2, creacionesFiore3, creacionesFiore4],
+    slug: 'creaciones-fiore-ecommerce',
     aspectRatio: 'landscape'
   },
   {
@@ -283,6 +288,20 @@ export const projects: Project[] = [
     aspectRatio: 'landscape'
   },
   {
+    id: '1',
+    title: 'Ecommerce',
+    category: 'web',
+    description: 'A complete e-commerce web application built with JavaScript. Features include product catalog, shopping cart, and user management. Available as a web app and mobile application on Google Play.',
+    descriptionEs: 'Una aplicación web de comercio electrónico completa construida con JavaScript. Incluye catálogo de productos, carrito de compras y gestión de usuarios. Disponible como aplicación web y móvil en Google Play.',
+    technologies: ['JavaScript', 'HTML', 'CSS'],
+    repoUrl: 'https://github.com/its-camilo/ecommerce',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.itscamilo.ecommerce',
+    liveUrl: 'https://its-camilo.github.io/Ecommerce/',
+    coverImage: ecommerceImg,
+    slug: 'ecommerce',
+    aspectRatio: 'landscape'
+  },
+  {
     id: '9',
     title: 'Clock',
     titleEs: 'Reloj',
@@ -333,6 +352,9 @@ const TECHNOLOGY_ORDER = [
   'CSS',
   'Tailwind CSS',
   'React',
+  'Next.js',
+  'Supabase',
+  'Vercel',
   '.NET',
   'Unity',
   'Unreal Engine',
