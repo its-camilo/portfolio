@@ -22,6 +22,7 @@ import moodpress2 from '@/assets/moodpress-2.png';
 import moodpress3 from '@/assets/moodpress-3.png';
 import spaceShooterProImg from '@/assets/space-shooter-pro.png';
 import anylogicPleMcpImg from '@/assets/anylogicple-mcp.png';
+import silentRelic0 from '@/assets/silent-relic-0.jpg';
 import theGreatFleeceImg from '@/assets/the-great-fleece.png';
 import healthScope0 from '@/assets/health-scope-0.png';
 import healthScope1 from '@/assets/health-scope-1.png';
@@ -258,6 +259,21 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/its-camilo/anylogicPLE-mcp',
     coverImage: anylogicPleMcpImg,
     slug: 'anylogicple-mcp',
+    aspectRatio: 'landscape'
+  },
+  {
+    id: '21',
+    title: 'Silent Relic',
+    category: 'videogames',
+    description:
+      'Solo stealth on a tropical pirate island. No combat—only movement, crouching, and taking cover. Noise is a danger. Crouch to stay silent. Avoid pirate guards and campfires. Slide along railings to move without being detected. Reach the ship, press E on the relic chest, and beat your best time. If you\'re spotted, the round ends.',
+    descriptionEs:
+      'Sigilo en solitario en una isla tropical pirata. No habrá combates, solo movimiento, agacharse y cubrirse. El ruido es un peligro. Agáchate para ser silencioso. Evita a los guardias pirata y las hogueras. Deslízate por barandillas para moverte sin que te detecten. Llega al barco, pulsa E en el cofre reliquia, supera tu mejor tiempo. Si te detectan, la ronda terminará.',
+    technologies: ['Unreal Engine', 'AI Development'],
+    fortniteUrl: 'https://www.fortnite.com/@its-camilo/0783-3026-9307',
+    coverImage: silentRelic0,
+    hoverImages: [silentRelic0],
+    slug: 'silent-relic',
     aspectRatio: 'landscape'
   },
   {

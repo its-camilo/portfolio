@@ -237,6 +237,25 @@ export default function ProjectDetail() {
                   Itch.io
                 </a>
               )}
+              {project.fortniteUrl && (
+                <a
+                  href={project.fortniteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-light transition-all duration-300 hover:scale-105"
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    background: 'rgba(60,60,60,0.35)',
+                    backdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    WebkitBackdropFilter: isMobile ? 'blur(10px) saturate(150%)' : 'blur(40px) saturate(180%)',
+                    boxShadow: '0 0.5px 0 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(0,0,0,0.15)',
+                    border: '0.5px solid rgba(255,255,255,0.18)'
+                  }}
+                >
+                  <ExternalLink className="size-5" />
+                  {t('project.fortniteIsland')}
+                </a>
+              )}
             </div>
           </motion.div>
         </section>

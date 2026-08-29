@@ -26,6 +26,7 @@ export interface Project {
   liveUrl?: string;
   playStoreUrl?: string;
   itchUrl?: string;
+  fortniteUrl?: string;
   metaStoreUrl?: string;
   coverImage: string;
   hoverImages?: string[];

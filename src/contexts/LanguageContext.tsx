@@ -97,6 +97,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Project Detail
     'project.backToProjects': 'Back to Projects',
     'project.viewRepo': 'View Repository',
+    'project.fortniteIsland': 'Fortnite Island',
     'AI Development': 'AI Development',
     'VR Development': 'VR Development',
     'Game Development': 'Game Development',
@@ -190,6 +191,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Project Detail
     'project.backToProjects': 'Volver a Proyectos',
     'project.viewRepo': 'Ver Repositorio',
+    'project.fortniteIsland': 'Isla de Fortnite',
     'AI Development': 'Desarrollo AI',
     'VR Development': 'Desarrollo VR',
     'Game Development': 'Desarrollo de Videojuegos',
